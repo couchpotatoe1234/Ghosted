@@ -49,7 +49,7 @@ region = Rect2(32, 32, 32, 32)
 atlas = ExtResource("3_r1o1r")
 region = Rect2(69, 39, 32, 32)
 
-[node name="BreakableBlock" type="Node2D" unique_id=569884235]
+[node name="BreakableBlock1" type="Node2D" unique_id=569884235]
 script = ExtResource("1_a2xx3")
 
 [node name="Tile1" type="StaticBody2D" parent="." unique_id=1300840619 groups=["tile"]]
