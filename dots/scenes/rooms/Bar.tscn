@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dt71s545tqq0f" path="res://scenes/checkpoint.tscn" id="2_6drk7"]
 [ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="3_5h4nu"]
 [ext_resource type="Script" uid="uid://hvcfef5snn1k" path="res://scripts/transition_scripts/bar_bartrans.gd" id="3_v03id"]
+[ext_resource type="PackedScene" uid="uid://bonjtfakm0pf6" path="res://scenes/breakable_block2.tscn" id="6_6ex2v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v03id"]
 texture = ExtResource("1_3pvrg")
@@ -163,5 +164,8 @@ texture = ExtResource("3_5h4nu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bar_bartrans" unique_id=1056488299]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_3phul")
+
+[node name="breakeable_block2" parent="." unique_id=43368363 instance=ExtResource("6_6ex2v")]
+position = Vector2(336, 64)
 
 [connection signal="body_entered" from="bar_bartrans" to="bar_bartrans" method="_on_body_entered"]

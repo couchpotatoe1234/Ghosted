@@ -38,5 +38,4 @@ func play_break_effect() -> void:
 	collisionshape.set_deferred("Disabled", true)
 	particles.restart()
 	await particles.finished
-	GameManager.block1_broken = true
 	delete_self.emit()
