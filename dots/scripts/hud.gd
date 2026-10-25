@@ -2,10 +2,14 @@ extends Control
 
 @onready var hearts: Array[AnimatedSprite2D] = [$Heart1, $Heart2, $Heart3, $Heart4, $Heart5]
 @onready var label: Label = $Label
+@onready var label2: Label = $Label2
 
 func _ready() -> void:
 	label.text = str(GameManager.heals)
+	label2.text = str(GameManager.coins)
 	var player = get_tree(). get_first_node_in_group("player")
+	GameManager.money_changed.connect(money)
+	money(GameManager.coins)
 	if player:
 		_connect_to_player(player)
 	else:
@@ -35,9 +39,11 @@ func _connect_to_player(player: Node) -> void:
 		player.health_changed.connect(_on_health_changed)
 	
 	_on_health_changed(player.health, player.max_health)
-	
-func _money() -> void:
-	print("67")
+
 	
 func change_heals() -> void:
 	label.text = str(GameManager.heals)
+	
+func money(new: int) -> void:
+	label2.text = str(new)
+	

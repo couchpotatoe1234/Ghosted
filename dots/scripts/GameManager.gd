@@ -9,6 +9,9 @@ var hitstop_active: bool = false
 var current_hitstop_duration: float = 0.0
 var can_pause = false
 var heals = 2
+var coins: int = 0
+
+signal money_changed(new: int)
 
 func hitstop(duration: float, magnitude: float = 0.0) -> void:
 	if hitstop_active and duration < current_hitstop_duration:
@@ -20,6 +23,10 @@ func hitstop(duration: float, magnitude: float = 0.0) -> void:
 	Engine.time_scale = 1.0
 	hitstop_active = false
 	current_hitstop_duration = 0.0
+	
+func add_money(amount: int) -> void:
+	coins += amount
+	money_changed.emit(coins)
 
 
 #ROOMSS Starting Position; where you first enter from.

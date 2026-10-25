@@ -103,6 +103,10 @@ line_spacing = 5.0
 font = ExtResource("5_nysna")
 font_size = 12
 
+[sub_resource type="LabelSettings" id="LabelSettings_ke6mt"]
+font = ExtResource("5_nysna")
+font_size = 12
+
 [node name="HUD" type="CanvasLayer" unique_id=1320359941]
 
 [node name="HUD" type="Control" parent="." unique_id=1522904841 groups=["hud"]]
@@ -164,3 +168,12 @@ offset_bottom = 561.0
 theme_override_font_sizes/font_size = 16
 text = "999"
 label_settings = SubResource("LabelSettings_7hsmw")
+
+[node name="Label2" type="Label" parent="HUD" unique_id=1189691451]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 108.0
+offset_right = 191.0
+offset_bottom = 120.0
+text = " 0"
+label_settings = SubResource("LabelSettings_ke6mt")

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+const COIN_PARTICLE_SCENE = preload("res://scenes/CoinParticles.tscn")
+
+@export var coin_reward: int = 1
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var wall_ray: RayCast2D = $WallRayCheck
 @onready var ledge_ray: RayCast2D = $LedgeRayCheck
@@ -8,6 +11,7 @@ var health: int = 2
 var knock_dir: int = 1
 var damaged = false
 var speed: float = 30.0
+var is_dead: bool = false
 
 var stop: bool = false
 
@@ -82,9 +86,19 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("normal_hazard"):
 		health = 0
 	if health <= 0:
+		if is_dead:
+			return
+			
+		is_dead = true
 		stop = true
 		speed = 0.0
 		sprite.play("death")
+		var death_position = global_position
+		
+		for i in range(coin_reward):
+			var coin = COIN_PARTICLE_SCENE.instantiate()
+			get_tree().current_scene.add_child(coin)
+			coin.global_position = death_position
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 		await $AnimatedSprite2D.animation_finished

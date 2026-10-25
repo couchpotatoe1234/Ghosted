@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const COIN_PARTICLE_SCENE = preload("res://scenes/CoinParticles.tscn")
+
 enum Anim { IDLE, AGGRO, ATTACK, HIT, HURT, DIE }
 var current_anim: Anim = Anim.IDLE 
 var health: int = 2
@@ -14,6 +16,8 @@ var attack_target_pos: Vector2 = Vector2.ZERO
 var hover_offset: Vector2 = Vector2.ZERO
 var attack_timer: float = 0.0
 var lose_sight_timer: float = 0.0
+var coin_reward: int = 5
+var is_dead: bool = false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var hit_particles: GPUParticles2D = $HurtParticlesFX/GPUParticles2D
@@ -151,6 +155,12 @@ func take_damage(amount: int, knockback: Vector2) -> void:
 	if health <= 0:
 		knocked_back = false
 		change_anim(Anim.DIE)
+		if is_dead:
+			return
+		for i in range(coin_reward):
+			var coin = COIN_PARTICLE_SCENE.instantiate()
+			get_tree().current_scene.add_child(coin)
+			coin.global_position = global_position
 	else:
 		velocity = Vector2.ZERO
 		knocked_back = false
