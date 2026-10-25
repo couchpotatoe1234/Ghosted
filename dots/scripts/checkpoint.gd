@@ -21,6 +21,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if GameManager.last_level == owner.scene_file_path:
 		sprite.play("activated")
+		activated = true
 	if player_in_range and not activated:
 		if Input.is_action_just_pressed("up"):
 			activate_checkpoint()
