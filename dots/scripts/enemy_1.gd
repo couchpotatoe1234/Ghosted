@@ -12,9 +12,7 @@ var knock_dir: int = 1
 var damaged = false
 var speed: float = 30.0
 var is_dead: bool = false
-
 var stop: bool = false
-
 var direction: int = 1
 
 func _ready():
@@ -27,25 +25,32 @@ func _physics_process(delta: float) -> void:
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		
-		if is_on_wall() or (wall_ray.is_colliding() or not ledge_ray.is_colliding()) && not damaged:
-			flip_direction()
 		if not damaged:
+			if is_on_wall() or (
+				(wall_ray.is_colliding() or not ledge_ray.is_colliding())
+				and is_on_floor()
+			):
+				flip_direction()
+				
 			velocity.x = direction * speed
-		
+			
 		move_and_slide()
 		
 
 
 func flip_direction() -> void:
-	if not stop && is_on_floor():
-		direction *= -1
-		sprite.flip_h = (direction > 0)
-		wall_ray.scale.x = -wall_ray.scale.x
-		wall_ray.position.x = -wall_ray.position.x
-		ledge_ray.scale.x = -ledge_ray.scale.x
-		ledge_ray.position.x = -ledge_ray.position.x
+	if stop or not is_on_floor():
+		return
+		
+	direction *= -1
+	sprite.flip_h = direction > 0
+	wall_ray.position.x = -wall_ray.position.x
+	ledge_ray.position.x = -ledge_ray.position.x
 	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if is_dead or health <= 0:
+		return
+		
 	if area.is_in_group("player_attack"):
 		if GameManager.player_x > global_position.x:
 			knock_dir = 1
@@ -86,21 +91,55 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area.is_in_group("normal_hazard"):
 		health = 0
 	if health <= 0:
-		if is_dead:
-			return
-			
-		is_dead = true
-		stop = true
-		speed = 0.0
-		sprite.play("death")
-		var death_position = global_position
+		call_deferred("die")
+
+func take_damage(amount: int, knockback: Vector2, hurt_duration: float) -> void:
+	if is_dead or damaged:
+		return
+	
+	health -= amount
+	if health <= 0:
+		die.call_deferred()
+		return
 		
-		for i in range(coin_reward):
-			var coin = COIN_PARTICLE_SCENE.instantiate()
-			get_tree().current_scene.add_child(coin)
-			coin.global_position = death_position
-		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
-		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
-		await $AnimatedSprite2D.animation_finished
-		queue_free()
+	damaged = true
+	hit_particles.restart()
+	sprite.play("hurt")
+	velocity = knockback
+	
+	await get_tree().create_timer(hurt_duration).timeout
+	
+	if is_dead or not is_inside_tree():
+		return
+	
+	damaged = false
+	sprite.play("walk")
+
+
+func die() -> void:
+	if is_dead:
+		return
 		
+	is_dead = true
+	stop = true
+	damaged = false
+	speed = 0.0
+	sprite.play("death")
+	
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+	
+	var death_position: Vector2 = global_position
+	var level: Node = get_tree().current_scene
+	
+	for i in range(coin_reward):
+		var coin = COIN_PARTICLE_SCENE.instantiate()
+		
+		coin.global_position = death_position
+		level.add_child(coin)
+	
+	sprite.play("death")
+	await sprite.animation_finished
+	
+	await $AnimatedSprite2D.animation_finished
+	queue_free()

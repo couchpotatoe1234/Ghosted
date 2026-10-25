@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 			Anim.AGGRO:
 				if can_see_player():
 					lose_sight_timer = 0.0
-					if target_player or global_position.distance_to(target_player.global_position) <= aggro_range:
+					if target_player and global_position.distance_to(target_player.global_position) <= aggro_range:
 						lose_sight_timer = 0.0
 				else:
 					lose_sight_timer += delta
@@ -114,12 +114,17 @@ func start_attack_cooldown() -> void:
 func _on_animation_finished() -> void:
 	match current_anim:
 		Anim.ATTACK, Anim.HIT:
+			if is_dead:
+				return
 			start_attack_cooldown()
 			pick_new_hover_offset()
 			change_anim(Anim.AGGRO)
+			
 		Anim.HURT:
+			if is_dead:
+				return
 			if health <= 0:
-				change_anim(Anim.DIE)
+				call_deferred("die")
 			else:
 				change_anim(Anim.AGGRO)
 		Anim.DIE:
@@ -144,29 +149,29 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		take_damage(2, Vector2.ZERO)
 
 func take_damage(amount: int, knockback: Vector2) -> void:
-	if current_anim == Anim.DIE:
+	if is_dead or current_anim == Anim.DIE:
 		return
+	
 	health -= amount
 	hit_particles.restart() 
+	
+	if health <= 0:
+		call_deferred("die")
+		return
+	
 	knocked_back = true
 	velocity = knockback
 	change_anim(Anim.HURT)
 	await get_tree().create_timer(0.15).timeout
-	if health <= 0:
-		knocked_back = false
-		change_anim(Anim.DIE)
-		if is_dead:
-			return
-		for i in range(coin_reward):
-			var coin = COIN_PARTICLE_SCENE.instantiate()
-			get_tree().current_scene.add_child(coin)
-			coin.global_position = global_position
-	else:
-		velocity = Vector2.ZERO
-		knocked_back = false
-		start_attack_cooldown()
-		pick_new_hover_offset()
-		change_anim(Anim.AGGRO)
+	
+	if is_dead:
+		return
+	
+	velocity = Vector2.ZERO
+	knocked_back = false
+	start_attack_cooldown()
+	pick_new_hover_offset()
+	change_anim(Anim.AGGRO)
 
 func can_see_player() -> bool:
 	if not target_player:
@@ -179,3 +184,25 @@ func can_see_player() -> bool:
 		if ray_cast.is_colliding() and ray_cast.get_collider() != target_player:
 			return false
 	return true
+	
+func die() -> void:
+	if is_dead:
+		return
+		
+	is_dead = true
+	knocked_back = false
+	velocity = Vector2.ZERO
+	
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
+	
+	var death_position = global_position
+	var level = get_tree().current_scene
+	
+	for i in range(coin_reward):
+		var coin = COIN_PARTICLE_SCENE.instantiate()
+		
+		level.add_child(coin)
+		coin.global_position = death_position
+		
+	change_anim(Anim.DIE)

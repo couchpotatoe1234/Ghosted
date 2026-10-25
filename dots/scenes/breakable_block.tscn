@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://dm4rsul1c8gtw"]
+
+[ext_resource type="Script" uid="uid://cqss28hn52ygo" path="res://scripts/breakableBlock.gd" id="1_a2xx3"]
+[ext_resource type="Script" uid="uid://d0pcmldfg1mcn" path="res://scripts/tilebreakable.gd" id="2_wotcy"]
+[ext_resource type="Texture2D" uid="uid://cr77ffttbmtn" path="res://Assets/sprites/TileSheet.png" id="3_r1o1r"]
+[ext_resource type="Texture2D" uid="uid://d2t5181eu2r31" path="res://Assets/sprites/breakable_block_particles-Sheet.png" id="4_wotcy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke6mt"]
+atlas = ExtResource("3_r1o1r")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hjt5"]
+size = Vector2(32, 32)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r1o1r"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wotcy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(64, 16, 1)
+spread = 180.0
+initial_velocity_min = 120.0
+initial_velocity_max = 220.0
+angular_velocity_min = -720.0
+angular_velocity_max = 719.99994
+gravity = Vector3(0, 600, 0)
+anim_offset_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdwa3"]
+atlas = ExtResource("3_r1o1r")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mnnb"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hjt5"]
+atlas = ExtResource("3_r1o1r")
+region = Rect2(0, 31, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syh4r"]
+atlas = ExtResource("3_r1o1r")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mnnb"]
+atlas = ExtResource("3_r1o1r")
+region = Rect2(69, 39, 32, 32)
+
+[node name="BreakableBlock" type="Node2D" unique_id=569884235]
+script = ExtResource("1_a2xx3")
+
+[node name="Tile1" type="StaticBody2D" parent="." unique_id=1300840619 groups=["tile"]]
+script = ExtResource("2_wotcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tile1" unique_id=956433840]
+position = Vector2(16, 16)
+texture = SubResource("AtlasTexture_ke6mt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile1" unique_id=960191192]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_2hjt5")
+
+[node name="BreakParticlesFX" type="Node2D" parent="Tile1" unique_id=1982934296]
+position = Vector2(64, 16)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Tile1/BreakParticlesFX" unique_id=1967217387]
+z_index = 1
+material = SubResource("CanvasItemMaterial_r1o1r")
+emitting = false
+amount = 25
+texture = ExtResource("4_wotcy")
+lifetime = 2.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wotcy")
+
+[node name="Tile2" type="StaticBody2D" parent="." unique_id=543204777 groups=["tile"]]
+script = ExtResource("2_wotcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tile2" unique_id=1142001242]
+position = Vector2(16, 48)
+texture = SubResource("AtlasTexture_jdwa3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tile2" unique_id=223868594]
+position = Vector2(16, 48)
+shape = SubResource("RectangleShape2D_4mnnb")
+
+[node name="BreakParticlesFX" type="Node2D" parent="Tile2" unique_id=269977924]
+position = Vector2(32, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Tile2/BreakParticlesFX" unique_id=33098594]
+z_index = 1
+material = SubResource("CanvasItemMaterial_r1o1r")
+position = Vector2(32, 48)
+emitting = false
+amount = 100
+texture = ExtResource("4_wotcy")
+lifetime = 2.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wotcy")
+
+[node name="Side Tiles" type="Node2D" parent="." unique_id=1584784771]
+
+[node name="Side Tiles" type="Node2D" parent="Side Tiles" unique_id=1015335507]
+
+[node name="Sprite2D" type="Sprite2D" parent="Side Tiles/Side Tiles" unique_id=533116636]
+position = Vector2(16, 80)
+texture = SubResource("AtlasTexture_2hjt5")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Side Tiles/Side Tiles" unique_id=1343735527]
+position = Vector2(16, -16)
+texture = SubResource("AtlasTexture_2hjt5")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Side Tiles/Side Tiles" unique_id=1816374159]
+position = Vector2(112, -16)
+texture = SubResource("AtlasTexture_syh4r")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Side Tiles/Side Tiles" unique_id=200021984]
+position = Vector2(112, 16)
+texture = SubResource("AtlasTexture_syh4r")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Side Tiles/Side Tiles" unique_id=1204136683]
+position = Vector2(112, 48)
+texture = SubResource("AtlasTexture_syh4r")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Side Tiles/Side Tiles" unique_id=1025746666]
+position = Vector2(112, 80)
+texture = SubResource("AtlasTexture_syh4r")
+
+[node name="Center tiles" type="Node2D" parent="Side Tiles" unique_id=1264103828]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=785747665]
+position = Vector2(48, -16)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=51425947]
+position = Vector2(48, 16)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=1734577436]
+position = Vector2(48, 48)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=143060600]
+position = Vector2(48, 80)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=1418049129]
+position = Vector2(80, 80)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=1828309377]
+position = Vector2(80, 48)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=1771517627]
+position = Vector2(80, 16)
+texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=801259967]
+position = Vector2(80, -16)
+texture = SubResource("AtlasTexture_4mnnb")
