@@ -201,8 +201,8 @@ func die() -> void:
 	
 	for i in range(coin_reward):
 		var coin = COIN_PARTICLE_SCENE.instantiate()
-		
 		level.add_child(coin)
-		coin.global_position = death_position
+		coin.set_spawn_position(death_position)
+
 		
 	change_anim(Anim.DIE)
