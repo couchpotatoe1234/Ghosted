@@ -4,16 +4,17 @@ This is a platformer/metroidvania style game built in Godot with the art made us
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.5.0: This week we worked on adding a healing buddy, some nice new slash sprites, and some better platforms for the game. We implemented also better player knockback, enemy knockback and outlined the enemies for better visibility against the background. Breakable blocks were finished, 3rd level deployed, and at least 5 more levels planned in the future for different portions of the game.  
-![App Screenshot](images/image_10.png)  
+Most recent updates to game: 0.6.0: Added a slash sound, coins and a couple new levels in this update, a healing animation was implemented and healing more restricted.   
+![App Screenshot](images/image_14.png)  
 
-![App Screenshot](images/image_11.png)  
+![App Screenshot](images/image_15.png)  
 
-![App Screenshot](images/image_12.png)  
+![App Screenshot](images/image_16.png)  
 
-![App Screenshot](images/image_13.png)  
 to see images of previous development, check the images folder in the repo
 previous updates:  
+
+0.5.0: This week we worked on adding a healing buddy, some nice new slash sprites, and some better platforms for the game. We implemented also better player knockback, enemy knockback and outlined the enemies for better visibility against the background. Breakable blocks were finished, 3rd level deployed, and at least 5 more levels planned in the future for different portions of the game.  
 
 0.4.0: This week, we worked on adding a new, flying enemy. We then deployed the 2nd level, with some new, in-progress, breakable blocks. we also implemented a nicer HUD, pretty much finished the basic mechanics of the game and created transitions between levels 1-2. a third 'level' is now also under development, and will be implemented next week. it will be a sort of crossroads connecting the different areas of the game together.    
 
