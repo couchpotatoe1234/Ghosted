@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgeq1vkrk6s8e"]
 
-[ext_resource type="Script" uid="uid://cqss28hn52ygo" path="res://scripts/breakableBlock.gd" id="1_a2xx3"]
+[ext_resource type="Script" uid="uid://cqss28hn52ygo" path="res://scripts/breakableBlock1.gd" id="1_5kl5a"]
 [ext_resource type="Script" uid="uid://d0pcmldfg1mcn" path="res://scripts/tilebreakable.gd" id="2_wotcy"]
 [ext_resource type="Texture2D" uid="uid://cr77ffttbmtn" path="res://Assets/sprites/TileSheet.png" id="3_r1o1r"]
 [ext_resource type="Texture2D" uid="uid://d2t5181eu2r31" path="res://Assets/sprites/breakable_block_particles-Sheet.png" id="4_wotcy"]
@@ -50,7 +50,7 @@ atlas = ExtResource("3_r1o1r")
 region = Rect2(69, 39, 32, 32)
 
 [node name="BreakableBlock1" type="Node2D" unique_id=569884235]
-script = ExtResource("1_a2xx3")
+script = ExtResource("1_5kl5a")
 
 [node name="Tile1" type="StaticBody2D" parent="." unique_id=1300840619 groups=["tile"]]
 script = ExtResource("2_wotcy")

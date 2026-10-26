@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var fly_speed: float = 250.0
+@export var fly_speed: float = 100.0
 @export var scatter_distance: float = 20.0 
 @export var pickup_range: float = 100.0
 @export var gravity: float = 98.0
@@ -10,11 +10,16 @@ var player: Node2D
 var scatter_target: Vector2
 var is_scattering: bool = true
 var collected: bool = false
+var spawn_initialized: bool = false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as Node2D
 	
-	scatter_target = global_position + Vector2(randf_range(-scatter_distance, scatter_distance), randf_range(-scatter_distance, scatter_distance))
+	if not spawn_initialized:
+		scatter_target = global_position + Vector2(
+			randf_range(-scatter_distance, scatter_distance),
+			randf_range(-scatter_distance, scatter_distance)
+		)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,16 +31,16 @@ func _physics_process(delta: float) -> void:
 		player = get_tree().get_first_node_in_group("player") as Node2D
 	
 	if is_scattering:
-		var to_target = scatter_target - global_position
+		global_position = global_position.move_toward(
+			scatter_target, 250.0 * delta
+		)
 		
-		velocity.x = to_target.x * 5.0
-		velocity.y = to_target.y * 5.0 + gravity * delta
-		
-		move_and_slide()
+		print("coin moving", global_position)
 		
 		if global_position.distance_to(scatter_target) < 5.0:
 			is_scattering = false
-			
+			velocity = Vector2.ZERO
+		
 		return
 		
 	if not is_instance_valid(player):
@@ -46,13 +51,10 @@ func _physics_process(delta: float) -> void:
 	var distance_to_player := global_position.distance_to(player.global_position)
 	
 	if distance_to_player <= collect_distance:
-		collected = true
-		GameManager.add_money(1)
-		queue_free()
+		collect_coin()
 		return
-	
-	if distance_to_player <= pickup_range:
 		
+	if distance_to_player <= pickup_range:
 		velocity = global_position.direction_to(
 			player.global_position
 		) * fly_speed
@@ -62,7 +64,19 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-	if is_instance_valid(player):
-		if global_position.distance_to(player.global_position) < 12.0:
-			GameManager.add_money(1)
-			queue_free()
+func collect_coin() -> void:
+	if collected: return
+	
+	collected = true
+	GameManager.add_money(1)
+	queue_free()
+	
+func set_spawn_position(spawn_position: Vector2) -> void:
+	global_position = spawn_position
+	scatter_target = spawn_position + Vector2(
+		randf_range(-scatter_distance, scatter_distance), 
+		randf_range(-scatter_distance, scatter_distance)
+	)
+	spawn_initialized = true
+	
+	print("target", scatter_target)

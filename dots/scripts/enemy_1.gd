@@ -52,49 +52,21 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		return
 		
 	if area.is_in_group("player_attack"):
-		if GameManager.player_x > global_position.x:
-			knock_dir = 1
-		else: 
-			knock_dir = -1
-		damaged = true
-		hit_particles.restart() 
-		sprite.play("hurt")
-		health -= 1
-		velocity.y = -50
-		velocity.x = -150 * knock_dir
-		await get_tree().create_timer(0.1).timeout
-		damaged = false
-		sprite.play("walk")
-	if area.is_in_group("player_attack_up"):
-		if GameManager.player_x > global_position.x:
-			knock_dir = 1
-		else: 
-			knock_dir = -1
-		damaged = true
-		hit_particles.restart() 
-		sprite.play("hurt")
-		health -= 1
-		velocity.y = -150
-		velocity.x = -40 * knock_dir
-		await get_tree().create_timer(0.4).timeout
-		damaged = false
-		sprite.play("walk")
-	if area.is_in_group("player_attack_down"):
-		damaged = true
-		hit_particles.restart() 
-		sprite.play("hurt")
-		health -= 1
-		velocity.x = 0
-		await get_tree().create_timer(0.4).timeout
-		damaged = false
-		sprite.play("walk")
-	if area.is_in_group("normal_hazard"):
-		health = 0
-	if health <= 0:
-		call_deferred("die")
-
+		knock_dir = 1 if GameManager.player_x > global_position.x else -1
+		take_damage(1, Vector2(-40 * knock_dir, -150), 0.4)
+		
+	elif area.is_in_group("player_attack_up"):
+		knock_dir = 1 if GameManager.player_x > global_position.x else -1
+		take_damage(1, Vector2(-40 * knock_dir, -150), 0.4)
+	
+	elif area.is_in_group("player_attack_down"):
+		take_damage(1, Vector2(0, 0), 0.4)
+	
+	elif area.is_in_group("normal_hazard"):
+		take_damage(health, Vector2.ZERO, 0.0)
+		
 func take_damage(amount: int, knockback: Vector2, hurt_duration: float) -> void:
-	if is_dead or damaged:
+	if is_dead:
 		return
 	
 	health -= amount
@@ -124,7 +96,7 @@ func die() -> void:
 	stop = true
 	damaged = false
 	speed = 0.0
-	sprite.play("death")
+	velocity = Vector2.ZERO
 	
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
@@ -132,14 +104,12 @@ func die() -> void:
 	var death_position: Vector2 = global_position
 	var level: Node = get_tree().current_scene
 	
+	print("ground enemy died at", death_position)
+	
 	for i in range(coin_reward):
 		var coin = COIN_PARTICLE_SCENE.instantiate()
-		
-		coin.global_position = death_position
 		level.add_child(coin)
+		coin.set_spawn_position(death_position)
+		print("coin spawn", coin.global_position)
 	
 	sprite.play("death")
-	await sprite.animation_finished
-	
-	await $AnimatedSprite2D.animation_finished
-	queue_free()
