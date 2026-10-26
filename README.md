@@ -4,7 +4,8 @@ This is a platformer/metroidvania style game built in Godot with the art made us
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.6.0: Added a slash sound, coins and a couple new levels in this update, a healing animation was implemented and healing more restricted.   
+Most recent updates to game: 0.6.0: Added a slash sound, coins and a couple new levels in this update, a healing animation was implemented and healing more restricted. This week we made some new levels for the Game introducing the rest area and where the first boss will be. We also introduced the upper area in the mountains even though we are still working on it. Finally adding coins to our game that drop on an enemy death. Other then that we also made checkpoints along the way and made some more transitions.
+
 ![App Screenshot](images/image_14.png)  
 
 ![App Screenshot](images/image_15.png)  
