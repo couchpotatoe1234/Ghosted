@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cvxadeh7k00er"
+path="res://.godot/imported/Bartender.aseprite-c13d052aaff4321d9249d543fcf40ab2.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/Bartender.aseprite"
+dest_files=["res://.godot/imported/Bartender.aseprite-c13d052aaff4321d9249d543fcf40ab2.res"]
+
+[params]
+

@@ -9,15 +9,15 @@ var is_broken := false
 
 func _ready() -> void:
 	$"Side Tiles".visible = true
-	if GameManager.block1_broken == true:
-		queue_free()
+	if GameManager.block2_broken == true:
+		delete_self()
 	hits_left = hits_to_break
 
 func _physics_process(delta: float) -> void:
 	no_hit += delta
 
 func take_hit(direction: Vector2) -> void:
-	if is_broken or no_hit < 0.5:
+	if is_broken or no_hit < 0.25:
 		return
 	hits_left -= 1
 	no_hit = 0.0
@@ -35,7 +35,7 @@ func break_block() -> void:
 	for tile in get_children():
 		if tile.is_in_group("tile"):
 			tile.play_break_effect()
-			GameManager.block1_broken = true
+			GameManager.block2_broken = true
 
 func delete_self() -> void:
 	queue_free()
