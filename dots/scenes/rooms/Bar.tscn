@@ -206,6 +206,6 @@ z_index = -1
 position = Vector2(-464, 48)
 sprite_frames = SubResource("SpriteFrames_gkdic")
 autoplay = "default"
-frame_progress = 0.3009784
+frame_progress = 0.9751765
 
 [connection signal="body_entered" from="bar_bartrans" to="bar_bartrans" method="_on_body_entered"]
