@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmf37bwifavcn" path="res://Assets/sprites/player-hit.png" id="4_70d11"]
 [ext_resource type="Texture2D" uid="uid://l3y65v03850b" path="res://Assets/sprites/Attack-side.png" id="5_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://ictu7b2swtrv" path="res://Assets/sprites/Attack-up.png" id="6_70d11"]
+[ext_resource type="AudioStream" uid="uid://ca22a6c3fvamp" path="res://Assets/music/swish.wav" id="7_cw2d6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uch8"]
 radius = 8.0
@@ -838,6 +839,7 @@ height = 26.0
 z_index = 10
 collision_layer = 2
 script = ExtResource("1_p0vlq")
+max_health = null
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1639785637]
 position = Vector2(0, -16)
@@ -920,6 +922,9 @@ drag_right_margin = 0.15
 drag_bottom_margin = 0.31
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1838508463]
+stream = ExtResource("7_cw2d6")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_damaged"]

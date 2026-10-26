@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dt71s545tqq0f" path="res://scenes/checkpoint.tscn" id="4_fl8ia"]
 [ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="6_8capw"]
 [ext_resource type="Script" uid="uid://dred0md712dil" path="res://scripts/transition_scripts/mtr2-mtr1.gd" id="6_qg30h"]
+[ext_resource type="Script" uid="uid://coxkuheftge73" path="res://scenes/rooms/mtr2-mtr3.gd" id="8_qg30h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ksobg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iu41l"]
 texture = ExtResource("2_fl8ia")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -152,7 +153,7 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
-sources/2 = SubResource("TileSetAtlasSource_ksobg")
+sources/2 = SubResource("TileSetAtlasSource_iu41l")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke6mt"]
 size = Vector2(128, 14)
@@ -215,6 +216,7 @@ shape = SubResource("RectangleShape2D_jdwa3")
 
 [node name="mtr2-mtr3" type="Area2D" parent="." unique_id=2050764424]
 collision_mask = 2
+script = ExtResource("8_qg30h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mtr2-mtr3" unique_id=903909866]
 position = Vector2(-646, -163.5)
@@ -224,3 +226,5 @@ shape = SubResource("RectangleShape2D_2hjt5")
 position = Vector2(-657, -163.5)
 scale = Vector2(1, 1.109375)
 texture = ExtResource("6_8capw")
+
+[connection signal="body_entered" from="mtr2-mtr3" to="mtr2-mtr3" method="_on_body_entered"]

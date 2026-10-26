@@ -13,6 +13,7 @@ const ATTACK_COOLDOWN : float = 0.3
 @onready var attack_down: Area2D = $"Attack-down-long"
 @onready var attack_up: Area2D = $"Attack-up-long"
 @onready var attack_side: Area2D = $"Attack-side-long"
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var current_state: String = ""
 var fall_height: float = 0.0
@@ -211,10 +212,14 @@ func attack() -> void:
 	attack_cooldown_timer = ATTACK_COOLDOWN
 	if Input.is_action_pressed("up"):
 		change_state("attack-up")
+		audio_player.play()
+		
 	elif Input.is_action_pressed("down") && not is_on_floor():
 		change_state("attack-down")
+		audio_player.play()
 	else:
 		change_state("attack-side")
+		audio_player.play()
 
 func respawn_at_checkpoint() -> void:
 	if is_invulnerable:
