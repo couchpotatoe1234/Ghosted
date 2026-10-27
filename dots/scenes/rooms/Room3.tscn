@@ -188,7 +188,7 @@ size = Vector2(32, 19)
 size = Vector2(2, 70)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ke6mt"]
-size = Vector2(97, 9)
+size = Vector2(97, 2)
 
 [node name="Room3" type="Node2D" unique_id=2072021642]
 script = ExtResource("1_7aq1f")
@@ -328,7 +328,7 @@ position = Vector2(-1653, -326)
 position = Vector2(-1858, -504)
 
 [node name="RespawnPoint36" parent="Respawn Points" unique_id=1975568183 instance=ExtResource("3_odiq7")]
-position = Vector2(-1525, -338)
+position = Vector2(-1506, -271)
 
 [node name="RespawnPoint37" parent="Respawn Points" unique_id=1770372303 instance=ExtResource("3_odiq7")]
 position = Vector2(-1580, -314)
@@ -456,7 +456,7 @@ collision_mask = 2
 script = ExtResource("13_rdbf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="3-mtr1" unique_id=1490191774]
-position = Vector2(-1423.5, -955.5)
+position = Vector2(-1423.5, -959)
 shape = SubResource("RectangleShape2D_ke6mt")
 
 [node name="TransitionSprite" type="Sprite2D" parent="3-mtr1" unique_id=1394634282]
@@ -466,7 +466,7 @@ scale = Vector2(1.2531252, 1.5)
 texture = ExtResource("7_odiq7")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=696561927]
-position = Vector2(-2543, -161)
+position = Vector2(-1448, -924)
 
 [node name="Platforms" type="Node2D" parent="." unique_id=1658241642]
 
