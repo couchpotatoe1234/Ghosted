@@ -13,7 +13,6 @@ const ATTACK_COOLDOWN : float = 0.3
 @onready var attack_down: Area2D = $"Attack-down-long"
 @onready var attack_up: Area2D = $"Attack-up-long"
 @onready var attack_side: Area2D = $"Attack-side-long"
-@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 var current_state: String = ""
 var fall_height: float = 0.0
 var facing := 1
@@ -107,8 +106,22 @@ func _physics_process(delta: float) -> void:
 					$"PlayerSprite/Attack-up-long".position.x = abs($"PlayerSprite/Attack-up-long".position.x)
 		if input_dir:
 			velocity.x = input_dir * SPEED
+			
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+		var is_moving = input_dir != 0.0
+		if velocity != Vector2.ZERO and not $JumpSound.playing and not $LandSound.playing:
+			if not $WalkSound.playing:
+				$WalkSound.volume_db = -40.0
+				$WalkSound.play(randf_range(0.0, 8.05))
+				
+				var fade_in = create_tween()
+				fade_in.tween_property($WalkSound, "volume_db", 0.0, 0.4)
+		else:
+			if $WalkSound.playing:
+				var fade_out = create_tween()
+				fade_out.tween_property($WalkSound, "volume_db", -40.0, 0.2)
+				fade_out.tween_callback($WalkSound.stop)
 		if Input.is_action_just_pressed("Attack"):
 			if attack_cooldown_timer <= 0.0 && can_attack:
 				attack()
@@ -116,8 +129,6 @@ func _physics_process(delta: float) -> void:
 				pass
 	move_and_slide()
 	update_state(input_dir)
-	
-	
 
 func update_state(input_dir: float) -> void:
 	if current_state in ["attack-side", "attack-up", "attack-down", "run-transition", "hurt", "die", "heal"]:
@@ -206,19 +217,18 @@ func die() -> void:
 	velocity.y = 0
 	GameManager.hitstop(0.33)
 	change_state("die")
-	
+
 func attack() -> void:
 	attack_cooldown_timer = ATTACK_COOLDOWN
 	if Input.is_action_pressed("up"):
 		change_state("attack-up")
-		audio_player.play()
-		
+		$SlashSound.play()
 	elif Input.is_action_pressed("down") && not is_on_floor():
 		change_state("attack-down")
-		audio_player.play()
+		$SlashSound.play()
 	else:
 		change_state("attack-side")
-		audio_player.play()
+		$SlashSound.play()
 
 func respawn_at_checkpoint() -> void:
 	if is_invulnerable:
@@ -308,7 +318,7 @@ func _enemy_hit(area: Area2D) -> void:
 		GameManager.hitstop(0.05)
 		await get_tree().create_timer(0.1).timeout
 		GameManager.controls_allowed = true
-	
+
 func _on_attack_hit(body: Node2D, direction: Vector2) -> void:
 	if body.has_method("take_hit"):
 		body.take_hit(direction)
@@ -318,10 +328,10 @@ func disable_collision() -> void:
 
 func enable_collision() -> void:
 	$CollisionShape2D.disabled = false
-	
+
 func get_facing() -> int:
 	return facing
-	
+
 func register_companion() -> void:
 	CompanionManager.register_player(self)
 

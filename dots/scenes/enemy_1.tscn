@@ -333,9 +333,6 @@ shape = SubResource("CapsuleShape2D_70d11")
 z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ke6mt")
-animation = &"death"
-frame = 26
-frame_progress = 1.0
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111178456 groups=["pogoable"]]
 
@@ -370,5 +367,7 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_ejytf")
+
+[node name="General Audio" type="AudioStreamPlayer" parent="." unique_id=8960948]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

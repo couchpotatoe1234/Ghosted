@@ -151,22 +151,15 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 func take_damage(amount: int, knockback: Vector2) -> void:
 	if is_dead or current_anim == Anim.DIE:
 		return
-	
 	health -= amount
 	hit_particles.restart() 
-	
-	if health <= 0:
-		call_deferred("die")
-		return
-	
 	knocked_back = true
 	velocity = knockback
 	change_anim(Anim.HURT)
 	await get_tree().create_timer(0.15).timeout
-	
-	if is_dead:
+	if health <= 0:
+		call_deferred("die")
 		return
-	
 	velocity = Vector2.ZERO
 	knocked_back = false
 	start_attack_cooldown()

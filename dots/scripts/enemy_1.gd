@@ -20,21 +20,22 @@ func _ready():
 	sprite.flip_h = (direction > 0)
 	
 func _physics_process(delta: float) -> void:
-		if stop:
-			return
-		if not is_on_floor():
-			velocity += get_gravity() * delta
+	if not is_on_floor():
 		
-		if not damaged:
-			if is_on_wall() or (
-				(wall_ray.is_colliding() or not ledge_ray.is_colliding())
-				and is_on_floor()
-			):
-				flip_direction()
-				
-			velocity.x = direction * speed
-			
+		velocity += get_gravity() * delta
+	if stop:
+		velocity.x = 0
 		move_and_slide()
+		return
+	if not damaged:
+		if is_on_wall() or (
+			(wall_ray.is_colliding() or not ledge_ray.is_colliding())
+			and is_on_floor()
+		):
+			flip_direction()
+			
+		velocity.x = direction * speed
+	move_and_slide()
 		
 
 
@@ -70,9 +71,7 @@ func take_damage(amount: int, knockback: Vector2, hurt_duration: float) -> void:
 		return
 	
 	health -= amount
-	if health <= 0:
-		die.call_deferred()
-		return
+	
 		
 	damaged = true
 	hit_particles.restart()
@@ -80,23 +79,20 @@ func take_damage(amount: int, knockback: Vector2, hurt_duration: float) -> void:
 	velocity = knockback
 	
 	await get_tree().create_timer(hurt_duration).timeout
-	
+	if health <= 0:
+		die.call_deferred()
+		return
 	if is_dead or not is_inside_tree():
 		return
-	
 	damaged = false
 	sprite.play("walk")
 
 
 func die() -> void:
-	if is_dead:
-		return
-		
 	is_dead = true
 	stop = true
 	damaged = false
 	speed = 0.0
-	velocity = Vector2.ZERO
 	
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
