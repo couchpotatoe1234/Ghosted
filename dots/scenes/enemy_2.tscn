@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://holsc4wmjpdh" path="res://scripts/enemy_2.gd" id="1_fi5i3"]
 [ext_resource type="Texture2D" uid="uid://c4v8384qoqnnw" path="res://Assets/sprites/Enemy02-Sheet.png" id="1_hqy2m"]
 [ext_resource type="Texture2D" uid="uid://be3n5nrlghqn1" path="res://Assets/sprites/Hit_Particles-Sheet.png" id="3_oh86k"]
+[ext_resource type="AudioStream" uid="uid://dwvpcv7ntfldb" path="res://Assets/sounds/Flying.wav" id="4_a4ywr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dq62l"]
 radius = 7.0
@@ -436,6 +437,12 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_3phul")
+
+[node name="MovingAudio" type="AudioStreamPlayer2D" parent="." unique_id=865536076]
+stream = ExtResource("4_a4ywr")
+pitch_scale = 1.7
+max_distance = 320.0
+attenuation = 2.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

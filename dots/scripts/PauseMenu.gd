@@ -34,6 +34,8 @@ func _on_main_menu_button_pressed() -> void:
 			pauseable.get_node("AnimationPlayer").pause()
 		if pauseable.has_node("AnimatedSprite2D"):
 			pauseable.get_node("AnimatedSprite2D").pause()
+		if pauseable.has_node("MovingAudio"):
+			pauseable.get_node("MovingAudio").playing = false
 	get_tree().paused = false
 	visible = false
 	hide()

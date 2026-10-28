@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://csgss2pt6ggd7" path="res://scripts/enemy_1.gd" id="1_ejytf"]
 [ext_resource type="Texture2D" uid="uid://cymae72i7ph41" path="res://Assets/sprites/Enemy01-Sheet.png" id="2_a1412"]
 [ext_resource type="Texture2D" uid="uid://be3n5nrlghqn1" path="res://Assets/sprites/Hit_Particles-Sheet.png" id="3_ejytf"]
+[ext_resource type="AudioStream" uid="uid://doo4ood2x0j8u" path="res://Assets/sounds/Bug-Crawl.wav" id="4_dq62l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70d11"]
 radius = 5.0
@@ -333,6 +334,7 @@ shape = SubResource("CapsuleShape2D_70d11")
 z_index = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ke6mt")
+animation = &"death"
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1111178456 groups=["pogoable"]]
 
@@ -368,6 +370,11 @@ one_shot = true
 explosiveness = 0.75
 process_material = SubResource("ParticleProcessMaterial_ejytf")
 
-[node name="General Audio" type="AudioStreamPlayer" parent="." unique_id=8960948]
+[node name="MovingAudio" type="AudioStreamPlayer2D" parent="." unique_id=1523598895]
+stream = ExtResource("4_dq62l")
+autoplay = true
+max_distance = 320.0
+attenuation = 2.000001
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

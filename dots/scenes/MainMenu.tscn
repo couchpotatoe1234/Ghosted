@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkg6kh0qbmbve" path="res://Assets/sprites/grey.png" id="2_0ykhv"]
 [ext_resource type="Texture2D" uid="uid://e66klf0nuj5l" path="res://Assets/sprites/Menu_NoTitle.png" id="2_ow34m"]
 [ext_resource type="Texture2D" uid="uid://sfxrcc0nefli" path="res://Assets/sprites/Title.png" id="4_l72w3"]
+[ext_resource type="AudioStream" uid="uid://cp81el1dx8pg8" path="res://Assets/sounds/Button-press.wav" id="5_l72w3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eo3j8"]
 atlas = ExtResource("2_0ykhv")
@@ -110,6 +111,9 @@ texture_normal = SubResource("AtlasTexture_0ykhv")
 texture_pressed = SubResource("AtlasTexture_2wh52")
 texture_hover = SubResource("AtlasTexture_ow34m")
 stretch_mode = 4
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1535118036]
+stream = ExtResource("5_l72w3")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
