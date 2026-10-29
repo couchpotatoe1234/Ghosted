@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i27bta1i5wgw"]
 
-[ext_resource type="Script" uid="uid://1qypgwsm8tns" path="res://coin+particle.gd" id="1_svk5y"]
+[ext_resource type="Script" uid="uid://1qypgwsm8tns" path="res://scripts/coin+particle.gd" id="1_svk5y"]
 [ext_resource type="Texture2D" uid="uid://dgngelsyyt7wj" path="res://Assets/sprites/coins.png" id="2_qw6gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ke6mt"]
