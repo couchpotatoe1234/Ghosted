@@ -38,7 +38,7 @@ func _connect_to_player(player: Node) -> void:
 	if not player.health_changed.is_connected(_on_health_changed):
 		player.health_changed.connect(_on_health_changed)
 	
-	_on_health_changed(GameManager.health, player.max_health)
+	_on_health_changed(player.health, player.max_health)
 
 	
 func change_heals() -> void:

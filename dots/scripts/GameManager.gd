@@ -3,7 +3,6 @@ extends Node
 var controls_allowed = true
 var last_save_point = Vector2(-675, -400)
 var last_level = "res://scenes/rooms/Room1.tscn"
-var save_facing: bool = false
 var player_x: float = 0
 var last_respawn_position: Vector2 = Vector2.ZERO
 var hitstop_active: bool = false
@@ -11,7 +10,6 @@ var current_hitstop_duration: float = 0.0
 var can_pause = false
 var heals = 2
 var coins: int = 0
-var health: int = 5
 
 signal money_changed(new: int)
 

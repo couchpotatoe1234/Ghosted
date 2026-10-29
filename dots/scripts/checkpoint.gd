@@ -41,13 +41,15 @@ func _on_body_exited(body: Node2D) -> void:
 func activate_checkpoint() -> void:
 	if activated:
 		return
+
+	if not is_instance_valid(sprite):
+		push_error("missing" + str(get_path()))
+		return
 	activated = true
 	GameManager.last_save_point = global_position
 	GameManager.last_level = owner.scene_file_path
-	if owner.scene_file_path in ["res://scenes/rooms/Bar.tscn"]:
-		GameManager.save_facing = true
-	elif owner.scene_file_path in ["res://scenes/rooms/mtr2"]:
-		GameManager.save_facing = false
+	print(GameManager.last_level, "and ", GameManager.last_save_point)
+	
 	if is_instance_valid(prompt):
 		prompt.visible = false
 	sprite.play("activated")
