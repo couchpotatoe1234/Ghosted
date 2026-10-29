@@ -109,7 +109,6 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		var is_moving = input_dir != 0.0
 		if velocity != Vector2.ZERO and not $JumpSound.playing and not $LandSound.playing:
 			if not $WalkSound.playing:
 				$WalkSound.volume_db = -40.0

@@ -7,6 +7,7 @@ const COIN_PARTICLE_SCENE = preload("res://scenes/CoinParticles.tscn")
 @onready var wall_ray: RayCast2D = $WallRayCheck
 @onready var ledge_ray: RayCast2D = $LedgeRayCheck
 @onready var hit_particles: GPUParticles2D = $HurtParticlesFX/GPUParticles2D
+@onready var moving_audio: AudioStreamPlayer2D = $MovingAudio
 var health: int = 2
 var knock_dir: int = 1
 var damaged = false
@@ -18,6 +19,7 @@ var direction: int = 1
 func _ready():
 	sprite.play("walk")
 	sprite.flip_h = (direction > 0)
+	moving_audio.play()
 	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -28,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	if not damaged:
+		if not moving_audio.playing:
+			moving_audio.play()
 		if is_on_wall() or (
 			(wall_ray.is_colliding() or not ledge_ray.is_colliding())
 			and is_on_floor()
@@ -69,7 +73,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 func take_damage(amount: int, knockback: Vector2, hurt_duration: float) -> void:
 	if is_dead:
 		return
-	
+	moving_audio.stop()
 	health -= amount
 	
 		
@@ -109,3 +113,7 @@ func die() -> void:
 		print("coin spawn", coin.global_position)
 	
 	sprite.play("death")
+
+func _on_animation_finished() -> void:
+	if sprite.animation == "death":
+		queue_free()
