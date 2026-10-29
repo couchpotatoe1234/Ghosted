@@ -18,19 +18,15 @@ var attack_timer: float = 0.0
 var lose_sight_timer: float = 0.0
 var coin_reward: int = 5
 var is_dead: bool = false
-@onready var movement_audio: AudioStreamPlayer2D = $MovingAudio
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var hit_particles: GPUParticles2D = $HurtParticlesFX/GPUParticles2D
 
 func _ready() -> void:
 	change_anim(Anim.IDLE)
-	movement_audio.play()
-	movement_audio.pitch_scale = 1.0
 
 func _physics_process(delta: float) -> void:
 	if current_anim == Anim.DIE:
-		movement_audio.stop()
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		else:
