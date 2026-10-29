@@ -18,15 +18,19 @@ var attack_timer: float = 0.0
 var lose_sight_timer: float = 0.0
 var coin_reward: int = 5
 var is_dead: bool = false
+@onready var movement_audio: AudioStreamPlayer2D = $MovingAudio
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var hit_particles: GPUParticles2D = $HurtParticlesFX/GPUParticles2D
 
 func _ready() -> void:
 	change_anim(Anim.IDLE)
+	movement_audio.play()
+	movement_audio.pitch_scale = 1.0
 
 func _physics_process(delta: float) -> void:
 	if current_anim == Anim.DIE:
+		movement_audio.stop()
 		if not is_on_floor():
 			velocity += get_gravity() * delta
 		else:
@@ -53,6 +57,7 @@ func _physics_process(delta: float) -> void:
 					lose_sight_timer += delta
 					if lose_sight_timer >= 3.0:
 						change_anim(Anim.IDLE)
+						movement_audio.pitch_scale = 1.0
 						return
 				var x_diff = target_player.global_position.x - global_position.x
 				if abs(x_diff) > 12.0:
@@ -60,12 +65,14 @@ func _physics_process(delta: float) -> void:
 				var hover_target = target_player.global_position + hover_offset
 				var dir = (hover_target - global_position).normalized()
 				velocity = velocity.move_toward(dir * hover_speed, 300 * delta)
+				movement_audio.pitch_scale = 1.1
 				if global_position.distance_to(target_player.global_position) <= attack_range and not is_recovering:
 					change_anim(Anim.ATTACK)
 			Anim.ATTACK:
 				attack_timer += delta
 				var dir = (attack_target_pos - global_position).normalized()
 				velocity = dir * attack_speed
+				movement_audio.pitch_scale = 1.3
 				if is_on_wall() or is_on_floor() or global_position.distance_to(attack_target_pos) < 15.0 or attack_timer >= 1.5:
 					start_attack_cooldown()
 					pick_new_hover_offset()

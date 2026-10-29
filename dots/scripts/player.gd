@@ -16,7 +16,6 @@ const ATTACK_COOLDOWN : float = 0.3
 var current_state: String = ""
 var fall_height: float = 0.0
 var facing := 1
-var health: int = 5
 var is_invulnerable: bool = false
 var knocked_back: bool = false
 var attack_cooldown_timer : float = 0.0
@@ -34,7 +33,7 @@ func _ready() -> void:
 	floor_snap_length = 4.0
 	floor_max_angle = deg_to_rad(46.0)
 	safe_margin = 0.001
-	health_changed.emit(health, max_health)
+	health_changed.emit(GameManager.health, max_health)
 	is_invulnerable = false
 	change_state("idle")
 	attack_side.body_entered.connect(func(body): _on_attack_hit(body, Vector2(facing, 0)))
@@ -109,7 +108,6 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-		var is_moving = input_dir != 0.0
 		if velocity != Vector2.ZERO and not $JumpSound.playing and not $LandSound.playing:
 			if not $WalkSound.playing:
 				$WalkSound.volume_db = -40.0
@@ -170,16 +168,16 @@ func _on_animation_finished(anim_name: String) -> void:
 		current_state = ""
 		change_state("idle")
 	elif anim_name == "die":
-		health_changed.emit(health, max_health)
-		health = max_health
+		health_changed.emit(GameManager.health, max_health)
+		GameManager.health = max_health
 		respawn.emit()
 
 func take_damage(amount: int) -> void:
 	if is_invulnerable:
 		return
 	unturnable = false
-	health -= amount
-	health_changed.emit(health, max_health)
+	GameManager.health -= amount
+	health_changed.emit(GameManager.health, max_health)
 	var knock_dir = 1.0 if sprite.flip_h or scale.x < 0 else -1.0
 	velocity.x = knock_dir * 100.0
 	velocity.y = -200
@@ -188,7 +186,7 @@ func take_damage(amount: int) -> void:
 		for i in 10:
 			tween.tween_property(camera, "offset", Vector2(randf_range(-8, 8), randf_range(-8, 8)), 0.05)
 		tween.tween_property(camera, "offset", Vector2.ZERO, 0.05)
-	if health <= 0:
+	if GameManager.health <= 0:
 		die()
 	else:
 		start_invulnerablilty()
@@ -247,9 +245,9 @@ func respawn_at_checkpoint() -> void:
 	is_invulnerable = true
 	velocity.y = -250
 	velocity.x = 0
-	health -= 1
-	health_changed.emit(health, max_health)
-	if health <= 0:
+	GameManager.health -= 1
+	health_changed.emit(GameManager.health, max_health)
+	if GameManager.health <= 0:
 		die()
 		return
 	await transition_layer.fade_out() 
@@ -262,15 +260,18 @@ func respawn_at_checkpoint() -> void:
 	GameManager.controls_allowed = true
 
 func _on_game_started() -> void:
-	health_changed.emit(health, max_health)
-	sprite.flip_h = false
+	health_changed.emit(GameManager.health, max_health)
+	sprite.flip_h = GameManager.save_facing
+	facing = -1 if GameManager.save_facing else 1
 	is_invulnerable = false
 	velocity = Vector2.ZERO
+	change_state("idle")
 
 func _on_changed_level() -> void:
 	camera.drag_horizontal_enabled = false
 	camera.drag_vertical_enabled = false
 	await get_tree().create_timer(0.01).timeout
+	change_state("run")
 	camera.drag_horizontal_enabled = true
 	camera.drag_vertical_enabled = true
 
@@ -336,17 +337,17 @@ func register_companion() -> void:
 	CompanionManager.register_player(self)
 
 func heal() -> void:
-	if health <= 0:
+	if GameManager.health <= 0:
 		return
 	if GameManager.heals <= 0:
 		return
-	if health >= max_health:
+	if GameManager.health >= max_health:
 		return
 	GameManager.heals -= 1
 	get_tree().call_group("hud", "change_heals")
 	
-	health = mini(health + 3, max_health)
-	health_changed.emit(health, max_health)
+	GameManager.health = mini(GameManager.health + 3, max_health)
+	health_changed.emit(GameManager.health, max_health)
 	
 	change_state("heal")
 	
@@ -356,6 +357,8 @@ func heal() -> void:
 
 func _on_main_respawned() -> void:
 	is_invulnerable = false
-	health = max_health
+	GameManager.health = max_health
+	facing = -1 if GameManager.save_facing else 1
+	sprite.flip_h = GameManager.save_facing
 	change_state("idle")
-	health_changed.emit(health, max_health)
+	health_changed.emit(GameManager.health, max_health)
