@@ -73,6 +73,7 @@ func _physics_process(delta: float) -> void:
 			jump_buffer_timer = jump_buffer_duration
 		if jump_buffer_timer > 0.0 and (is_on_floor() or coyote_timer > 0.0):
 			velocity.y = JUMP_VELOCITY
+			$JumpSound.play()
 			jump_buffer_timer = 0.0
 			coyote_timer = 0.0
 			was_on_floor = false
@@ -141,6 +142,7 @@ func update_state(input_dir: float) -> void:
 	if current_state == "airtime":
 		var fall_distance = global_position.y - fall_height
 		if fall_distance >= 96:
+			$LandSound.play()
 			change_state("fall")
 			return
 		else:
