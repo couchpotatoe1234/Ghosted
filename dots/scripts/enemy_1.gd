@@ -102,7 +102,8 @@ func die() -> void:
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	
 	var death_position: Vector2 = global_position
-	var level: Node = get_tree().current_scene
+	var level: Node2D = owner
+	print(level)
 	
 	print("ground enemy died at", death_position)
 	
