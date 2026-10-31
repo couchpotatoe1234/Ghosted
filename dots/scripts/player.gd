@@ -364,3 +364,6 @@ func _on_main_respawned() -> void:
 	sprite.flip_h = GameManager.save_facing
 	change_state("idle")
 	health_changed.emit(GameManager.health, max_health)
+
+func play_coin_sound() -> void:
+	$CoinSound.play()

@@ -138,31 +138,31 @@ region = Rect2(160, 0, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ke6mt"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_idgs8")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ul1qm")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ucol1")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_0ftsf")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_pfvk1")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_w5bj5")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_4kbwr")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_6aj0m")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ags6g")
 }, {
 "duration": 1.0,
@@ -206,7 +206,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"heal",
-"speed": 15.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -253,3 +253,5 @@ script = ExtResource("1_idgs8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=751870463]
 sprite_frames = SubResource("SpriteFrames_ke6mt")
 animation = &"heal"
+frame = 21
+frame_progress = 1.0

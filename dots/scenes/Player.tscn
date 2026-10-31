@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://4q88o4t6em0v" path="res://Assets/sounds/walk.wav" id="8_khinc"]
 [ext_resource type="AudioStream" uid="uid://d10nj716m0g85" path="res://Assets/sounds/jump.wav" id="9_bruh7"]
 [ext_resource type="AudioStream" uid="uid://lso5552axfmq" path="res://Assets/sounds/land.wav" id="10_6eyey"]
+[ext_resource type="AudioStream" uid="uid://jcgdlc1d73xs" path="res://Assets/sounds/coin.wav" id="11_d3wef"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7uch8"]
 radius = 8.0
@@ -953,14 +954,22 @@ streams_count = 1
 stream_0/stream = ExtResource("7_cw2d6")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6eyey"]
+playback_mode = 1
 random_pitch = 1.1892071
 streams_count = 1
 stream_0/stream = ExtResource("9_bruh7")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bruh7"]
+playback_mode = 1
 random_pitch = 1.122462
 streams_count = 1
 stream_0/stream = ExtResource("10_6eyey")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rgiqk"]
+playback_mode = 1
+random_pitch = 1.1892071
+streams_count = 1
+stream_0/stream = ExtResource("11_d3wef")
 
 [node name="Player" type="CharacterBody2D" unique_id=1860738924 groups=["pauseable", "player"]]
 z_index = 10
@@ -1059,13 +1068,21 @@ stream = ExtResource("8_khinc")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=411601834]
 stream = SubResource("AudioStreamRandomizer_6eyey")
-volume_db = -5.0
+pitch_scale = 1.25
 
 [node name="LandSound" type="AudioStreamPlayer" parent="." unique_id=1504463376]
 stream = SubResource("AudioStreamRandomizer_bruh7")
-volume_db = -15.0
 
 [node name="PogoSound" type="AudioStreamPlayer" parent="." unique_id=1689327570]
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=1352336650]
+stream = SubResource("AudioStreamRandomizer_rgiqk")
+pitch_scale = 1.1
+max_polyphony = 10
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=647725721]
+position = Vector2(0, -16)
+current = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_damaged"]
