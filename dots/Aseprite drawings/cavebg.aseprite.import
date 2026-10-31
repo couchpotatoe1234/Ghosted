@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cq1e4sii8x6jg"
+path="res://.godot/imported/cavebg.aseprite-da74674bfef66d54c901650dc719c0dc.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/cavebg.aseprite"
+dest_files=["res://.godot/imported/cavebg.aseprite-da74674bfef66d54c901650dc719c0dc.res"]
+
+[params]
+
