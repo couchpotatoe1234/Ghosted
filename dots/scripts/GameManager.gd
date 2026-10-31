@@ -40,3 +40,5 @@ func add_money(amount: int) -> void:
 
 var block1_broken = false
 var block2_broken = false
+
+var coin_cache_1 = false

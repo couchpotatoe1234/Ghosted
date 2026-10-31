@@ -26,7 +26,17 @@ func load_main_menu() -> void:
 	var menu_scene = load("res://scenes/MainMenu.tscn").instantiate()
 	level_container.add_child(menu_scene)
 	menu_scene.play_pressed.connect(_on_start_game)
+
+func load_settings() -> void:
+	await transition_layer.fade_out()
+	for child in level_container.get_children():
+		child.queue_free()
+	var settings_scene = load("res://scenes/settings.tscn").instantiate()
+	level_container.add_child(settings_scene)
+	settings_scene.return_to_main_menu.connect(return_to_main_menu)
+	await transition_layer.fade_in()
 	
+
 func _on_start_game() -> void:
 	if player:
 		player.set_physics_process(true)

@@ -197,7 +197,7 @@ func die() -> void:
 	$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 	
 	var death_position = global_position
-	var level = get_tree().current_scene
+	var level: Node2D = owner
 	
 	for i in range(coin_reward):
 		var coin = COIN_PARTICLE_SCENE.instantiate()

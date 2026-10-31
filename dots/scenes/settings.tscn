@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bn8gyat2srhpn"]
+
+[ext_resource type="Texture2D" uid="uid://e66klf0nuj5l" path="res://Assets/sprites/Menu_NoTitle.png" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://bopma728ttua7" path="res://scripts/settings.gd" id="1_6wm04"]
+[ext_resource type="Script" uid="uid://dh3pmjii2i1gh" path="res://scripts/rebind_button.gd" id="2_r6d6q"]
+
+[node name="Settings" type="CanvasLayer" unique_id=2002854061]
+script = ExtResource("1_6wm04")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1475442211]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_5p8wc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1076347842]
+anchors_preset = -1
+anchor_right = 0.11400001
+anchor_bottom = 0.35900003
+offset_left = 249.0
+offset_top = 273.0
+offset_right = 157.672
+offset_bottom = 96.36798
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=226165391]
+layout_mode = 2
+script = ExtResource("2_r6d6q")
+action_name = "left"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=989563986]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=405192846]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=1323371669]
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="VBoxContainer" unique_id=568687308]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1627877544]
+offset_left = 465.0
+offset_top = 279.0
+offset_right = 505.0
+offset_bottom = 335.0
+
+[node name="Button" type="Button" parent="VBoxContainer2" unique_id=94399558]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="VBoxContainer2" unique_id=590357862]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer2" unique_id=1077957503]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer2" unique_id=1113853458]
+layout_mode = 2
+
+[node name="Button5" type="Button" parent="VBoxContainer2" unique_id=1580799008]
+layout_mode = 2
+
+[node name="main menu" type="Button" parent="." unique_id=760490221]
+offset_left = 54.0
+offset_top = 575.0
+offset_right = 228.0
+offset_bottom = 606.0
+text = "Return to main menu"
+
+[connection signal="pressed" from="main menu" to="." method="_on_main_menu_pressed"]
