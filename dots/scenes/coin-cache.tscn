@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://ddnxr8bs032dc"]
+
+[ext_resource type="Script" uid="uid://c71mdk12nsk02" path="res://scripts/coin_cache.gd" id="1_2kds4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kds4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu8hs"]
+
+[sub_resource type="Animation" id="Animation_c362a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_e7we6"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k1tsm"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2kds4"]
+resource_name = "unopened"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c362a"]
+_data = {
+&"RESET": SubResource("Animation_c362a"),
+&"open": SubResource("Animation_e7we6"),
+&"opened": SubResource("Animation_k1tsm"),
+&"unopened": SubResource("Animation_2kds4")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkdic"]
+size = Vector2(3, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0m76"]
+size = Vector2(20, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yy6uq"]
+size = Vector2(3, 20)
+
+[node name="Node2D" type="StaticBody2D" unique_id=2104720516]
+script = ExtResource("1_2kds4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1968664786]
+shape = SubResource("RectangleShape2D_2kds4")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1601698792]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1351929851]
+shape = SubResource("RectangleShape2D_gu8hs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=313734125]
+libraries/ = SubResource("AnimationLibrary_c362a")
+autoplay = &"unopened"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1562845404]
+position = Vector2(-8.5, 0)
+shape = SubResource("RectangleShape2D_gkdic")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1333437078]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_i0m76")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=2036746306]
+position = Vector2(8.5, 0)
+shape = SubResource("RectangleShape2D_yy6uq")

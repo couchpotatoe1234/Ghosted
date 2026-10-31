@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const COIN_PARTICLE_SCENE = preload("res://scenes/CoinParticles.tscn")
 
-@export var coin_reward: int = 1
+@export var coin_reward: int = 2
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var wall_ray: RayCast2D = $WallRayCheck
 @onready var ledge_ray: RayCast2D = $LedgeRayCheck
