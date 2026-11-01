@@ -14,7 +14,6 @@ var collected: bool = false
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player") as Node2D
 	scatter_target = global_position + Vector2(randf_range(-scatter_distance, scatter_distance), randf_range(-scatter_distance, scatter_distance))
-	velocity = Vector2(randf_range(-150, 150), randf_range(-200, -150))
 
 func _physics_process(delta: float) -> void:
 	if collected:
@@ -30,7 +29,10 @@ func _physics_process(delta: float) -> void:
 		velocity = global_position.direction_to(player.global_position) * fly_speed
 	else:
 		velocity.y += gravity * delta
-		velocity.x = move_toward(velocity.x, 0.0, 300.0 * delta)
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0.0, 350.0 * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, 50 * delta)
 	move_and_slide()
 
 func collect_coin() -> void:
@@ -40,8 +42,9 @@ func collect_coin() -> void:
 	GameManager.add_money(1)
 	queue_free()
 
-func set_spawn_position(spawn_position: Vector2) -> void:
+func set_spawn_position(spawn_position: Vector2, _spawn_vector: Vector2) -> void:
 	global_position = spawn_position
+	velocity = _spawn_vector
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

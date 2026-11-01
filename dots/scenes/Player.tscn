@@ -984,6 +984,7 @@ vframes = 12
 
 [node name="Attack-down-long" type="Sprite2D" parent="PlayerSprite" unique_id=2032199800]
 visible = false
+z_index = 12
 position = Vector2(0, 12)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_70d11")
@@ -991,19 +992,21 @@ hframes = 6
 
 [node name="Hurt" type="Sprite2D" parent="PlayerSprite" unique_id=420660208]
 visible = false
+z_index = 12
 position = Vector2(0, 3)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_70d11")
 
 [node name="Attack-side-long" type="Sprite2D" parent="PlayerSprite" unique_id=339125822]
 visible = false
-z_index = 1
+z_index = 12
 position = Vector2(11, 0)
 texture = ExtResource("5_qu4a1")
 hframes = 6
 
 [node name="Attack-up-long" type="Sprite2D" parent="PlayerSprite" unique_id=1355934485]
 visible = false
+z_index = 12
 position = Vector2(0, -10)
 texture = ExtResource("6_70d11")
 hframes = 6

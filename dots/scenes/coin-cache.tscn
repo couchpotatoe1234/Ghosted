@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c71mdk12nsk02" path="res://scripts/coin_cache.gd" id="1_2kds4"]
 [ext_resource type="Texture2D" uid="uid://bqlwxifw6g0ca" path="res://Assets/sprites/Coin-cache-Sheet.png" id="2_c362a"]
+[ext_resource type="AudioStream" uid="uid://dnymbho0tvdxp" path="res://Assets/sounds/clang.wav" id="3_k1tsm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2kds4"]
 size = Vector2(32, 30)
@@ -115,6 +116,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_k1tsm"]
 resource_name = "opened"
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,14 +132,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Shine:frame_coords")
+tracks/1/path = NodePath("Back:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(4, 1)]
+"values": [Vector2i(0, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_2kds4"]
@@ -211,19 +213,24 @@ size = Vector2(24, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yy6uq"]
 size = Vector2(4, 24)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c362a"]
+random_pitch = 1.1892071
+streams_count = 1
+stream_0/stream = ExtResource("3_k1tsm")
+
 [node name="Coin Cache" type="StaticBody2D" unique_id=2104720516]
 script = ExtResource("1_2kds4")
 
 [node name="Front" type="Sprite2D" parent="." unique_id=1356945193]
 z_index = 11
-position = Vector2(0, -32)
+position = Vector2(0, -19)
 scale = Vector2(2, 2)
 texture = ExtResource("2_c362a")
 hframes = 12
 vframes = 9
 
 [node name="Back" type="Sprite2D" parent="." unique_id=1174324505]
-position = Vector2(0, -32)
+position = Vector2(0, -19)
 scale = Vector2(2, 2)
 texture = ExtResource("2_c362a")
 hframes = 12
@@ -232,17 +239,18 @@ frame = 12
 
 [node name="Shine" type="Sprite2D" parent="." unique_id=1750236802]
 z_index = 12
-position = Vector2(0, -32)
+position = Vector2(0, -19)
 scale = Vector2(2, 2)
 texture = ExtResource("2_c362a")
 hframes = 12
 vframes = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1968664786]
-position = Vector2(0, -15)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_2kds4")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1601698792]
+[node name="Area2D" type="Area2D" parent="." unique_id=1601698792 groups=["pogoable"]]
+position = Vector2(0, 13)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1351929851]
 position = Vector2(0, -16)
@@ -252,17 +260,19 @@ shape = SubResource("RectangleShape2D_gu8hs")
 libraries/ = SubResource("AnimationLibrary_c362a")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1562845404]
-position = Vector2(-14, -12)
+position = Vector2(-14, 1)
 shape = SubResource("RectangleShape2D_gkdic")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1333437078]
-position = Vector2(0, -7)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_i0m76")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=2036746306]
-position = Vector2(14, -12)
+position = Vector2(14, 1)
 shape = SubResource("RectangleShape2D_yy6uq")
 
 [node name="Open" type="AudioStreamPlayer" parent="." unique_id=893530185]
+stream = SubResource("AudioStreamRandomizer_c362a")
+pitch_scale = 1.23
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
