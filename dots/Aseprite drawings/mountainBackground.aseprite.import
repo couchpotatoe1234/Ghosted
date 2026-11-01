@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cmnh1t5i3aotg"
+path="res://.godot/imported/mountainBackground.aseprite-ec2a03d1bf35dd2810052bc3493a0d1f.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/mountainBackground.aseprite"
+dest_files=["res://.godot/imported/mountainBackground.aseprite-ec2a03d1bf35dd2810052bc3493a0d1f.res"]
+
+[params]
+
