@@ -24,28 +24,68 @@ offset_bottom = 90.36798
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Left" type="Button" parent="VBoxContainer" unique_id=226165391]
+[node name="left" type="HBoxContainer" parent="VBoxContainer" unique_id=884430065]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/left" unique_id=1024642905]
+layout_mode = 2
+text = "Left:"
+
+[node name="Left" type="Button" parent="VBoxContainer/left" unique_id=226165391]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "left"
 
-[node name="Right" type="Button" parent="VBoxContainer" unique_id=989563986]
+[node name="right" type="HBoxContainer" parent="VBoxContainer" unique_id=772099547]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/right" unique_id=1148489025]
+layout_mode = 2
+text = "Right:"
+
+[node name="Right" type="Button" parent="VBoxContainer/right" unique_id=989563986]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "right"
 
-[node name="Up" type="Button" parent="VBoxContainer" unique_id=405192846]
+[node name="up" type="HBoxContainer" parent="VBoxContainer" unique_id=1729149902]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/up" unique_id=1395138468]
+layout_mode = 2
+text = "Up/Interact:"
+
+[node name="Up" type="Button" parent="VBoxContainer/up" unique_id=405192846]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "up"
 
-[node name="Down" type="Button" parent="VBoxContainer" unique_id=1323371669]
+[node name="down" type="HBoxContainer" parent="VBoxContainer" unique_id=388589639]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/down" unique_id=1271276059]
+layout_mode = 2
+text = "Down:"
+
+[node name="Down" type="Button" parent="VBoxContainer/down" unique_id=1323371669]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "down"
 
-[node name="Attack" type="Button" parent="VBoxContainer" unique_id=568687308]
+[node name="attack" type="HBoxContainer" parent="VBoxContainer" unique_id=1706199589]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/attack" unique_id=1613321547]
+layout_mode = 2
+text = "Attack:"
+
+[node name="Attack" type="Button" parent="VBoxContainer/attack" unique_id=568687308]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "Attack"
 
@@ -56,27 +96,67 @@ offset_top = 229.0
 offset_right = 565.0
 offset_bottom = 329.0
 
-[node name="Jump" type="Button" parent="VBoxContainer2" unique_id=1077957503]
+[node name="jump" type="HBoxContainer" parent="VBoxContainer2" unique_id=229470032]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/jump" unique_id=228950531]
+layout_mode = 2
+text = "Jump:"
+
+[node name="Jump" type="Button" parent="VBoxContainer2/jump" unique_id=1077957503]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "Jump"
 
-[node name="Heal" type="Button" parent="VBoxContainer2" unique_id=94399558]
+[node name="heal" type="HBoxContainer" parent="VBoxContainer2" unique_id=758936067]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/heal" unique_id=1216310912]
+layout_mode = 2
+text = "Heal:"
+
+[node name="Heal" type="Button" parent="VBoxContainer2/heal" unique_id=94399558]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "heal"
 
-[node name="Dash" type="Button" parent="VBoxContainer2" unique_id=590357862]
+[node name="dash" type="HBoxContainer" parent="VBoxContainer2" unique_id=448015441]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/dash" unique_id=596044639]
+layout_mode = 2
+text = "Dash:"
+
+[node name="Dash" type="Button" parent="VBoxContainer2/dash" unique_id=590357862]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 action_name = "dash"
 
-[node name="Button4" type="Button" parent="VBoxContainer2" unique_id=1113853458]
+[node name="TBD" type="HBoxContainer" parent="VBoxContainer2" unique_id=765821188]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/TBD" unique_id=2137106372]
+layout_mode = 2
+text = "TBD:"
+
+[node name="Button4" type="Button" parent="VBoxContainer2/TBD" unique_id=1113853458]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 
-[node name="Button5" type="Button" parent="VBoxContainer2" unique_id=1580799008]
+[node name="TBD2" type="HBoxContainer" parent="VBoxContainer2" unique_id=476174891]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/TBD2" unique_id=1864989859]
+layout_mode = 2
+text = "TBD:"
+
+[node name="Button5" type="Button" parent="VBoxContainer2/TBD2" unique_id=1580799008]
+layout_mode = 2
+focus_mode = 0
 script = ExtResource("2_r6d6q")
 
 [node name="main menu" type="Button" parent="." unique_id=760490221]
