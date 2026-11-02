@@ -1,19 +1,23 @@
 # Ghosted  
 PLAY LINKKK: https://couchpotatoe1234.itch.io/dots  
-This is a platformer/metroidvania style game built in Godot with the art made using Aseprite. It is a work in progress at the moment, but will continue improving over the course of the next 3 weeks. With the project, the README will grow, elaborating on all the cool stuff that will be added to the project.  
+This is a platformer/metroidvania style game built in Godot with the art made using Aseprite. It is a work in progress at the moment, but will continue improving over the course of the next week.
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.6.0: Added a slash sound, coins and a couple new levels in this update, a healing animation was implemented and healing more restricted. This week we made some new levels for the Game introducing the rest area and where the first boss will be. We also introduced the upper area in the mountains even though we are still working on it. Finally adding coins to our game that drop on an enemy death. Other then that we also made checkpoints along the way and made some more transitions.
+Most recent updates to game: 0.7.0: This week, some more sounds were introduced, the coins, upper areas, and sounds more refined. The new levels were improved, and the rest area was made nicer. The bar/rest area was improved slightly and new art for the mountain levels and coins are in progress at the moment. Coin sounds were implemented, as well as initial velocity, to allow for more interactive coin drops from enemies and the new coin-cache. Jump sounds for the player were implemented and the less noticeable land sound, played only when the player falls from a certain height. Sounds for hitting enemies and other objects will be implemented, as will music. The mountain levels will be improved art-wise soon and new undergound levels will likely be added sometime in the next week.
 
-![App Screenshot](images/image_14.png)  
+![App Screenshot](images/image_17.png)  
 
-![App Screenshot](images/image_15.png)  
+![App Screenshot](images/image_18.png)  
 
-![App Screenshot](images/image_16.png)  
+![App Screenshot](images/image_19.png)  
+
+![App Screenshot](images/image_20.png)  
 
 to see images of previous development, check the images folder in the repo
 previous updates:  
+
+0.6.0: Added a slash sound, coins and a couple new levels in this update, a healing animation was implemented and healing more restricted. This week we made some new levels for the Game introducing the rest area and where the first boss will be. We also introduced the upper area in the mountains even though we are still working on it. Finally adding coins to our game that drop on an enemy death. Other then that we also made checkpoints along the way and made some more transitions.  
 
 0.5.0: This week we worked on adding a healing buddy, some nice new slash sprites, and some better platforms for the game. We implemented also better player knockback, enemy knockback and outlined the enemies for better visibility against the background. Breakable blocks were finished, 3rd level deployed, and at least 5 more levels planned in the future for different portions of the game.  
 
