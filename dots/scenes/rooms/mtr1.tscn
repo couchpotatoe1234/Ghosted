@@ -186,7 +186,7 @@ texture = ExtResource("2_t1l30")
 vframes = 4
 
 [node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=789389148]
-scroll_scale = Vector2(0.3, 1)
+scroll_scale = Vector2(0.18, 0.6)
 
 [node name="BackMTR12" type="Sprite2D" parent="Background/Parallax2D" unique_id=1585421139]
 z_index = -1
