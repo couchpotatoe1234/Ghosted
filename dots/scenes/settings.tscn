@@ -3,6 +3,19 @@
 [ext_resource type="Texture2D" uid="uid://e66klf0nuj5l" path="res://Assets/sprites/Menu_NoTitle.png" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://bopma728ttua7" path="res://scripts/settings.gd" id="1_6wm04"]
 [ext_resource type="Script" uid="uid://dh3pmjii2i1gh" path="res://scripts/rebind_button.gd" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://bqm6uh3jlrak5" path="res://Assets/sprites/Buttons2.png" id="4_f4mfi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3phul"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es4n0"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(256, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gis3k"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(128, 0, 128, 32)
 
 [node name="Settings" type="CanvasLayer" unique_id=2002854061]
 script = ExtResource("1_6wm04")
@@ -159,11 +172,14 @@ layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
 
-[node name="main menu" type="Button" parent="." unique_id=760490221]
-offset_left = 54.0
-offset_top = 575.0
-offset_right = 228.0
-offset_bottom = 606.0
-text = "Return to main menu"
+[node name="main menu" type="TextureButton" parent="." unique_id=534296402]
+offset_left = 23.0
+offset_top = 518.0
+offset_right = 376.0
+offset_bottom = 608.0
+texture_normal = SubResource("AtlasTexture_3phul")
+texture_pressed = SubResource("AtlasTexture_es4n0")
+texture_hover = SubResource("AtlasTexture_gis3k")
+stretch_mode = 4
 
 [connection signal="pressed" from="main menu" to="." method="_on_main_menu_pressed"]

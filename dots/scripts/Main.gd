@@ -108,6 +108,7 @@ func return_to_main_menu() -> void:
 	load_main_menu()
 	if transition_layer:
 		await transition_layer.fade_in()
+	GameManager.controls_allowed = true
 
 func _on_player_respawn() -> void:
 	change_level(GameManager.last_level, GameManager.last_save_point)

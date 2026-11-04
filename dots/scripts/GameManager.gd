@@ -36,6 +36,12 @@ func add_money(amount: int) -> void:
 #room 2 = -2415, -65
 #room 3 = -2543, -161
 #bar = 0, -256
+#mtr1 = 81, -61
+#mtr2 = 75, -91
+#mtr3 = 0, 0
+#bar_trans = 
+#
+
 
 
 var block1_broken = false

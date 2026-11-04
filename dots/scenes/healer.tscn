@@ -247,7 +247,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Healer" type="CharacterBody2D" unique_id=1802982851]
+[node name="Healer" type="CharacterBody2D" unique_id=1802982851 groups=["pauseable"]]
 script = ExtResource("1_idgs8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=751870463]
