@@ -62,6 +62,7 @@ vframes = 8
 frame = 3
 
 [node name="Clouds" type="Parallax2D" parent="Background" unique_id=317669753]
+scroll_scale = Vector2(0.9, 1)
 scroll_offset = Vector2(-310, -253)
 repeat_size = Vector2(192, 0)
 repeat_times = 8
