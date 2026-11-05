@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 		sprite.play("activated")
 		activated = true
 	if player_in_range and not activated:
-		if Input.is_action_just_pressed("up"):
+		if Input.is_action_just_pressed("interact"):
 			activate_checkpoint()
 			
 func _on_body_entered(body: Node2D) -> void:
