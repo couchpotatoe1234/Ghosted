@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal return_to_menu_requested
+@onready var player: CharacterBody2D = $"../Player"
 
 func _ready() -> void:
 	hide()
@@ -39,4 +40,5 @@ func _on_main_menu_button_pressed() -> void:
 	get_tree().paused = false
 	visible = false
 	hide()
+	GameManager.health = player.max_health
 	return_to_menu_requested.emit()

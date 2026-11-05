@@ -103,16 +103,10 @@ func die() -> void:
 	
 	var death_position: Vector2 = global_position
 	var level: Node2D = owner
-	print(level)
-	
-	print("ground enemy died at", death_position)
-	
 	for i in range(coin_reward):
 		var coin = COIN_PARTICLE_SCENE.instantiate()
 		level.add_child(coin)
 		coin.set_spawn_position(death_position, Vector2(randf_range(-75, 75), randf_range(-200, -150)))
-		print("coin spawn", coin.global_position)
-	
 	sprite.play("death")
 
 func _on_animation_finished() -> void:

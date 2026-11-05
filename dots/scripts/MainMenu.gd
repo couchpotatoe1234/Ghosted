@@ -4,9 +4,6 @@ extends CanvasLayer
 @onready var main: Node2D = $"/root/Main"
 signal play_pressed
 
-func _ready() -> void:
-	print(GameManager.controls_allowed)
-
 func _on_start_pressed() -> void:
 	if GameManager.controls_allowed:
 		click_sound.play()

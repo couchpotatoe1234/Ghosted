@@ -5,6 +5,7 @@ extends Node2D
 @onready var pause_menu = $PauseMenu
 @onready var transition_layer = $GUI/TransitionLayer
 @onready var hud = $GUI/HUD
+@onready var healer: CharacterBody2D = $Healer
 var current_level_node: Node = null
 signal game_started
 signal changed_level
@@ -52,6 +53,9 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		player.hide()
 		$Player/Hurtbox.set_collision_mask_value(2, false)
 		player.set_physics_process(false)
+	if healer:
+		healer.hide()
+		healer.set_physics_process(false)
 	if hud:
 		hud.set_deferred("visible", false)
 	if transition_layer:
@@ -80,6 +84,10 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		changed_level.emit()
 		player.show()
 		player.velocity = _spawn_velocity
+	if healer:
+		healer.show()
+		healer._ready()
+		healer.set_physics_process(true)
 	if hud:
 		hud.set_deferred("visible", true)
 	if transition_layer:
