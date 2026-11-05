@@ -3,6 +3,70 @@
 [ext_resource type="Script" uid="uid://bbmn03jqsbq5q" path="res://scripts/coin_particles.gd" id="1_qw6gd"]
 [ext_resource type="Texture2D" uid="uid://dgngelsyyt7wj" path="res://Assets/sprites/coins.png" id="2_qw6gd"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw6gd"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysuhx"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7s1r"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ioavq"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjmja"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gch6w"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewlr8"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quqrb"]
+atlas = ExtResource("2_qw6gd")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkdic"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw6gd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysuhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7s1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ioavq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjmja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gch6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewlr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quqrb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 11.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ke6mt"]
 radius = 4.0
 
@@ -13,10 +77,12 @@ radius = 8.0
 collision_layer = 0
 script = ExtResource("1_qw6gd")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=937761445]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2010733631]
 z_index = 1
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_qw6gd")
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gkdic")
+autoplay = "default"
+frame_progress = 0.81515336
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=446289789]
 shape = SubResource("CircleShape2D_ke6mt")

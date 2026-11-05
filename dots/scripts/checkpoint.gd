@@ -1,12 +1,12 @@
 extends Area2D
 
-@onready var prompt: Label = get_node_or_null("Label")
-@onready var sprite: AnimatedSprite2D = get_node_or_null("AnimatedSprite2D")
+@onready var prompt: Label = $Label
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var player_in_range: bool = false
 var activated: bool = false
 
 func _ready() -> void:
-	
+	prompt.text = "Press " + OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + " to interact"
 	if sprite == null:
 		push_error("missing")
 		return

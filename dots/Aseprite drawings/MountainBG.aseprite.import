@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b5nqxhu6c7jdw"
+path="res://.godot/imported/MountainBG.aseprite-e263be46fdc70fac8518ce70466f5f7d.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/MountainBG.aseprite"
+dest_files=["res://.godot/imported/MountainBG.aseprite-e263be46fdc70fac8518ce70466f5f7d.res"]
+
+[params]
+

@@ -3,6 +3,20 @@
 [ext_resource type="Texture2D" uid="uid://e66klf0nuj5l" path="res://Assets/sprites/Menu_NoTitle.png" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://bopma728ttua7" path="res://scripts/settings.gd" id="1_6wm04"]
 [ext_resource type="Script" uid="uid://dh3pmjii2i1gh" path="res://scripts/rebind_button.gd" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://bqm6uh3jlrak5" path="res://Assets/sprites/Buttons2.png" id="4_f4mfi"]
+[ext_resource type="Script" uid="uid://40clalnn50hl" path="res://scripts/alt_keybinds.gd" id="5_es4n0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3phul"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(0, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_es4n0"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(256, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gis3k"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(128, 0, 128, 32)
 
 [node name="Settings" type="CanvasLayer" unique_id=2002854061]
 script = ExtResource("1_6wm04")
@@ -31,7 +45,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Left:"
 
-[node name="Left" type="Button" parent="VBoxContainer/left" unique_id=226165391]
+[node name="Button" type="Button" parent="VBoxContainer/left" unique_id=226165391]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -44,7 +58,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Right:"
 
-[node name="Right" type="Button" parent="VBoxContainer/right" unique_id=989563986]
+[node name="Button" type="Button" parent="VBoxContainer/right" unique_id=989563986]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -57,7 +71,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Up/Interact:"
 
-[node name="Up" type="Button" parent="VBoxContainer/up" unique_id=405192846]
+[node name="Button" type="Button" parent="VBoxContainer/up" unique_id=405192846]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -70,7 +84,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Down:"
 
-[node name="Down" type="Button" parent="VBoxContainer/down" unique_id=1323371669]
+[node name="Button" type="Button" parent="VBoxContainer/down" unique_id=1323371669]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -83,7 +97,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Attack:"
 
-[node name="Attack" type="Button" parent="VBoxContainer/attack" unique_id=568687308]
+[node name="Button" type="Button" parent="VBoxContainer/attack" unique_id=568687308]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -103,7 +117,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Jump:"
 
-[node name="Jump" type="Button" parent="VBoxContainer2/jump" unique_id=1077957503]
+[node name="Button" type="Button" parent="VBoxContainer2/jump" unique_id=1077957503]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -116,7 +130,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Heal:"
 
-[node name="Heal" type="Button" parent="VBoxContainer2/heal" unique_id=94399558]
+[node name="Button" type="Button" parent="VBoxContainer2/heal" unique_id=94399558]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -129,7 +143,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Dash:"
 
-[node name="Dash" type="Button" parent="VBoxContainer2/dash" unique_id=590357862]
+[node name="Button" type="Button" parent="VBoxContainer2/dash" unique_id=590357862]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -142,7 +156,7 @@ layout_mode = 2
 layout_mode = 2
 text = "TBD:"
 
-[node name="Button4" type="Button" parent="VBoxContainer2/TBD" unique_id=1113853458]
+[node name="Button" type="Button" parent="VBoxContainer2/TBD" unique_id=1113853458]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
@@ -154,16 +168,28 @@ layout_mode = 2
 layout_mode = 2
 text = "TBD:"
 
-[node name="Button5" type="Button" parent="VBoxContainer2/TBD2" unique_id=1580799008]
+[node name="Button" type="Button" parent="VBoxContainer2/TBD2" unique_id=1580799008]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_r6d6q")
 
-[node name="main menu" type="Button" parent="." unique_id=760490221]
-offset_left = 54.0
-offset_top = 575.0
-offset_right = 228.0
-offset_bottom = 606.0
-text = "Return to main menu"
+[node name="main menu" type="TextureButton" parent="." unique_id=534296402]
+offset_left = 23.0
+offset_top = 518.0
+offset_right = 376.0
+offset_bottom = 608.0
+texture_normal = SubResource("AtlasTexture_3phul")
+texture_pressed = SubResource("AtlasTexture_es4n0")
+texture_hover = SubResource("AtlasTexture_gis3k")
+stretch_mode = 4
+
+[node name="CouchPotatoe1234 binds" type="Button" parent="." unique_id=385472258]
+offset_left = 541.0
+offset_top = 511.0
+offset_right = 678.0
+offset_bottom = 542.0
+text = "HK-like keybinds"
+script = ExtResource("5_es4n0")
 
 [connection signal="pressed" from="main menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CouchPotatoe1234 binds" to="CouchPotatoe1234 binds" method="_on_pressed"]

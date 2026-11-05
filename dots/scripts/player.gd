@@ -67,7 +67,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("heal"):
 			heal()
 		if Input.is_action_just_pressed("dash"):
-			print("dash")
 			velocity.x = 500 * input_dir
 		if Input.is_action_just_pressed("Jump"):
 			jump_buffer_timer = jump_buffer_duration

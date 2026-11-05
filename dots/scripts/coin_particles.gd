@@ -12,6 +12,7 @@ var is_scattering: bool = false
 var collected: bool = false
 
 func _ready() -> void:
+	$Sprite2D.frame = randi() % 7
 	player = get_tree().get_first_node_in_group("player") as Node2D
 	scatter_target = global_position + Vector2(randf_range(-scatter_distance, scatter_distance), randf_range(-scatter_distance, scatter_distance))
 
