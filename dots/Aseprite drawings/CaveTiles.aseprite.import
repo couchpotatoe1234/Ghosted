@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://br82oyk1le2py"
+path="res://.godot/imported/CaveTiles.aseprite-c8fb3ab837bdda858747d6b19855e90c.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/CaveTiles.aseprite"
+dest_files=["res://.godot/imported/CaveTiles.aseprite-c8fb3ab837bdda858747d6b19855e90c.res"]
+
+[params]
+
