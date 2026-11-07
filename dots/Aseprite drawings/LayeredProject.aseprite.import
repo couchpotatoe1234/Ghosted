@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c02uailc18aqi"
+path="res://.godot/imported/LayeredProject.aseprite-3ef8b77df9dbf4cc4608ca7193bab7e1.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/LayeredProject.aseprite"
+dest_files=["res://.godot/imported/LayeredProject.aseprite-3ef8b77df9dbf4cc4608ca7193bab7e1.res"]
+
+[params]
+
