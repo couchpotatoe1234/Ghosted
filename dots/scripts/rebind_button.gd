@@ -1,7 +1,11 @@
-extends Button
+extends TextureButton
 
 @export var action_name: String = ""
-static var listening_button: Button = null
+
+@onready var label: Label = $Label
+
+static var listening_button: TextureButton = null
+
 
 func _ready() -> void:
 	update_button_text()
@@ -12,17 +16,17 @@ func update_button_text() -> void:
 	if events.size() > 0:
 		var event = events[0]
 		if event is InputEventKey:
-			text = OS.get_keycode_string(event.physical_keycode) if event.physical_keycode != 0 else event.as_text()
+			label.text = OS.get_keycode_string(event.physical_keycode) if event.physical_keycode != 0 else event.as_text()
 		else:
-			text = event.as_text()
+			label.text = event.as_text()
 	else:
-		text = "Unbound"
+		label.text = "Unbound"
 
 func _on_button_pressed() -> void:
 	if listening_button != null and listening_button != self:
 		return
 	listening_button = self
-	text = "Press a key..."
+	label.text = "Press a key..."
 
 func _unhandled_input(event: InputEvent) -> void:
 	if listening_button != self:

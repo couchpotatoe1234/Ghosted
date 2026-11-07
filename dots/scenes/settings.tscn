@@ -6,8 +6,11 @@
 [ext_resource type="Script" uid="uid://40clalnn50hl" path="res://scripts/alt_keybinds.gd" id="5_es4n0"]
 [ext_resource type="FontFile" uid="uid://dtob7sad1udk0" path="res://Assets/fonts/Minecraft.ttf" id="6_83j8s"]
 [ext_resource type="Texture2D" uid="uid://chwm1nowkfdnv" path="res://Assets/sprites/SettingButtons.png" id="6_gis3k"]
+[ext_resource type="Script" uid="uid://dh3pmjii2i1gh" path="res://scripts/rebind_button.gd" id="6_gjs24"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2wn7b"]
+atlas = ExtResource("4_f4mfi")
+region = Rect2(0, 7, 128, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_es4n0"]
 atlas = ExtResource("4_f4mfi")
@@ -16,6 +19,23 @@ region = Rect2(256, 0, 128, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gis3k"]
 atlas = ExtResource("4_f4mfi")
 region = Rect2(128, 0, 128, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kclc"]
+atlas = ExtResource("6_gis3k")
+region = Rect2(0, 24, 64, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifv7x"]
+atlas = ExtResource("6_gis3k")
+region = Rect2(130, 24, 64, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pig7a"]
+atlas = ExtResource("6_gis3k")
+region = Rect2(65, 24, 64, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mc5i"]
+font = ExtResource("6_83j8s")
+font_size = 4
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6mc5i"]
 atlas = ExtResource("6_gis3k")
@@ -35,18 +55,6 @@ font_size = 4
 font_color = Color(0, 0, 0, 1)
 shadow_size = 0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3kclc"]
-atlas = ExtResource("6_gis3k")
-region = Rect2(0, 24, 64, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifv7x"]
-atlas = ExtResource("6_gis3k")
-region = Rect2(130, 24, 64, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pig7a"]
-atlas = ExtResource("6_gis3k")
-region = Rect2(65, 24, 64, 20)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_o5ptu"]
 atlas = ExtResource("6_gis3k")
 region = Rect2(0, 45, 64, 20)
@@ -58,6 +66,11 @@ region = Rect2(130, 45, 64, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_33lup"]
 atlas = ExtResource("6_gis3k")
 region = Rect2(65, 45, 64, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ldgyx"]
+font = ExtResource("6_83j8s")
+font_size = 4
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_83j8s"]
 atlas = ExtResource("6_gis3k")
@@ -71,6 +84,11 @@ region = Rect2(130, 66, 64, 20)
 atlas = ExtResource("6_gis3k")
 region = Rect2(65, 66, 64, 20)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3kclc"]
+font = ExtResource("6_83j8s")
+font_size = 4
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_j16xh"]
 atlas = ExtResource("6_gis3k")
 region = Rect2(0, 87, 64, 20)
@@ -83,6 +101,11 @@ region = Rect2(129, 87, 64, 20)
 atlas = ExtResource("6_gis3k")
 region = Rect2(65, 87, 64, 20)
 
+[sub_resource type="LabelSettings" id="LabelSettings_ifv7x"]
+font = ExtResource("6_83j8s")
+font_size = 4
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_rawd4"]
 atlas = ExtResource("6_gis3k")
 region = Rect2(0, 108, 64, 20)
@@ -94,6 +117,11 @@ region = Rect2(130, 108, 64, 20)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ll2f7"]
 atlas = ExtResource("6_gis3k")
 region = Rect2(65, 108, 64, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pig7a"]
+font = ExtResource("6_83j8s")
+font_size = 4
+font_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="CanvasLayer" unique_id=2002854061]
 script = ExtResource("1_6wm04")
@@ -121,73 +149,125 @@ offset_bottom = 542.0
 text = "HK-like keybinds"
 script = ExtResource("5_es4n0")
 
-[node name="Left" type="TextureButton" parent="." unique_id=1626838264]
-offset_left = 222.0
-offset_top = 223.0
-offset_right = 286.0
-offset_bottom = 243.0
-scale = Vector2(2, 2)
-texture_normal = SubResource("AtlasTexture_6mc5i")
-texture_pressed = SubResource("AtlasTexture_brixi")
-texture_hover = SubResource("AtlasTexture_ldgyx")
-
-[node name="Label" type="Label" parent="Left" unique_id=237672563]
-layout_mode = 0
-offset_left = 44.5
-offset_top = 5.5
-offset_right = 84.5
-offset_bottom = 28.5
-label_settings = SubResource("LabelSettings_brixi")
-
 [node name="Right" type="TextureButton" parent="." unique_id=1588341280]
-offset_left = 222.0
-offset_top = 172.0
-offset_right = 286.0
-offset_bottom = 192.0
-scale = Vector2(2, 2)
+offset_left = 140.0
+offset_top = 123.0
+offset_right = 204.0
+offset_bottom = 143.0
+scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_3kclc")
 texture_pressed = SubResource("AtlasTexture_ifv7x")
 texture_hover = SubResource("AtlasTexture_pig7a")
+script = ExtResource("6_gjs24")
+action_name = "right"
+
+[node name="Label" type="Label" parent="Right" unique_id=579087311]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 5.0
+offset_right = 76.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_6mc5i")
+
+[node name="Left" type="TextureButton" parent="." unique_id=1626838264]
+offset_left = 140.0
+offset_top = 192.0
+offset_right = 204.0
+offset_bottom = 212.0
+scale = Vector2(3, 3)
+texture_normal = SubResource("AtlasTexture_6mc5i")
+texture_pressed = SubResource("AtlasTexture_brixi")
+texture_hover = SubResource("AtlasTexture_ldgyx")
+script = ExtResource("6_gjs24")
+action_name = "left"
+
+[node name="Label" type="Label" parent="Left" unique_id=237672563]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 5.5
+offset_right = 76.0
+offset_bottom = 28.5
+label_settings = SubResource("LabelSettings_brixi")
 
 [node name="Up" type="TextureButton" parent="." unique_id=123497950]
-offset_left = 222.0
-offset_top = 274.0
-offset_right = 286.0
-offset_bottom = 314.0
-scale = Vector2(2, 2)
+offset_left = 139.0
+offset_top = 262.0
+offset_right = 203.0
+offset_bottom = 282.0
+scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_o5ptu")
 texture_pressed = SubResource("AtlasTexture_m3axj")
 texture_hover = SubResource("AtlasTexture_33lup")
+script = ExtResource("6_gjs24")
+action_name = "up"
+
+[node name="Label" type="Label" parent="Up" unique_id=275193159]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 5.0
+offset_right = 76.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_ldgyx")
 
 [node name="Down" type="TextureButton" parent="." unique_id=1323726021]
-offset_left = 222.0
-offset_top = 324.0
-offset_right = 287.0
-offset_bottom = 364.0
-scale = Vector2(2, 2)
+offset_left = 139.0
+offset_top = 334.0
+offset_right = 204.0
+offset_bottom = 374.0
+scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_83j8s")
 texture_pressed = SubResource("AtlasTexture_gjs24")
 texture_hover = SubResource("AtlasTexture_am25x")
+script = ExtResource("6_gjs24")
+action_name = "down"
+
+[node name="Label" type="Label" parent="Down" unique_id=1693020131]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 5.0
+offset_right = 76.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_3kclc")
 
 [node name="Attack" type="TextureButton" parent="." unique_id=671639730]
-offset_left = 390.0
-offset_top = 172.0
-offset_right = 454.0
-offset_bottom = 192.0
-scale = Vector2(2, 2)
+offset_left = 358.0
+offset_top = 101.0
+offset_right = 422.0
+offset_bottom = 121.0
+scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_j16xh")
 texture_pressed = SubResource("AtlasTexture_pxxdb")
 texture_hover = SubResource("AtlasTexture_i5rhh")
+script = ExtResource("6_gjs24")
+action_name = "attack"
 
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1896418795]
-offset_left = 391.0
-offset_top = 224.0
-offset_right = 455.0
-offset_bottom = 244.0
-scale = Vector2(2, 2)
+[node name="Label" type="Label" parent="Attack" unique_id=1461283449]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 5.0
+offset_right = 76.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_ifv7x")
+
+[node name="Interact" type="TextureButton" parent="." unique_id=1896418795]
+offset_left = 357.00003
+offset_top = 175.00002
+offset_right = 421.00003
+offset_bottom = 195.00002
+scale = Vector2(3, 3)
 texture_normal = SubResource("AtlasTexture_rawd4")
 texture_pressed = SubResource("AtlasTexture_1oelq")
 texture_hover = SubResource("AtlasTexture_ll2f7")
+script = ExtResource("6_gjs24")
+action_name = "Interact"
+
+[node name="Label" type="Label" parent="Interact" unique_id=436737755]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 28.0
+label_settings = SubResource("LabelSettings_pig7a")
 
 [connection signal="pressed" from="main menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="CouchPotatoe1234 binds" to="CouchPotatoe1234 binds" method="_on_pressed"]
