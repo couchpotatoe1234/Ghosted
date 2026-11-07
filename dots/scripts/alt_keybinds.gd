@@ -1,13 +1,5 @@
 extends Button
 
-@onready var button1: Button = $"../left/Button"
-@onready var button2: Button = $"../right/Button"
-@onready var button3: Button = $"../up/Button"
-@onready var button4: Button = $"../down/Button"
-@onready var button5: Button = $"../attack/Button"
-@onready var button6: Button = $"../jump/Button"
-@onready var button7: Button = $"../heal/Button"
-@onready var button8: Button = $"../dash/Button"
 
 func _on_pressed() -> void:
 	var keybinds = {
@@ -25,11 +17,11 @@ func _on_pressed() -> void:
 		var event = InputEventKey.new()
 		event.physical_keycode = keybinds[action]
 		InputMap.action_add_event(action, event)
-		button1.update_button_text()
-		button2.update_button_text()
-		button3.update_button_text()
-		button4.update_button_text()
-		button5.update_button_text()
-		button6.update_button_text()
-		button7.update_button_text()
-		button8.update_button_text()
+		#button1.update_button_text()
+		#button2.update_button_text()
+		#button3.update_button_text()
+		#button4.update_button_text()
+		#button5.update_button_text()
+		#button6.update_button_text()
+		#button7.update_button_text()
+		#button8.update_button_text()
