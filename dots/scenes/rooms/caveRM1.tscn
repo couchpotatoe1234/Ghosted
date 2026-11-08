@@ -12,8 +12,8 @@
 [ext_resource type="Script" uid="uid://bvv1hq0k5wvbr" path="res://scripts/transition_scripts/c1_3.gd" id="8_qy6pk"]
 [ext_resource type="PackedScene" uid="uid://d1l5h6y70wdec" path="res://scenes/enemy_1.tscn" id="8_rpbfk"]
 [ext_resource type="PackedScene" uid="uid://duwg1gjydhlq8" path="res://scenes/enemy_2.tscn" id="9_hmmah"]
-[ext_resource type="Script" uid="uid://dhn2y8np4jbrq" path="res://scripts/transition_scripts/c1_shop.gd" id="11_5k53e"]
 [ext_resource type="Script" uid="uid://crm02e3kbprbu" path="res://scripts/transition_scripts/c1_c2.gd" id="11_bpei6"]
+[ext_resource type="Script" uid="uid://dhn2y8np4jbrq" path="res://scripts/transition_scripts/c1_shoptrans.gd" id="13_rpbfk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10n7q"]
 size = Vector2(96, 7)
@@ -410,17 +410,17 @@ texture = ExtResource("7_qvjnx")
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_bx43i")
 
-[node name="C1-Shop" type="Area2D" parent="." unique_id=592510729]
+[node name="C1-ShopTrans" type="Area2D" parent="." unique_id=592510729]
 position = Vector2(-2180, 672)
 collision_mask = 2
-script = ExtResource("11_5k53e")
+script = ExtResource("13_rpbfk")
 
-[node name="Sprite2D" type="Sprite2D" parent="C1-Shop" unique_id=634709748]
+[node name="Sprite2D" type="Sprite2D" parent="C1-ShopTrans" unique_id=634709748]
 position = Vector2(-12, -1.9999695)
 scale = Vector2(-1, -1.0802336)
 texture = ExtResource("7_qvjnx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="C1-Shop" unique_id=1406110260]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="C1-ShopTrans" unique_id=1406110260]
 position = Vector2(-27, 0)
 shape = SubResource("RectangleShape2D_08ty0")
 
@@ -439,8 +439,8 @@ rotation = 1.5707964
 texture = ExtResource("7_qvjnx")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=115418385]
-position = Vector2(704, 1568)
+position = Vector2(-2194, 703)
 
 [connection signal="body_entered" from="C1-3" to="C1-3" method="_on_body_entered"]
-[connection signal="body_entered" from="C1-Shop" to="C1-Shop" method="_on_body_entered"]
+[connection signal="body_entered" from="C1-ShopTrans" to="C1-ShopTrans" method="_on_body_entered"]
 [connection signal="body_entered" from="C1-C2" to="C1-C2" method="_on_body_entered"]
