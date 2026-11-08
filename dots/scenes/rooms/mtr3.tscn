@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://boevehvqxqqv" path="res://scripts/transition_scripts/mtr3-mtr2.gd" id="8_70bhf"]
 [ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="9_4egrt"]
 [ext_resource type="PackedScene" uid="uid://ddnxr8bs032dc" path="res://scenes/coin-cache.tscn" id="10_4egrt"]
-[ext_resource type="Script" uid="uid://cajp8eagdomcl" path="res://scenes/rooms/mtr3-mtr4.gd" id="11_trsm7"]
+[ext_resource type="Script" uid="uid://cajp8eagdomcl" path="res://scripts/transition_scripts/mtr3-mtr4.gd" id="11_trsm7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgtuh"]
 texture = ExtResource("4_70bhf")
