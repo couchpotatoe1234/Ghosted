@@ -366,7 +366,7 @@ script = ExtResource("1_jncid")
 sprite_frames = SubResource("SpriteFrames_dlmty")
 animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.037691273
+frame_progress = 0.85895735
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000319593]

@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal defeated
+signal health_changed(current: int, maximum: int)
+
 @export var max_health: int = 10
 @export var damage: int = 1
 @export var detect_range: float = 400.0
@@ -100,7 +103,7 @@ func take_hit(_direction: Vector2) -> void:
 	hit_lock = true	
 	health -= 1
 	health_bar.value = health
-#	broadcast signal
+	health_changed.emit(health, max_health)
 	
 	animated_sprite_2d.modulate = Color(1.0, 0.3, 0.3)
 	create_tween().tween_property(animated_sprite_2d, "modulate", Color.WHITE, 0.2)
@@ -111,11 +114,23 @@ func take_hit(_direction: Vector2) -> void:
 	
 	await get_tree().create_timer(0.25).timeout
 	hit_lock = false
+	
+
+func _die() -> void:
+	state = State.DEAD
+	velocity = Vector2.ZERO
+	$CollisionShape2D.set_deferred("disabled", false)
+	attack_area.set_deferred("monitoring", false)
+	health_ui.visible = false
+	defeated.emit()
+	
+	await animated_sprite_2d.play("death")
+	
+	queue_free()
+	
 
 func _play(anim: String) -> void:
 	animated_sprite_2d.play(anim)
-
-
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
