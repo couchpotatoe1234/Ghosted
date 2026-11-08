@@ -31,6 +31,7 @@ var hit_lock:   bool = false
 @onready var animation_player: AnimationPlayer = $AnimatedSprite2D/AnimationPlayer
 
 func _ready() -> void:
+	add_to_group("normal_enemy")
 	health = max_health
 	health_bar.max_value = max_health
 	health_ui.visible = false
@@ -86,9 +87,9 @@ func _attack() -> void:
 		if state == State.DEAD:
 			return
 		elapsed += get_physics_process_delta_time()
-		if attack_range_reached and state == State.ATTACKING:
-			player.take_damage(damage)
-			hit = true
+		#if attack_range_reached and state == State.ATTACKING:
+			#player.take_damage(damage)
+			#hit = true
 			
 	
 	state = State.RAGING
@@ -100,6 +101,7 @@ func _attack() -> void:
 func take_hit(_direction: Vector2) -> void:
 	if state == State.DEAD or hit_lock:
 		return
+	print("taking hit")
 	hit_lock = true	
 	health -= 1
 	health_bar.value = health
@@ -109,9 +111,8 @@ func take_hit(_direction: Vector2) -> void:
 	create_tween().tween_property(animated_sprite_2d, "modulate", Color.WHITE, 0.2)
 	
 	if health <= 0:
-#		die
-		pass
-	
+		_die()
+		return
 	await get_tree().create_timer(0.25).timeout
 	hit_lock = false
 	
@@ -124,13 +125,19 @@ func _die() -> void:
 	health_ui.visible = false
 	defeated.emit()
 	
-	await animated_sprite_2d.play("death")
-	
+	if animated_sprite_2d.sprite_frames.has_animation("death"):
+		animated_sprite_2d.play("death")
+		await animated_sprite_2d.animation_finished
+	else:
+		var tween := create_tween()
+		tween.tween_property(animated_sprite_2d, "modulate:a", 0.0, 0.6)
+		await tween.finished
 	queue_free()
 	
 
 func _play(anim: String) -> void:
-	animated_sprite_2d.play(anim)
+	if animated_sprite_2d.sprite_frames.has_animation(anim):
+		animated_sprite_2d.play(anim)
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
