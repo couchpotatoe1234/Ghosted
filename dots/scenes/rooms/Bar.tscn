@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://hvcfef5snn1k" path="res://scripts/transition_scripts/bar_bartrans.gd" id="3_v03id"]
 [ext_resource type="PackedScene" uid="uid://bonjtfakm0pf6" path="res://scenes/breakable_block2.tscn" id="6_6ex2v"]
 [ext_resource type="Texture2D" uid="uid://j56h5x8fm4wf" path="res://Assets/sprites/Bar.png" id="7_vr8nt"]
+[ext_resource type="Script" uid="uid://diu5f4qsrgqhi" path="res://scenes/rooms/bar_boss_room.gd" id="7_wfi2j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v03id"]
 texture = ExtResource("1_3pvrg")
@@ -136,7 +137,7 @@ terrain_set_0/terrain_0/color = Color(0, 1, 0, 1)
 sources/1 = SubResource("TileSetAtlasSource_v03id")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3phul"]
-size = Vector2(64, 8)
+size = Vector2(35, 71)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr8nt"]
 atlas = ExtResource("7_vr8nt")
@@ -257,6 +258,21 @@ texture = ExtResource("3_5h4nu")
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_3phul")
 
+[node name="bar_boss_room" type="Area2D" parent="." unique_id=1181871050]
+position = Vector2(-927, 44)
+collision_mask = 2
+script = ExtResource("7_wfi2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="bar_boss_room" unique_id=751654144]
+position = Vector2(49, 18)
+rotation = 3.1415927
+scale = Vector2(1, 1.091)
+texture = ExtResource("3_5h4nu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bar_boss_room" unique_id=1787353985]
+position = Vector2(50.5, 17.5)
+shape = SubResource("RectangleShape2D_3phul")
+
 [node name="breakeable_block2" parent="." unique_id=43368363 instance=ExtResource("6_6ex2v")]
 position = Vector2(336, 64)
 
@@ -268,3 +284,4 @@ autoplay = "default"
 frame_progress = 0.9751765
 
 [connection signal="body_entered" from="bar_bartrans" to="bar_bartrans" method="_on_body_entered"]
+[connection signal="body_entered" from="bar_boss_room" to="bar_boss_room" method="_on_body_entered"]
