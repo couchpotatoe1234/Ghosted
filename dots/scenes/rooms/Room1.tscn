@@ -482,7 +482,7 @@ frame = 22
 position = Vector2(-110, 362)
 
 [node name="boss" parent="." unique_id=163989809 instance=ExtResource("15_eu5ve")]
-position = Vector2(1077, 312)
+position = Vector2(1074, 307)
 
 [connection signal="area_entered" from="1-2" to="1-2" method="_on_area_entered"]
 [connection signal="body_entered" from="1-2" to="1-2" method="_on_body_entered"]
