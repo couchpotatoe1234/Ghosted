@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b8aocimf6km6h"]
+
+[ext_resource type="Texture2D" uid="uid://dy27djb7jd8jc" path="res://Assets/sprites/platforms.png" id="1_bgcnc"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=1844582296]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=780312157]
+texture = ExtResource("1_bgcnc")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1117077588]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1393075199]
