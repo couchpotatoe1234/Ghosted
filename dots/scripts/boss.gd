@@ -8,8 +8,8 @@ signal health_changed(current: int, maximum: int)
 @export var detect_range: float = 400.0
 @export var windup_time: float = 0.5
 @export var strike_time: float = 0.25
-@export var cooldown_time: float = 1.2
-@export var attack_range: float = 140.0
+@export var cooldown_time: float = 3.2
+@export var attack_range: float = 50.0
 
 
 
@@ -23,23 +23,30 @@ var player: Node2D
 var boss_direction = -1
 var hit_lock:   bool = false
 
-
+@onready var boss: CharacterBody2D = $"."
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var health_ui: CanvasLayer = $CanvasLayer
 @onready var health_bar: ProgressBar = $CanvasLayer/ProgressBar
-@onready var animation_player: AnimationPlayer = $AnimatedSprite2D/AnimationPlayer
 
 func _ready() -> void:
+	boss.show()
+	boss.process_mode = Node.PROCESS_MODE_INHERIT
 	add_to_group("normal_enemy")
 	health = max_health
 	health_bar.max_value = max_health
-	health_ui.visible = false
+	health_ui.visible = true
 	print("start")
 	_play("idle")
 	
 
 func _physics_process(delta: float) -> void:
+	print(GameManager.defeatedBoss)
+	if GameManager.defeatedBoss.has(boss):
+		boss.hide()
+		boss.process_mode = Node.PROCESS_MODE_DISABLED
+		return
+		
 	if state == State.DEAD: 
 		return
 	
@@ -87,9 +94,9 @@ func _attack() -> void:
 		if state == State.DEAD:
 			return
 		elapsed += get_physics_process_delta_time()
-		#if attack_range_reached and state == State.ATTACKING:
-			#player.take_damage(damage)
-			#hit = true
+		if attack_range_reached and state == State.ATTACKING:
+			player.take_damage(damage)
+			hit = true
 			
 	
 	state = State.RAGING
@@ -125,6 +132,10 @@ func _die() -> void:
 	health_ui.visible = false
 	defeated.emit()
 	
+	GameManager.boss_defeated = true
+	GameManager.defeatedBoss.append(boss)
+	
+	
 	if animated_sprite_2d.sprite_frames.has_animation("death"):
 		animated_sprite_2d.play("death")
 		await animated_sprite_2d.animation_finished
@@ -132,7 +143,9 @@ func _die() -> void:
 		var tween := create_tween()
 		tween.tween_property(animated_sprite_2d, "modulate:a", 0.0, 0.6)
 		await tween.finished
-	queue_free()
+		
+	boss.hide()
+	boss.process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _play(anim: String) -> void:
@@ -141,8 +154,9 @@ func _play(anim: String) -> void:
 
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("player"):
 	attack_range_reached = true
 
-
 func _on_attack_area_body_exited(body: Node2D) -> void:
+	#if body.is_in_group("player"):
 	attack_range_reached = false

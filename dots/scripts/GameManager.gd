@@ -14,6 +14,12 @@ var coins: int = 0
 var health: int = 5
 var hitstop_id: int = 0
 
+var has_boss: bool
+var boss_defeated := false
+
+var defeatedBoss : Array[CharacterBody2D] = []
+
+
 signal money_changed(new: int)
 
 func hitstop(duration: float, magnitude: float = 0.0) -> void:
