@@ -12,20 +12,27 @@ var can_pause = false
 var heals = 2
 var coins: int = 0
 var health: int = 5
+var hitstop_id: int = 0
 
 signal money_changed(new: int)
 
 func hitstop(duration: float, magnitude: float = 0.0) -> void:
 	if hitstop_active and duration < current_hitstop_duration:
+		print("wants to be:", duration, "rn is:", current_hitstop_duration)
 		return
-	current_hitstop_duration = duration
-	hitstop_active = true
-	Engine.time_scale = magnitude
-	await get_tree().create_timer(duration, true, false, true).timeout
-	Engine.time_scale = 1.0
-	hitstop_active = false
-	current_hitstop_duration = 0.0
-	
+	else:
+		print("going thru with", duration, "previeous hitstop:", current_hitstop_duration)
+		current_hitstop_duration = duration
+		hitstop_active = true
+		Engine.time_scale = magnitude
+		hitstop_id += 1
+		var current_id = hitstop_id
+		await get_tree().create_timer(duration, true, false, true).timeout
+		if hitstop_id == current_id:
+			Engine.time_scale = 1.0
+			hitstop_active = false
+			current_hitstop_duration = 0.0
+		
 func add_money(amount: int) -> void:
 	coins += amount
 	money_changed.emit(coins)
