@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://boevehvqxqqv" path="res://scripts/transition_scripts/mtr3-mtr2.gd" id="8_70bhf"]
 [ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="9_4egrt"]
 [ext_resource type="PackedScene" uid="uid://ddnxr8bs032dc" path="res://scenes/coin-cache.tscn" id="10_4egrt"]
+[ext_resource type="Script" uid="uid://cajp8eagdomcl" path="res://scenes/rooms/mtr3-mtr4.gd" id="11_trsm7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgtuh"]
 texture = ExtResource("4_70bhf")
@@ -158,7 +159,7 @@ terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/2 = SubResource("TileSetAtlasSource_lgtuh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trsm7"]
-size = Vector2(2, 64)
+size = Vector2(211, 25)
 
 [node name="mtr3" type="Node2D" unique_id=1447060416]
 script = ExtResource("1_f825t")
@@ -168,7 +169,7 @@ position = Vector2(476, -87)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=64678875]
 z_index = -1
-position = Vector2(-835, -257)
+position = Vector2(-834, -273)
 scale = Vector2(23.921877, 17.76852)
 texture = ExtResource("1_1wwyv")
 vframes = 4
@@ -278,3 +279,24 @@ flip_h = true
 
 [node name="Coin Cache" parent="." unique_id=2104720516 instance=ExtResource("10_4egrt")]
 position = Vector2(102, -266)
+
+[node name="mtr3-mtr4" type="Area2D" parent="." unique_id=1016944246]
+script = ExtResource("11_trsm7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mtr3-mtr4" unique_id=514773908]
+position = Vector2(1277.5, -1264.5)
+shape = SubResource("RectangleShape2D_trsm7")
+
+[node name="TransitionSprite2" type="Sprite2D" parent="mtr3-mtr4" unique_id=1186182702]
+position = Vector2(1337, -1261)
+rotation = 1.5707964
+scale = Vector2(0.96875, 1.3712099)
+texture = ExtResource("9_4egrt")
+flip_h = true
+
+[node name="TransitionSprite3" type="Sprite2D" parent="mtr3-mtr4" unique_id=1542484129]
+position = Vector2(1232.4952, -1259.8625)
+rotation = 1.5707964
+scale = Vector2(1.024459, 1.8753824)
+texture = ExtResource("9_4egrt")
+flip_h = true
