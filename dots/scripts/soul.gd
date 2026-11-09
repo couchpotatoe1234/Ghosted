@@ -1,0 +1,46 @@
+extends Area2D
+
+@onready var prompt: Label = $Label
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+var player_in_range: bool = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	prompt.text = "Press " + OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + " to talk"
+	if sprite == null:
+		push_error("missing")
+		return
+	
+	sprite.play("default")
+	prompt.hide()
+	
+	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if player_in_range:
+		if Input.is_action_just_pressed("up"):
+			if GameManager.coins > 4:
+				activate()
+				await get_tree().create_timer(0.5).timeout
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_range = false
+		if is_instance_valid(prompt):
+			prompt.visible = false
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_range = true
+		if is_instance_valid(prompt):
+			prompt.show()
+
+func activate() -> void:
+	GameManager.heals += 1
+	get_tree().call_group("hud", "change_heals")
+	GameManager.add_money(-5)
+	GameManager.hitstop(0.1)
+	

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cr7lupwmqobg4"
+path="res://.godot/imported/soul.aseprite-6b420ba26b9e9a68f8be9ab326b3f3e9.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/soul.aseprite"
+dest_files=["res://.godot/imported/soul.aseprite-6b420ba26b9e9a68f8be9ab326b3f3e9.res"]
+
+[params]
+

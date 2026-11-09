@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://brmdxueplqg21" path="res://scenes/platforms/platform_4.tscn" id="12_eu5ve"]
 [ext_resource type="Texture2D" uid="uid://cr77ffttbmtn" path="res://Assets/sprites/TileSheet.png" id="13_4fepx"]
 [ext_resource type="PackedScene" uid="uid://ddnxr8bs032dc" path="res://scenes/coin-cache.tscn" id="14_ivxlp"]
+[ext_resource type="PackedScene" uid="uid://pftbhejckfs5" path="res://scenes/soul.tscn" id="15_eu5ve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odhdn"]
 size = Vector2(192, 12)
@@ -479,6 +480,9 @@ position = Vector2(-110, 362)
 
 [node name="Node" type="Node2D" parent="." unique_id=1668261085]
 position = Vector2(1139, 410)
+
+[node name="Area2D" parent="." unique_id=571238610 instance=ExtResource("15_eu5ve")]
+position = Vector2(441, -291)
 
 [connection signal="area_entered" from="1-2" to="1-2" method="_on_area_entered"]
 [connection signal="body_entered" from="1-2" to="1-2" method="_on_body_entered"]

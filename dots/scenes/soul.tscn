@@ -1,3 +1,76 @@
 [gd_scene format=3 uid="uid://pftbhejckfs5"]
 
-[node name="Node2D" type="Node2D" unique_id=1810800279]
+[ext_resource type="Texture2D" uid="uid://clqa4wvo6bl1o" path="res://Assets/sprites/soul.png" id="1_ivn1w"]
+[ext_resource type="Script" uid="uid://dofv5npgdmrmh" path="res://scripts/soul.gd" id="1_jnmxf"]
+[ext_resource type="FontFile" uid="uid://dtob7sad1udk0" path="res://Assets/fonts/Minecraft.ttf" id="3_dt1lx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6mc5i"]
+radius = 31.0
+height = 86.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnmxf"]
+atlas = ExtResource("1_ivn1w")
+region = Rect2(0, 0, 35, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt1lx"]
+atlas = ExtResource("1_ivn1w")
+region = Rect2(35, 0, 35, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6usl"]
+atlas = ExtResource("1_ivn1w")
+region = Rect2(70, 0, 35, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf18v"]
+atlas = ExtResource("1_ivn1w")
+region = Rect2(105, 0, 35, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqx3q"]
+atlas = ExtResource("1_ivn1w")
+region = Rect2(140, 0, 35, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivn1w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnmxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dt1lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6usl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jf18v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqx3q")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mc5i"]
+font = ExtResource("3_dt1lx")
+font_size = 6
+
+[node name="Area2D" type="Area2D" unique_id=571238610]
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("1_jnmxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1618763361]
+shape = SubResource("CapsuleShape2D_6mc5i")
+debug_color = Color(1, 0, 0.7137255, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=542995654]
+sprite_frames = SubResource("SpriteFrames_ivn1w")
+
+[node name="Label" type="Label" parent="." unique_id=387411572]
+offset_left = -21.0
+offset_top = -34.0
+offset_right = 22.0
+offset_bottom = -11.0
+text = "Press E to talk"
+label_settings = SubResource("LabelSettings_6mc5i")
