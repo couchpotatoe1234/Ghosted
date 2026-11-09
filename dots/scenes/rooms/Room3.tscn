@@ -956,9 +956,6 @@ position = Vector2(2, 23)
 rotation = 1.5707964
 texture = ExtResource("7_odiq7")
 
-[node name="enemy1" parent="." unique_id=163723551 instance=ExtResource("5_oxt46")]
-position = Vector2(-1740, -512)
-
 [node name="enemy2" parent="." unique_id=1133654406 instance=ExtResource("5_oxt46")]
 position = Vector2(-2264, -161)
 
