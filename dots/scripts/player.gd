@@ -25,6 +25,7 @@ var coyote_duration: float = 0.12
 var jump_buffer_timer: float = 0.0
 var jump_buffer_duration: float = 0.12
 var was_on_floor: bool = false
+var shake_tween: Tween
 signal respawn
 signal health_changed(current_health: int, max_health: int)
 
@@ -172,6 +173,20 @@ func _on_animation_finished(anim_name: String) -> void:
 		health_changed.emit(GameManager.health, max_health)
 		GameManager.health = max_health
 		respawn.emit()
+
+func shake_camera(strenght: float = 4.0, duration: float = 0.15) -> void:
+	if not camera:
+		return
+	if shake_tween and shake_tween.is_valid():
+		shake_tween.kill()
+	camera.offset = Vector2.ZERO
+	shake_tween = create_tween()
+	var steps := 6
+	for i in steps:
+		var falloff := 1.0 - float(i) / steps
+		var offset := Vector2(randf_range(-1, 1), randf_range(-1, 1)) * strenght * falloff
+		shake_tween.tween_property(camera, "offset", offset, duration / steps)
+	shake_tween.tween_property(camera, "offset", Vector2.ZERO, 0.03)
 
 func take_damage(amount: int) -> void:
 	if is_invulnerable:
@@ -324,6 +339,7 @@ func _enemy_hit(area: Area2D) -> void:
 func _on_attack_hit(body: Node2D, direction: Vector2) -> void:
 	if body.has_method("take_hit"):
 		body.take_hit(direction)
+		shake_camera(4.0, 0.15)
 
 func disable_collision() -> void:
 	$CollisionShape2D.disabled = true

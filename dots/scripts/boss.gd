@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+const COIN_PARTICLE_SCENE = preload("res://scenes/CoinParticles.tscn")
+
+
 signal defeated
 signal health_changed(current: int, maximum: int)
 
+@export var coin_reward = 20
 @export var max_health: int = 10
 @export var damage: int = 1
 @export var detect_range: float = 400.0
@@ -152,6 +156,15 @@ func _play(anim: String) -> void:
 	if animated_sprite_2d.sprite_frames.has_animation(anim):
 		animated_sprite_2d.play(anim)
 
+func spawn_coins(amount: float) -> void:
+	var level:  Node2D = owner
+	var coin_spawn_pos: Vector2 = global_position
+	for i in range(amount):
+		var coin = COIN_PARTICLE_SCENE.instantiate()
+		level.add_child(coin)
+		coin.set_spawn_position(coin_spawn_pos, Vector2(randf_range(-150, 150), randf_range(-200, -300)))
+		print("coin spawn", coin.global_position)
+	
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	#if body.is_in_group("player"):
