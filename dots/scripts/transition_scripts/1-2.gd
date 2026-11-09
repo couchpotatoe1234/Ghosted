@@ -1,6 +1,8 @@
 extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
+	#if GameManager.has_boss and not GameManager.boss_defeated:
+		#return
 	if body.name == "Player":
 		var main_node = get_tree().root.get_node("Main")
 		if main_node and main_node.has_method("change_level"):

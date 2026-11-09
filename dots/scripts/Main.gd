@@ -19,6 +19,8 @@ func _ready() -> void:
 		player.process_mode = PROCESS_MODE_DISABLED
 	if pause_menu:
 		pause_menu.return_to_menu_requested.connect(return_to_main_menu)
+	GameManager.boss_defeated = false
+	GameManager.has_boss = true
 	load_main_menu()
 
 	

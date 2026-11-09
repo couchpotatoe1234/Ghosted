@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ewa82o21ksc1" path="res://scenes/platforms/platform_3.tscn" id="11_m8o46"]
 [ext_resource type="PackedScene" uid="uid://brmdxueplqg21" path="res://scenes/platforms/platform_4.tscn" id="12_eoxmg"]
 [ext_resource type="Script" uid="uid://1si4fey2wqdm" path="res://scripts/transition_scripts/3_mtr1.gd" id="13_rdbf0"]
+[ext_resource type="PackedScene" uid="uid://wbh2akin4nho" path="res://scenes/boss.tscn" id="16_ivcvy"]
 [ext_resource type="Script" uid="uid://bbwon0rxuflkl" path="res://scripts/transition_scripts/3_c1.gd" id="16_vbw1j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xr0ie"]
@@ -954,6 +955,12 @@ shape = SubResource("RectangleShape2D_eoxmg")
 position = Vector2(2, 23)
 rotation = 1.5707964
 texture = ExtResource("7_odiq7")
+
+[node name="enemy2" parent="." unique_id=1133654406 instance=ExtResource("5_oxt46")]
+position = Vector2(-2264, -161)
+
+[node name="boss" parent="." unique_id=163989809 instance=ExtResource("16_ivcvy")]
+position = Vector2(-2494, -193)
 
 [connection signal="body_entered" from="3-2" to="3-2" method="_on_body_entered"]
 [connection signal="body_entered" from="3-mtr1" to="3-mtr1" method="_on_body_entered"]
