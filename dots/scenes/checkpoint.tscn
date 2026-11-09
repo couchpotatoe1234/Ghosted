@@ -39,7 +39,7 @@ animations = [{
 font = ExtResource("1_yyywg")
 font_size = 6
 
-[node name="Checkpoint" type="Area2D" unique_id=1221400640]
+[node name="Checkpoint" type="Area2D" unique_id=1206394957]
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_vsimk")
