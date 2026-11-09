@@ -4,10 +4,102 @@
 [ext_resource type="Texture2D" uid="uid://ci36atarfkeka" path="res://Assets/sprites/CaveBG.png" id="2_06asc"]
 [ext_resource type="TileSet" uid="uid://dupvbuyhtcj0p" path="res://Assets/Other/CaveTiles.tres" id="2_uq745"]
 [ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="3_06asc"]
+[ext_resource type="Texture2D" uid="uid://c2c2pfp78688a" path="res://Assets/sprites/ShopTransBG.png" id="3_toamo"]
 [ext_resource type="Script" uid="uid://dfe1bjq0nuq66" path="res://scripts/transition_scripts/shoptrans_c1.gd" id="3_uq745"]
+[ext_resource type="Script" uid="uid://lwjgo1bkebr3" path="res://scripts/transition_scripts/shoptrans_shop.gd" id="7_d41ax"]
+[ext_resource type="FontFile" uid="uid://dtob7sad1udk0" path="res://Assets/fonts/Minecraft.ttf" id="7_x0glt"]
+[ext_resource type="Texture2D" uid="uid://bhvtxxgi26o58" path="res://Assets/sprites/Fancy-Texts.png" id="8_6t5n4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkdic"]
 size = Vector2(2, 64)
+
+[sub_resource type="LabelSettings" id="LabelSettings_toamo"]
+font = ExtResource("7_x0glt")
+
+[sub_resource type="Animation" id="Animation_6t5n4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ugos8"]
+resource_name = "hidden"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d41ax"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1),
+"transitions": PackedFloat32Array(0.5, 2, 0.5),
+"update": 0,
+"values": [Vector2(19, 14), Vector2(19, 0), Vector2(19, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ugos8"]
+_data = {
+&"RESET": SubResource("Animation_6t5n4"),
+&"hidden": SubResource("Animation_ugos8"),
+&"idle": SubResource("Animation_d41ax")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3phul"]
+radius = 19.0
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5n4"]
+radius = 48.0
+height = 126.0
 
 [node name="Shop-trans" type="Node2D" unique_id=1661631742]
 script = ExtResource("1_6shu7")
@@ -62,6 +154,19 @@ texture = ExtResource("2_06asc")
 vframes = 4
 frame = 3
 
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=704379126]
+position = Vector2(-829, -104)
+scale = Vector2(2, 2)
+texture = ExtResource("3_toamo")
+vframes = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background" unique_id=1993076147]
+position = Vector2(-829, -104)
+scale = Vector2(2, 2)
+texture = ExtResource("3_toamo")
+vframes = 2
+frame = 1
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=477489748]
 z_index = 1
 tile_map_data = PackedByteArray("AAAAAP3/AAABAAIAAAD///3/AAACAAIAAAAAAAAAAAACAAAAAAD//wAAAAABAAAAAAABAP3/AAACAAEAAAABAP7/AAAAAAEAAAABAP//AAAAAAEAAAABAAAAAAABAAEAAAACAAAAAAADAAEAAAACAP//AAADAAEAAAACAP7/AAADAAEAAAACAP3/AAADAAEAAAACAPz/AAADAAAAAAABAPz/AAACAAAAAAAAAPz/AAACAAAAAAD///z/AAABAAAAAAD+/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAACAAEAAAD+/wEAAAACAAEAAAD//wEAAAABAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAAACAAEAAAADAAEAAAD8/wAAAAAAAAAAAAD8/wEAAAABAAEAAAD7/wEAAAAAAAAAAAD7/wIAAAABAAEAAAD6/wIAAAAAAAAAAAD6/wMAAAACAAEAAAD5/wMAAAAAAAAAAAD5/wQAAAACAAEAAAD4/wQAAAACAAAAAAD3/wQAAAAAAAAAAAD3/wUAAAABAAEAAAD2/wUAAAABAAAAAAD1/wUAAAABAAAAAAD0/wUAAAABAAAAAADz/wUAAAABAAAAAADy/wUAAAACAAAAAADx/wUAAAACAAAAAADw/wUAAAACAAAAAADv/wUAAAABAAAAAADu/wUAAAACAAAAAADt/wUAAAABAAAAAADs/wUAAAACAAAAAADr/wUAAAACAAAAAADq/wUAAAABAAAAAAD+//3/AAABAAIAAAD9//3/AAACAAIAAAD8//3/AAACAAIAAAD7//3/AAABAAIAAAD6//3/AAACAAIAAAD5//3/AAACAAEAAAD5//7/AAADAAIAAAD4//7/AAACAAIAAAD3//7/AAACAAEAAAD3////AAADAAIAAAD2////AAABAAIAAAD1////AAACAAEAAAD1/wAAAAADAAIAAAD0/wAAAAACAAIAAADz/wAAAAACAAIAAADy/wAAAAABAAIAAADx/wAAAAACAAIAAADw/wAAAAACAAIAAADv/wAAAAACAAIAAADu/wAAAAABAAIAAADt/wAAAAABAAIAAADs/wAAAAACAAIAAADr/wAAAAABAAIAAADq/wAAAAABAAIAAAD+//z/AAACAAAAAAD9//z/AAABAAAAAAD8//z/AAACAAAAAAD7//z/AAACAAAAAAD6//z/AAABAAAAAAD5//z/AAACAAAAAAD4//3/AAACAAEAAAD4//z/AAABAAAAAAD3//3/AAACAAEAAAD3//z/AAACAAAAAAD2//7/AAABAAEAAAD2//3/AAACAAEAAAD2//z/AAABAAAAAAD1//7/AAACAAEAAAD1//3/AAACAAEAAAD1//z/AAABAAAAAAD0////AAACAAEAAAD0//7/AAABAAEAAAD0//3/AAACAAEAAAD0//z/AAACAAAAAADz////AAABAAEAAADz//7/AAABAAEAAADz//3/AAABAAEAAADz//z/AAABAAAAAADy////AAACAAEAAADy//7/AAABAAEAAADy//3/AAABAAEAAADy//z/AAABAAAAAADx////AAACAAEAAADx//7/AAABAAEAAADx//3/AAACAAEAAADx//z/AAACAAAAAADw////AAACAAEAAADw//7/AAACAAEAAADw//3/AAACAAEAAADw//z/AAABAAAAAADv////AAACAAEAAADv//7/AAACAAEAAADv//3/AAABAAEAAADv//z/AAABAAAAAADu////AAACAAEAAADu//7/AAABAAEAAADu//3/AAABAAEAAADu//z/AAABAAAAAADt////AAABAAEAAADt//7/AAABAAEAAADt//3/AAACAAEAAADt//z/AAABAAAAAADs////AAACAAEAAADs//7/AAACAAEAAADs//3/AAACAAEAAADs//z/AAACAAAAAADr////AAABAAEAAADr//7/AAACAAEAAADr//3/AAACAAEAAADr//z/AAABAAAAAADq////AAACAAEAAADq//7/AAACAAEAAADq//3/AAABAAEAAADq//z/AAABAAAAAAACAAUAAAADAAEAAAACAAQAAAADAAEAAAACAAMAAAADAAEAAAACAAIAAAADAAEAAAABAAUAAAACAAEAAAABAAQAAAABAAEAAAABAAMAAAACAAEAAAABAAIAAAABAAEAAAAAAAUAAAACAAEAAAAAAAQAAAABAAEAAAAAAAMAAAACAAEAAAAAAAIAAAABAAEAAAD//wUAAAACAAEAAAD//wQAAAACAAEAAAD//wMAAAACAAEAAAD//wIAAAABAAEAAAD+/wUAAAABAAEAAAD+/wQAAAACAAEAAAD+/wMAAAACAAEAAAD+/wIAAAABAAEAAAD9/wUAAAABAAEAAAD9/wQAAAABAAEAAAD9/wMAAAACAAEAAAD9/wIAAAABAAEAAAD8/wUAAAACAAEAAAD8/wQAAAACAAEAAAD8/wMAAAABAAEAAAD8/wIAAAABAAEAAAD7/wUAAAABAAEAAAD7/wQAAAACAAEAAAD7/wMAAAACAAEAAAD6/wUAAAACAAEAAAD6/wQAAAABAAEAAAD5/wUAAAABAAEAAAD4/wUAAAACAAEAAADq/wYAAAABAAEAAADr/wYAAAABAAEAAADs/wYAAAABAAEAAADt/wYAAAABAAEAAADu/wYAAAACAAEAAADv/wYAAAACAAEAAADw/wYAAAACAAEAAADx/wYAAAACAAEAAADy/wYAAAABAAEAAADz/wYAAAABAAEAAAD0/wYAAAACAAEAAAD1/wYAAAACAAEAAAD2/wYAAAACAAEAAAD3/wYAAAACAAEAAAD4/wYAAAACAAEAAAD5/wYAAAACAAEAAAD6/wYAAAABAAEAAAD7/wYAAAACAAEAAAD8/wYAAAACAAEAAAD9/wYAAAABAAEAAAD//wYAAAABAAEAAAAAAAYAAAABAAEAAAABAAYAAAACAAEAAAACAAYAAAADAAEAAAD+/wYAAAACAAEAAADp/wAAAAACAAEAAADp/wEAAAADAAIAAADo/wIAAAADAAEAAADo/wMAAAADAAEAAADo/wQAAAACAAEAAADp/wQAAAADAAAAAADp/wUAAAABAAEAAADp/wYAAAACAAEAAADo/wYAAAABAAEAAADn/wYAAAAAAAEAAADo/wUAAAACAAEAAADn/wQAAAAAAAEAAADn/wUAAAAAAAEAAADn/wMAAAAAAAEAAADn/wIAAAAAAAEAAADn/wEAAAAAAAEAAADn/wAAAAAAAAEAAADo/wEAAAACAAEAAADo/wAAAAABAAEAAADo////AAACAAEAAADo//7/AAABAAEAAADp////AAABAAEAAADp//7/AAACAAEAAADp//3/AAABAAEAAADp//z/AAABAAAAAADo//z/AAABAAAAAADo//3/AAABAAEAAADn//3/AAAAAAEAAADn//7/AAAAAAEAAADn////AAAAAAEAAADn//z/AAAAAAAAAADn/wcAAAAAAAIAAADo/wcAAAACAAIAAADp/wcAAAACAAIAAADq/wcAAAABAAIAAADr/wcAAAABAAIAAADs/wcAAAABAAIAAADt/wcAAAABAAIAAADu/wcAAAABAAIAAADv/wcAAAABAAIAAADw/wcAAAACAAIAAADx/wcAAAACAAIAAADy/wcAAAABAAIAAAD0/wcAAAACAAIAAAD1/wcAAAABAAIAAAD2/wcAAAACAAIAAAD3/wcAAAACAAIAAAD4/wcAAAABAAIAAAD5/wcAAAABAAIAAAD6/wcAAAABAAIAAAD7/wcAAAACAAIAAAD8/wcAAAACAAIAAAD9/wcAAAABAAIAAAD+/wcAAAABAAIAAAD//wcAAAACAAIAAAAAAAcAAAABAAIAAAABAAcAAAACAAIAAAACAAcAAAADAAIAAADz/wcAAAABAAIAAAA=")
@@ -84,4 +189,43 @@ texture = ExtResource("3_06asc")
 [node name="Node2D" type="Node2D" parent="." unique_id=1130263379]
 position = Vector2(16, -1)
 
+[node name="shoptrans-Shop" type="Node2D" parent="." unique_id=104416831]
+position = Vector2(-640, 85)
+script = ExtResource("7_d41ax")
+
+[node name="Sprite2D" type="Sprite2D" parent="shoptrans-Shop" unique_id=262673057]
+visible = false
+position = Vector2(19, 14)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_6t5n4")
+
+[node name="Label" type="Label" parent="shoptrans-Shop/Sprite2D" unique_id=1943399002]
+offset_left = -20.0
+offset_top = -18.666664
+offset_right = 24.0
+offset_bottom = 4.333336
+text = "Enter"
+label_settings = SubResource("LabelSettings_toamo")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shoptrans-Shop" unique_id=851385716]
+libraries/ = SubResource("AnimationLibrary_ugos8")
+autoplay = &"hidden"
+
+[node name="Show" type="Area2D" parent="shoptrans-Shop" unique_id=1740865292]
+collision_mask = 2
+
+[node name="ShowShape" type="CollisionShape2D" parent="shoptrans-Shop/Show" unique_id=2101600912]
+position = Vector2(18, 50)
+shape = SubResource("CapsuleShape2D_3phul")
+
+[node name="Hide" type="Area2D" parent="shoptrans-Shop" unique_id=1993107436]
+collision_mask = 2
+
+[node name="HideShape" type="CollisionShape2D" parent="shoptrans-Shop/Hide" unique_id=2054174715]
+position = Vector2(18, 43)
+shape = SubResource("CapsuleShape2D_6t5n4")
+
 [connection signal="body_entered" from="Shoptrans-C1" to="Shoptrans-C1" method="_on_body_entered"]
+[connection signal="body_entered" from="shoptrans-Shop/Show" to="shoptrans-Shop" method="_on_body_entered"]
+[connection signal="body_exited" from="shoptrans-Shop/Hide" to="shoptrans-Shop" method="_on_body_exited"]

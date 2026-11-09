@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p5a20ga5w6fx"
-path="res://.godot/imported/MTRTiles.png-facb7cfbec591d51273b66e1fa48c9ce.ctex"
+uid="uid://c2c2pfp78688a"
+path="res://.godot/imported/ShopTransBG.png-4acaa7b5e65ebb0e0103cd40ae1d9994.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sprites/MTRTiles.png"
-dest_files=["res://.godot/imported/MTRTiles.png-facb7cfbec591d51273b66e1fa48c9ce.ctex"]
+source_file="res://Assets/sprites/ShopTransBG.png"
+dest_files=["res://.godot/imported/ShopTransBG.png-4acaa7b5e65ebb0e0103cd40ae1d9994.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dus6xnnr8xnw5"
-path="res://.godot/imported/MTRTileSheet.png-84cd69cd84133f12576df6abd9def89f.ctex"
+uid="uid://bhvtxxgi26o58"
+path="res://.godot/imported/Fancy-Texts.png-56fa773851b212b564bd70232cbac805.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aseprite drawings/MTRTileSheet.png"
-dest_files=["res://.godot/imported/MTRTileSheet.png-84cd69cd84133f12576df6abd9def89f.ctex"]
+source_file="res://Assets/sprites/Fancy-Texts.png"
+dest_files=["res://.godot/imported/Fancy-Texts.png-56fa773851b212b564bd70232cbac805.ctex"]
 
 [params]
 

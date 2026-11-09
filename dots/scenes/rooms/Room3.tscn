@@ -958,12 +958,6 @@ position = Vector2(2, 23)
 rotation = 1.5707964
 texture = ExtResource("7_odiq7")
 
-<<<<<<< HEAD
-[node name="enemy2" parent="." unique_id=1133654406 instance=ExtResource("5_oxt46")]
-position = Vector2(-2264, -161)
-
-=======
->>>>>>> c815c06c364a060f02c52bb627ce4baded35a153
 [connection signal="body_entered" from="3-2" to="3-2" method="_on_body_entered"]
 [connection signal="body_entered" from="3-mtr1" to="3-mtr1" method="_on_body_entered"]
 [connection signal="body_entered" from="3-C1" to="3-C1" method="_on_body_entered"]

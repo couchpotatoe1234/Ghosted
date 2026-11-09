@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dbmpbppu6xddk"
+path="res://.godot/imported/soulPrototypeSpeedrun.aseprite-9a9008d76e84119964ae8ba34f489b31.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/soulPrototypeSpeedrun.aseprite"
+dest_files=["res://.godot/imported/soulPrototypeSpeedrun.aseprite-9a9008d76e84119964ae8ba34f489b31.res"]
+
+[params]
+
