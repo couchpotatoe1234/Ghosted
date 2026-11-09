@@ -4,18 +4,20 @@ This is a platformer/metroidvania style game built in Godot with the art made us
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.7.0: This week, some more sounds were introduced, the coins, upper areas, and sounds more refined. The new levels were improved, and the rest area was made nicer. The bar/rest area was improved slightly and new art for the mountain levels and coins are in progress at the moment. Coin sounds were implemented, as well as initial velocity, to allow for more interactive coin drops from enemies and the new coin-cache. Jump sounds for the player were implemented and the less noticeable land sound, played only when the player falls from a certain height. Sounds for hitting enemies and other objects will be implemented, as will music. The mountain levels will be improved art-wise soon and new undergound levels will likely be added sometime in the next week.
+Most recent updates to game: 0.8.0: This week, there was a new team member added. Aside from that, a new boss is now in the making, along with a room/arena for it. The mountain levels were improved and a new seller guy who is a work in progress is also being made. New cave levels are also being made as well as a shop region there. New art for various backgrounds and tilesets have been also added.
 
-![App Screenshot](images/image_17.png)  
+![App Screenshot](images/image_21.png)  
 
-![App Screenshot](images/image_18.png)  
+![App Screenshot](images/image_22.png)  
 
-![App Screenshot](images/image_19.png)  
+![App Screenshot](images/image_23.png)  
 
-![App Screenshot](images/image_20.png)  
+![App Screenshot](images/image_24.png)  
 
 to see images of previous development, check the images folder in the repo
 previous updates:  
+
+0.7.0: This week, some more sounds were introduced, the coins, upper areas, and sounds more refined. The new levels were improved, and the rest area was made nicer. The bar/rest area was improved slightly and new art for the mountain levels and coins are in progress at the moment. Coin sounds were implemented, as well as initial velocity, to allow for more interactive coin drops from enemies and the new coin-cache. Jump sounds for the player were implemented and the less noticeable land sound, played only when the player falls from a certain height. Sounds for hitting enemies and other objects will be implemented, as will music. The mountain levels will be improved art-wise soon and new undergound levels will likely be added sometime in the next week.  
 
 0.6.0: Added a slash sound, coins and a couple new levels in this update, a healing animation was implemented and healing more restricted. This week we made some new levels for the Game introducing the rest area and where the first boss will be. We also introduced the upper area in the mountains even though we are still working on it. Finally adding coins to our game that drop on an enemy death. Other then that we also made checkpoints along the way and made some more transitions.  
 
