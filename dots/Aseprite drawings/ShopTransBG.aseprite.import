@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dv2704ruvdpms"
+path="res://.godot/imported/ShopTransBG.aseprite-72991081df6adfc0bb80f65dfe05f0de.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/ShopTransBG.aseprite"
+dest_files=["res://.godot/imported/ShopTransBG.aseprite-72991081df6adfc0bb80f65dfe05f0de.res"]
+
+[params]
+

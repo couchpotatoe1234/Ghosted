@@ -367,9 +367,9 @@ shape = SubResource("CircleShape2D_f4cce")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=51075224]
 sprite_frames = SubResource("SpriteFrames_dlmty")
-animation = &"attack"
+animation = &"raging"
 autoplay = "idle"
-frame_progress = 0.16649467
+frame_progress = 0.48280278
 flip_h = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=527839935]

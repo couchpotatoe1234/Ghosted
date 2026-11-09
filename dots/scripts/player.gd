@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 150.0
+const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -325.0
 const ATTACK_COOLDOWN : float = 0.28
 @export var attacking: bool = false
@@ -227,9 +227,11 @@ func start_invulnerablilty() -> void:
 func die() -> void:
 	is_invulnerable = true
 	GameManager.controls_allowed = false
+	change_state("hurt")
+	GameManager.hitstop(0.33)
+	await get_tree().create_timer(0.5).timeout
 	velocity.x = 0
 	velocity.y = 0
-	GameManager.hitstop(0.33)
 	change_state("die")
 
 func attack() -> void:
@@ -342,10 +344,10 @@ func _on_attack_hit(body: Node2D, direction: Vector2) -> void:
 		shake_camera(4.0, 0.15)
 
 func disable_collision() -> void:
-	$CollisionShape2D.disabled = true
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 
 func enable_collision() -> void:
-	$CollisionShape2D.disabled = false
+	$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
 
 func get_facing() -> int:
 	return facing
