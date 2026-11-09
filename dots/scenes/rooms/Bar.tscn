@@ -259,7 +259,7 @@ position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_3phul")
 
 [node name="bar_boss_room" type="Area2D" parent="." unique_id=1181871050]
-position = Vector2(-927, 44)
+position = Vector2(-926, 43)
 collision_mask = 2
 script = ExtResource("7_wfi2j")
 
