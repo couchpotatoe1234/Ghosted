@@ -53,7 +53,7 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 	GameManager.can_pause = false
 	if player:
 		player.hide()
-		$Player/Hurtbox.set_collision_mask_value(2, false)
+		player.disable_collision()
 		player.set_physics_process(false)
 	if healer:
 		healer.hide()
@@ -82,10 +82,10 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		player.set_physics_process(true)
 		player.global_position = spawn_position
 		player.process_mode = Node.PROCESS_MODE_INHERIT
-		$Player/Hurtbox.set_collision_mask_value(2, true)
 		changed_level.emit()
 		player.show()
 		player.velocity = _spawn_velocity
+		player.enable_collision()
 	if healer:
 		healer.show()
 		healer._ready()

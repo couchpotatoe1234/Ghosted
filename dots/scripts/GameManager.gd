@@ -24,10 +24,8 @@ signal money_changed(new: int)
 
 func hitstop(duration: float, magnitude: float = 0.0) -> void:
 	if hitstop_active and duration < current_hitstop_duration:
-		print("wants to be:", duration, "rn is:", current_hitstop_duration)
 		return
 	else:
-		print("going thru with", duration, "previeous hitstop:", current_hitstop_duration)
 		current_hitstop_duration = duration
 		hitstop_active = true
 		Engine.time_scale = magnitude
