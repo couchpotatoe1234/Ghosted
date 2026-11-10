@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://l3y65v03850b" path="res://Assets/sprites/Attack-side.png" id="5_qu4a1"]
 [ext_resource type="Texture2D" uid="uid://ictu7b2swtrv" path="res://Assets/sprites/Attack-up.png" id="6_70d11"]
 [ext_resource type="AudioStream" uid="uid://rcxix6o3ahdg" path="res://Assets/sounds/sword slash.wav" id="7_cw2d6"]
+[ext_resource type="Texture2D" uid="uid://be3n5nrlghqn1" path="res://Assets/sprites/Hit_Particles-Sheet.png" id="7_o4126"]
 [ext_resource type="AudioStream" uid="uid://4q88o4t6em0v" path="res://Assets/sounds/walk.wav" id="8_khinc"]
 [ext_resource type="AudioStream" uid="uid://d10nj716m0g85" path="res://Assets/sounds/jump.wav" id="9_bruh7"]
 [ext_resource type="AudioStream" uid="uid://lso5552axfmq" path="res://Assets/sounds/land.wav" id="10_6eyey"]
@@ -947,6 +948,24 @@ height = 40.0
 radius = 11.0
 height = 26.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3phul"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gkdic"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 1)
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+anim_offset_max = 1.0
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cw2d6"]
 playback_mode = 1
 random_pitch = 1.122462
@@ -1060,6 +1079,21 @@ drag_right_margin = 0.15
 drag_bottom_margin = 0.31
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="HealParticles" type="Node2D" parent="." unique_id=163761974]
+position = Vector2(0, -16)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="HealParticles" unique_id=1730865742]
+material = SubResource("CanvasItemMaterial_3phul")
+emitting = false
+amount = 20
+texture = ExtResource("7_o4126")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.75
+randomness = 0.27
+use_fixed_seed = true
+process_material = SubResource("ParticleProcessMaterial_gkdic")
 
 [node name="SlashSound" type="AudioStreamPlayer" parent="." unique_id=1838508463]
 stream = SubResource("AudioStreamRandomizer_cw2d6")

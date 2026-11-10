@@ -13,13 +13,9 @@ var heals = 2
 var coins: int = 0
 var health: int = 5
 var hitstop_id: int = 0
-
 var has_boss: bool
 var boss_defeated := false
-
 var defeatedBoss : Array[CharacterBody2D] = []
-
-
 signal money_changed(new: int)
 
 func hitstop(duration: float, magnitude: float = 0.0) -> void:
@@ -41,7 +37,6 @@ func add_money(amount: int) -> void:
 	coins += amount
 	money_changed.emit(coins)
 
-
 #ROOMSS Starting Position; where you first enter from.
 #room 1 = -675, -400
 #room 2 = -2415, -65
@@ -51,7 +46,7 @@ func add_money(amount: int) -> void:
 #mtr2 = 75, -91
 #mtr3 = 0, 0
 #bar_trans = 
-#
+#Shop-Trans = -623, 159
 
 
 
@@ -59,3 +54,4 @@ var block1_broken = false
 var block2_broken = false
 
 var coin_cache_1 = false
+var coin_cache_2 = false

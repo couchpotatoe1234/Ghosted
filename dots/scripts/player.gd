@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 150.0
+const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -325.0
 const ATTACK_COOLDOWN : float = 0.28
 @export var attacking: bool = false
@@ -373,6 +373,8 @@ func heal() -> void:
 	var healer_node = get_tree().get_first_node_in_group("healer")
 	if is_instance_valid(healer_node) and healer_node.has_method("heal"):
 		healer_node.heal()
+	await get_tree().create_timer(0.35).timeout
+	GameManager.hitstop(1)
 
 func _on_main_respawned() -> void:
 	is_invulnerable = false

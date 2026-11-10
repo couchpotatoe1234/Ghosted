@@ -39,6 +39,6 @@ scale = Vector2(1, 1.28125)
 texture = ExtResource("3_75n16")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=677867533]
-position = Vector2(32, 96)
+position = Vector2(9, 30)
 
 [connection signal="body_entered" from="Shop-shoptrans" to="Shop-shoptrans" method="_on_body_entered"]

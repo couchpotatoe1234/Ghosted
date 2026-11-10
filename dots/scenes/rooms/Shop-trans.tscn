@@ -94,11 +94,11 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3phul"]
-radius = 19.0
+radius = 16.0
 height = 66.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5n4"]
-radius = 48.0
+radius = 39.0
 height = 126.0
 
 [node name="Shop-trans" type="Node2D" unique_id=1661631742]
