@@ -240,11 +240,20 @@ position = Vector2(190, -105)
 [node name="RespawnPoint13" parent="Respawns" unique_id=1778529857 instance=ExtResource("4_lrl65")]
 position = Vector2(720, 343)
 
+[node name="RespawnPoint36" parent="Respawns" unique_id=594377220 instance=ExtResource("4_lrl65")]
+position = Vector2(740, 343)
+
 [node name="RespawnPoint29" parent="Respawns" unique_id=475751800 instance=ExtResource("4_lrl65")]
 position = Vector2(210, -105)
 
 [node name="RespawnPoint12" parent="Respawns" unique_id=1388485437 instance=ExtResource("4_lrl65")]
 position = Vector2(650, 183)
+
+[node name="RespawnPoint34" parent="Respawns" unique_id=2145231415 instance=ExtResource("4_lrl65")]
+position = Vector2(630, 183)
+
+[node name="RespawnPoint35" parent="Respawns" unique_id=1737364429 instance=ExtResource("4_lrl65")]
+position = Vector2(609, 183)
 
 [node name="RespawnPoint14" parent="Respawns" unique_id=1718665758 instance=ExtResource("4_lrl65")]
 position = Vector2(91, 375)
@@ -257,6 +266,9 @@ position = Vector2(131, 375)
 
 [node name="RespawnPoint15" parent="Respawns" unique_id=1529684596 instance=ExtResource("4_lrl65")]
 position = Vector2(647, 373)
+
+[node name="RespawnPoint37" parent="Respawns" unique_id=1647642246 instance=ExtResource("4_lrl65")]
+position = Vector2(627, 372)
 
 [node name="RespawnPoint16" parent="Respawns" unique_id=1097804834 instance=ExtResource("4_lrl65")]
 position = Vector2(700, 343)
@@ -335,9 +347,8 @@ scale = Vector2(1, 1.171875)
 texture = ExtResource("6_76cw8")
 
 [node name="PointLight2D" type="PointLight2D" parent="1-2" unique_id=1425181361]
-position = Vector2(1100.7866, 306)
+position = Vector2(1126, 308.00003)
 scale = Vector2(-1.1941662, -1.141)
-energy = 0.22
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_gkdic")
 
@@ -508,19 +519,33 @@ position = Vector2(1139, 410)
 [node name="Area2D" parent="." unique_id=571238610 instance=ExtResource("15_eu5ve")]
 position = Vector2(441, -291)
 
-[node name="Shadow" type="PointLight2D" parent="." unique_id=1334747904]
+[node name="lighting" type="Node2D" parent="." unique_id=1069131389]
+
+[node name="Sun" type="DirectionalLight2D" parent="lighting" unique_id=1985752911]
+rotation = -0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+energy = 0.2
+shadow_enabled = true
+shadow_filter = 1
+
+[node name="Shadow" type="PointLight2D" parent="lighting" unique_id=1334747904]
 position = Vector2(-143.03128, 288)
 scale = Vector2(9.5615225, 5.242187)
+color = Color(0.8654869, 0.68005675, 0.57332766, 1)
 energy = 0.63
 blend_mode = 1
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_08ty0")
 
-[node name="Sun" type="DirectionalLight2D" parent="." unique_id=1985752911]
-rotation = -0.2617994
-energy = 0.2
-shadow_enabled = true
-shadow_filter = 1
+[node name="Shadow2" type="PointLight2D" parent="lighting" unique_id=1164111440]
+position = Vector2(903.00006, 257)
+rotation = 3.1415925
+scale = Vector2(9.562, 8.295364)
+color = Color(0.8654869, 0.68005675, 0.57332766, 1)
+energy = 0.63
+blend_mode = 1
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_08ty0")
 
 [connection signal="area_entered" from="1-2" to="1-2" method="_on_area_entered"]
 [connection signal="body_entered" from="1-2" to="1-2" method="_on_body_entered"]
