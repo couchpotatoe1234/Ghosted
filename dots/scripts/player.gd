@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 500.0
+const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -325.0
 const ATTACK_COOLDOWN : float = 0.28
 @export var attacking: bool = false
@@ -13,6 +13,7 @@ const ATTACK_COOLDOWN : float = 0.28
 @onready var attack_down: Area2D = $"Attack-down-long"
 @onready var attack_up: Area2D = $"Attack-up-long"
 @onready var attack_side: Area2D = $"Attack-side-long"
+@onready var heal_particles: GPUParticles2D = $"HealParticles/GPUParticles2D"
 var current_state: String = ""
 var fall_height: float = 0.0
 var facing := 1
@@ -369,12 +370,12 @@ func heal() -> void:
 	health_changed.emit(GameManager.health, max_health)
 	
 	change_state("heal")
-	
+	heal_particles.restart()
 	var healer_node = get_tree().get_first_node_in_group("healer")
 	if is_instance_valid(healer_node) and healer_node.has_method("heal"):
 		healer_node.heal()
-	await get_tree().create_timer(0.35).timeout
-	GameManager.hitstop(1)
+	await get_tree().create_timer(0.25).timeout
+	GameManager.hitstop(1, 0.25)
 
 func _on_main_respawned() -> void:
 	is_invulnerable = false
