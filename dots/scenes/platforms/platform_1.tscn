@@ -5,6 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_37rqa"]
 size = Vector2(40, 13)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ocr23"]
+polygon = PackedVector2Array(-20, -9, -20, -4, -15, 0, -15, 5, -14, 5, -13, 0, -8, 0, -5, 6, -4, 6, -3, 2, 0, 9, 1, 9, 3, 4, 5, 7, 6, 7, 9, 4, 10, 9, 11, 9, 13, 3, 15, 0, 18, 2, 19, 3, 19, -5, 20, -5, 20, -9, 19, -9, 19, -10, -19, -10, -19, -9)
+
 [node name="Platform1" type="StaticBody2D" unique_id=1134652743]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1863717279]
@@ -15,3 +18,6 @@ hframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1762697548]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_37rqa")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1953176688]
+occluder = SubResource("OccluderPolygon2D_ocr23")

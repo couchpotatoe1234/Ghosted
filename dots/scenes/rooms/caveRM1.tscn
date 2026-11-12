@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dmswykji5b5lx"]
+[gd_scene format=4 uid="uid://dinv8s8rmrjrd"]
 
 [ext_resource type="TileSet" uid="uid://dupvbuyhtcj0p" path="res://Assets/Other/CaveTiles.tres" id="1_diqan"]
 [ext_resource type="Script" uid="uid://udgrq6h8ijj7" path="res://scripts/room_scripts/caverm1.gd" id="1_hn3ut"]

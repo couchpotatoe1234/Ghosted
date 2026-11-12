@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bgeq1vkrk6s8e"]
+[gd_scene format=3 uid="uid://dsca360ec3yso"]
 
 [ext_resource type="Script" uid="uid://cqss28hn52ygo" path="res://scripts/breakableBlock1.gd" id="1_5kl5a"]
 [ext_resource type="Script" uid="uid://d0pcmldfg1mcn" path="res://scripts/tilebreakable.gd" id="2_wotcy"]
@@ -48,6 +48,9 @@ region = Rect2(32, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4mnnb"]
 atlas = ExtResource("3_r1o1r")
 region = Rect2(69, 39, 32, 32)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gkdic"]
+polygon = PackedVector2Array(1, -32, 1, 96, 128, 96, 128, -32)
 
 [node name="BreakableBlock1" type="Node2D" unique_id=569884235]
 script = ExtResource("1_5kl5a")
@@ -164,3 +167,6 @@ texture = SubResource("AtlasTexture_4mnnb")
 [node name="Sprite2D11" type="Sprite2D" parent="Side Tiles/Center tiles" unique_id=801259967]
 position = Vector2(80, -16)
 texture = SubResource("AtlasTexture_4mnnb")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=186358736]
+occluder = SubResource("OccluderPolygon2D_gkdic")
