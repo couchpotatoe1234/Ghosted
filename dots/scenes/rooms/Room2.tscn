@@ -22,12 +22,12 @@ size = Vector2(64, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkdic"]
 size = Vector2(2, 65)
 
-[sub_resource type="Gradient" id="Gradient_eu5ve"]
+[sub_resource type="Gradient" id="Gradient_e8kbi"]
 offsets = PackedFloat32Array(0, 0.90231365)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e8kbi"]
-gradient = SubResource("Gradient_eu5ve")
+gradient = SubResource("Gradient_e8kbi")
 fill = 1
 fill_from = Vector2(0, 0.5)
 fill_to = Vector2(1, 0.5)
@@ -190,7 +190,7 @@ position = Vector2(1216, -6)
 shape = SubResource("RectangleShape2D_3phul")
 
 [node name="BreakableBlock" parent="." unique_id=569884235 instance=ExtResource("9_dpm1s")]
-z_index = 4
+z_index = 11
 position = Vector2(1856, -288)
 
 [node name="Background deco" type="Node2D" parent="." unique_id=1428697782]
@@ -383,7 +383,7 @@ texture = ExtResource("7_twycr")
 position = Vector2(1945.9999, -259.00003)
 scale = Vector2(-1.1941662, -1.141)
 range_z_min = 0
-range_z_max = 2
+range_z_max = 10
 range_layer_max = 1
 texture = SubResource("GradientTexture2D_e8kbi")
 
@@ -399,6 +399,12 @@ texture = ExtResource("7_twycr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="2-Bartrans" unique_id=1135948386]
 position = Vector2(0, 159)
 shape = SubResource("RectangleShape2D_of3o0")
+
+[node name="PointLight2D" type="PointLight2D" parent="2-Bartrans" unique_id=1195324692]
+position = Vector2(-0.6853802, 144.44218)
+rotation = -1.5707963
+scale = Vector2(0.5171175, 1.0258319)
+texture = SubResource("GradientTexture2D_e8kbi")
 
 [node name="lighting" type="Node2D" parent="." unique_id=195246853]
 position = Vector2(0, 152)
