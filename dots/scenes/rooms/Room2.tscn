@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beo3miagmv876" path="res://scenes/respawn_point.tscn" id="6_c0bta"]
 [ext_resource type="Script" uid="uid://sb6dnfwptras" path="res://scripts/transition_scripts/2_1.gd" id="7_inlfm"]
 [ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="7_twycr"]
-[ext_resource type="PackedScene" uid="uid://bgeq1vkrk6s8e" path="res://scenes/breakable_block1.tscn" id="9_dpm1s"]
+[ext_resource type="PackedScene" uid="uid://dsca360ec3yso" path="res://scenes/breakable_block1.tscn" id="9_dpm1s"]
 [ext_resource type="Texture2D" uid="uid://cr77ffttbmtn" path="res://Assets/sprites/TileSheet.png" id="9_mwb0y"]
 [ext_resource type="Script" uid="uid://bi1ug4ivq71ux" path="res://scripts/transition_scripts/2_3.gd" id="11_of3o0"]
 [ext_resource type="Script" uid="uid://c7ctpalnlj6x7" path="res://scripts/transition_scripts/2_bartrans.gd" id="12_e8kbi"]
@@ -52,12 +52,14 @@ script = ExtResource("1_e5vnl")
 position = Vector2(1, -63)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=217553322]
-position = Vector2(-1639, -1164)
+z_index = -10
+position = Vector2(-814.99994, -779)
 scale = Vector2(38.147137, 26.893517)
 texture = ExtResource("1_kkoku")
 vframes = 4
 
 [node name="Sun1" type="Sprite2D" parent="Background" unique_id=139957802]
+z_index = -10
 position = Vector2(337.8395, 13.192474)
 scale = Vector2(4.570312, 4.7083335)
 texture = ExtResource("1_kkoku")
@@ -65,6 +67,7 @@ vframes = 4
 frame = 2
 
 [node name="Sun2" type="Sprite2D" parent="Background" unique_id=2044232837]
+z_index = -10
 position = Vector2(714.7742, 112.446655)
 scale = Vector2(4.416667, 5.3981485)
 texture = ExtResource("1_kkoku")
@@ -72,6 +75,7 @@ vframes = 8
 frame = 2
 
 [node name="Sun3" type="Sprite2D" parent="Background" unique_id=386387678]
+z_index = -10
 position = Vector2(18.579712, -75.16312)
 scale = Vector2(5.0685387, 6.2532187)
 texture = ExtResource("1_kkoku")
@@ -85,6 +89,7 @@ repeat_size = Vector2(192, 0)
 repeat_times = 8
 
 [node name="Sprite2D2" type="Sprite2D" parent="Background/Clouds" unique_id=1423418870]
+z_index = -10
 position = Vector2(369.5, -105)
 scale = Vector2(2.421875, 1.5555556)
 texture = ExtResource("1_kkoku")
@@ -92,6 +97,7 @@ vframes = 4
 frame = 3
 
 [node name="Sprite2D6" type="Sprite2D" parent="Background/Clouds" unique_id=1814405817]
+z_index = -10
 position = Vector2(261, -492)
 scale = Vector2(2.421875, 1.5555556)
 texture = ExtResource("1_kkoku")
@@ -99,6 +105,7 @@ vframes = 4
 frame = 3
 
 [node name="Sprite2D4" type="Sprite2D" parent="Background/Clouds" unique_id=1204661280]
+z_index = -10
 position = Vector2(278.69696, 279.56357)
 scale = Vector2(2.421875, 1.5555556)
 texture = ExtResource("1_kkoku")
@@ -106,6 +113,7 @@ vframes = 4
 frame = 3
 
 [node name="Sprite2D3" type="Sprite2D" parent="Background/Clouds" unique_id=62795897]
+z_index = -10
 position = Vector2(278, -178)
 rotation = 3.1415925
 scale = Vector2(1, -1)
@@ -114,6 +122,7 @@ vframes = 4
 frame = 3
 
 [node name="Sprite2D5" type="Sprite2D" parent="Background/Clouds" unique_id=567048175]
+z_index = -10
 position = Vector2(272.51263, 77.26267)
 rotation = 3.1415925
 scale = Vector2(1, -1)
@@ -409,9 +418,11 @@ texture = SubResource("GradientTexture2D_e8kbi")
 [node name="lighting" type="Node2D" parent="." unique_id=195246853]
 position = Vector2(0, 152)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="lighting" unique_id=1673094929]
+[node name="Sun" type="DirectionalLight2D" parent="lighting" unique_id=1673094929]
 rotation = 0.2617994
 energy = 0.2
+range_z_min = -9
+range_z_max = 19
 shadow_enabled = true
 
 [node name="Shadow" type="PointLight2D" parent="lighting" unique_id=571191425]

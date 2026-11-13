@@ -7,13 +7,9 @@ var activated: bool = false
 
 func _ready() -> void:
 	prompt.text = "Press " + OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + " to interact"
-	if sprite == null:
-		push_error("missing")
-		return
-	
 	sprite.play("notactivated")
 	prompt.hide()
-	
+	$PointLight2D.energy = 0.5
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	
@@ -21,6 +17,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if GameManager.last_level == owner.scene_file_path:
 		sprite.play("activated")
+		$PointLight2D.energy = 0.75
 		activated = true
 	if player_in_range and not activated:
 		if Input.is_action_just_pressed("up"):

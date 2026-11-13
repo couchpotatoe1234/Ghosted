@@ -64,6 +64,7 @@ fill_to = Vector2(0, 0.5)
 script = ExtResource("1_brv20")
 
 [node name="Background" type="Node2D" parent="." unique_id=1942672797]
+z_index = -10
 position = Vector2(1, -63)
 
 [node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1420511014]
@@ -525,6 +526,8 @@ position = Vector2(441, -291)
 rotation = -0.2617994
 scale = Vector2(0.99999994, 0.99999994)
 energy = 0.2
+range_z_min = -9
+range_z_max = 19
 shadow_enabled = true
 shadow_filter = 1
 

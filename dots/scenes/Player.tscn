@@ -991,11 +991,13 @@ streams_count = 1
 stream_0/stream = ExtResource("11_d3wef")
 
 [sub_resource type="Gradient" id="Gradient_o4126"]
+offsets = PackedFloat32Array(0, 0.18508998)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_o4126"]
 gradient = SubResource("Gradient_o4126")
-width = 1000
-height = 1000
+width = 750
+height = 750
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
@@ -1103,6 +1105,7 @@ one_shot = true
 explosiveness = 0.75
 randomness = 0.27
 use_fixed_seed = true
+seed = 1458487488
 process_material = SubResource("ParticleProcessMaterial_gkdic")
 
 [node name="SlashSound" type="AudioStreamPlayer" parent="." unique_id=1838508463]
@@ -1133,7 +1136,9 @@ current = true
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=8180914]
 position = Vector2(0, -13)
-blend_mode = 1
+energy = 0.25
+range_z_min = -9
+range_z_max = 19
 range_layer_max = 19
 texture = SubResource("GradientTexture2D_o4126")
 
