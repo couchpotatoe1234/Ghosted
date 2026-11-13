@@ -17,7 +17,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if GameManager.last_level == owner.scene_file_path:
 		sprite.play("activated")
-		$PointLight2D.energy = 0.75
+		$PointLight2D.energy = 0.65
 		activated = true
 	if player_in_range and not activated:
 		if Input.is_action_just_pressed("up"):

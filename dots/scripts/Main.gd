@@ -26,6 +26,8 @@ func _ready() -> void:
 	
 func load_main_menu() -> void:
 	GameManager.can_pause = false
+	if hud:
+		hud.set_deferred("visible", false)
 	var menu_scene = load("res://scenes/MainMenu.tscn").instantiate()
 	level_container.add_child(menu_scene)
 	menu_scene.play_pressed.connect(_on_start_game)

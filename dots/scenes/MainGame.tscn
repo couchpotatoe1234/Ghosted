@@ -70,14 +70,17 @@ position = Vector2(-17, -24)
 [node name="Level" type="Node2D" parent="." unique_id=1094287842]
 
 [node name="GUI" type="CanvasLayer" parent="." unique_id=1761024443]
+layer = 20
 
 [node name="HUD" parent="GUI" unique_id=593963156 instance=ExtResource("4_x628s")]
+layer = 20
 
 [node name="TransitionLayer" type="Node" parent="GUI" unique_id=1121956783]
 script = ExtResource("3_t4bxf")
 
 [node name="TransitionLayer" type="ColorRect" parent="GUI/TransitionLayer" unique_id=2092174242]
 modulate = Color(1, 1, 1, 0)
+z_index = 22
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -85,12 +88,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/TransitionLayer" unique_id=2098844064]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_7fyak")
 
 [node name="PauseMenu" parent="." unique_id=539579433 instance=ExtResource("3_p73vr")]
+layer = 20
 
 [connection signal="changed_level" from="." to="Player" method="_on_changed_level"]
 [connection signal="game_started" from="." to="Player" method="_on_game_started"]
