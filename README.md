@@ -4,7 +4,7 @@ This is a platformer/metroidvania style game built in Godot with the art made us
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.8.0: This week, there was a new team member added. Aside from that, a new boss is now in the making, along with a room/arena for it. The mountain levels were improved and a new seller guy who is a work in progress is also being made. New cave levels are also being made as well as a shop region there. New art for various backgrounds and tilesets have been also added.
+Most recent updates to game: 0.9.0: Not too much added this week, due to time restrictions and a game jam. The things that were added include new lighting for the various levels and a bit of art for NPCs 
 
 ![App Screenshot](images/image_21.png)  
 
@@ -16,6 +16,8 @@ Most recent updates to game: 0.8.0: This week, there was a new team member added
 
 to see images of previous development, check the images folder in the repo
 previous updates:  
+
+0.8.0: This week, there was a new team member added. Aside from that, a new boss is now in the making, along with a room/arena for it. The mountain levels were improved and a new seller guy who is a work in progress is also being made. New cave levels are also being made as well as a shop region there. New art for various backgrounds and tilesets have been also added.  
 
 0.7.0: This week, some more sounds were introduced, the coins, upper areas, and sounds more refined. The new levels were improved, and the rest area was made nicer. The bar/rest area was improved slightly and new art for the mountain levels and coins are in progress at the moment. Coin sounds were implemented, as well as initial velocity, to allow for more interactive coin drops from enemies and the new coin-cache. Jump sounds for the player were implemented and the less noticeable land sound, played only when the player falls from a certain height. Sounds for hitting enemies and other objects will be implemented, as will music. The mountain levels will be improved art-wise soon and new undergound levels will likely be added sometime in the next week.  
 
