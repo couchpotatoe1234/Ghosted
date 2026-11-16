@@ -4,15 +4,11 @@ This is a platformer/metroidvania style game built in Godot with the art made us
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.9.0: Not too much added this week, due to time restrictions and a game jam. The things that were added include new lighting for the various levels and a bit of art for NPCs 
+Most recent updates to game: 0.9.0: Not too much added this week, due to time restrictions and a game jam. The things that were added include new lighting for the various levels and a bit of art for NPCs.
 
-![App Screenshot](images/image_21.png)  
+![App Screenshot](images/image_25.png)  
 
-![App Screenshot](images/image_22.png)  
-
-![App Screenshot](images/image_23.png)  
-
-![App Screenshot](images/image_24.png)  
+![App Screenshot](images/image_26.png)  
 
 to see images of previous development, check the images folder in the repo
 previous updates:  
