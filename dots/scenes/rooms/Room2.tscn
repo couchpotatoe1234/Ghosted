@@ -424,6 +424,8 @@ energy = 0.2
 range_z_min = -9
 range_z_max = 19
 shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 3.0
 
 [node name="Shadow" type="PointLight2D" parent="lighting" unique_id=571191425]
 position = Vector2(-2361.4922, -251.375)
