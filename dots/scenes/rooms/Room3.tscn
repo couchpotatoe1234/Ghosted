@@ -961,6 +961,7 @@ texture = ExtResource("7_odiq7")
 [node name="lighting" type="Node2D" parent="." unique_id=1307754213]
 
 [node name="darkkk" type="DirectionalLight2D" parent="lighting" unique_id=985385859]
+blend_mode = 1
 
 [connection signal="body_entered" from="3-2" to="3-2" method="_on_body_entered"]
 [connection signal="body_entered" from="3-mtr1" to="3-mtr1" method="_on_body_entered"]

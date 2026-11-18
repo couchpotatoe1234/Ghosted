@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cr77ffttbmtn" path="res://Assets/sprites/TileSheet.png" id="9_mwb0y"]
 [ext_resource type="Script" uid="uid://bi1ug4ivq71ux" path="res://scripts/transition_scripts/2_3.gd" id="11_of3o0"]
 [ext_resource type="Script" uid="uid://c7ctpalnlj6x7" path="res://scripts/transition_scripts/2_bartrans.gd" id="12_e8kbi"]
+[ext_resource type="Script" uid="uid://ddmu754ww64x0" path="res://scripts/bb1light.gd" id="13_vi6q7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0m76"]
 size = Vector2(64, 19)
@@ -44,6 +45,16 @@ size = Vector2(64, 2)
 gradient = SubResource("Gradient_fivfy")
 fill_from = Vector2(1, 0.5)
 fill_to = Vector2(0, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_fcn17"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wk6m3"]
+gradient = SubResource("Gradient_fcn17")
+width = 100
+height = 100
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Room2" type="Node2D" unique_id=1602681685]
 script = ExtResource("1_e5vnl")
@@ -444,6 +455,237 @@ energy = 0.63
 blend_mode = 1
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_vi6q7")
+
+[node name="Node2D" type="Node2D" parent="lighting" unique_id=463644927]
+
+[node name="PointLight2D22" type="PointLight2D" parent="lighting/Node2D" unique_id=374013244]
+z_index = 20
+position = Vector2(-2461.9998, -248)
+rotation = -0.014084591
+scale = Vector2(1.0977648, 1.6609337)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D36" type="PointLight2D" parent="lighting/Node2D" unique_id=1745566335]
+z_index = 20
+position = Vector2(1.9999998, 38.99998)
+rotation = -1.5701069
+scale = Vector2(1.4031235, 1.4280721)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D23" type="PointLight2D" parent="lighting/Node2D" unique_id=1088157660]
+z_index = 20
+position = Vector2(-2238.0002, 102)
+rotation = 0.002586944
+scale = Vector2(4.404862, 4.7479515)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D24" type="PointLight2D" parent="lighting/Node2D" unique_id=275705432]
+z_index = 20
+position = Vector2(-1972.0002, 131)
+rotation = 0.00442056
+scale = Vector2(4.404862, 4.7479515)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D25" type="PointLight2D" parent="lighting/Node2D" unique_id=2005126929]
+z_index = 20
+position = Vector2(-1662, 145)
+rotation = 0.0059179813
+scale = Vector2(4.404862, 4.7479515)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D26" type="PointLight2D" parent="lighting/Node2D" unique_id=281875707]
+z_index = 20
+position = Vector2(-1405, 114.999985)
+rotation = -0.0009781634
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D30" type="PointLight2D" parent="lighting/Node2D" unique_id=796542966]
+z_index = 20
+position = Vector2(729, 136.99998)
+rotation = -0.0009781634
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D31" type="PointLight2D" parent="lighting/Node2D" unique_id=147915468]
+z_index = 20
+position = Vector2(829.99994, 112)
+rotation = -0.0009781634
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D32" type="PointLight2D" parent="lighting/Node2D" unique_id=295457139]
+z_index = 20
+position = Vector2(1023, 94)
+rotation = -0.0009781634
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D33" type="PointLight2D" parent="lighting/Node2D" unique_id=1680050552]
+z_index = 20
+position = Vector2(1200.0001, 74)
+rotation = -0.0009781634
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D34" type="PointLight2D" parent="lighting/Node2D" unique_id=102474349]
+z_index = 20
+position = Vector2(1339.0001, 43)
+rotation = -0.0009781634
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D35" type="PointLight2D" parent="lighting/Node2D" unique_id=78871055]
+z_index = 20
+position = Vector2(1628.0001, 13)
+rotation = -0.0009781634
+scale = Vector2(6.2441688, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D37" type="PointLight2D" parent="lighting/Node2D" unique_id=1304651378]
+z_index = 20
+position = Vector2(1966, -72.99999)
+rotation = -0.0009781634
+scale = Vector2(2.2773476, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D38" type="PointLight2D" parent="lighting/Node2D" unique_id=1366939102]
+z_index = 20
+position = Vector2(2000.0001, -160.00002)
+rotation = -0.0009781634
+scale = Vector2(2.2773476, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D39" type="PointLight2D" parent="lighting/Node2D" unique_id=1744496653]
+z_index = 20
+position = Vector2(2074, -410.99994)
+rotation = -0.0009781634
+scale = Vector2(2.2773476, 4.826076)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+script = ExtResource("13_vi6q7")
+
+[node name="PointLight2D41" type="PointLight2D" parent="lighting/Node2D" unique_id=1882702352]
+z_index = 20
+position = Vector2(2008, -638.99994)
+rotation = -0.0009781634
+scale = Vector2(2.2773476, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D27" type="PointLight2D" parent="lighting/Node2D" unique_id=1567270530]
+z_index = 20
+position = Vector2(-1054, 128.99998)
+rotation = 0.0022007972
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D28" type="PointLight2D" parent="lighting/Node2D" unique_id=1039585543]
+z_index = 20
+position = Vector2(-711, 133.99998)
+rotation = 0.0022007972
+scale = Vector2(4.404862, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
+
+[node name="PointLight2D29" type="PointLight2D" parent="lighting/Node2D" unique_id=2022502900]
+z_index = 20
+position = Vector2(-38.000004, 151)
+rotation = 0.0022007972
+scale = Vector2(21.845997, 2.886611)
+energy = 5.0
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_wk6m3")
 
 [connection signal="body_entered" from="2-1" to="2-1" method="_on_body_entered"]
 [connection signal="body_entered" from="2-3" to="2-3" method="_on_body_entered"]

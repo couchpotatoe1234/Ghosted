@@ -248,9 +248,12 @@ animations = [{
 }]
 
 [node name="Healer" type="CharacterBody2D" unique_id=1802982851 groups=["pauseable"]]
+light_mask = 524288
+z_index = 10
 script = ExtResource("1_idgs8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=751870463]
+z_index = 11
 sprite_frames = SubResource("SpriteFrames_ke6mt")
 animation = &"heal"
 frame = 21

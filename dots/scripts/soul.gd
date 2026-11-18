@@ -4,7 +4,6 @@ extends Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var player_in_range: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	prompt.text = "Press " + OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + " to talk"
 	if sprite == null:
@@ -17,9 +16,7 @@ func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if player_in_range:
 		if Input.is_action_just_pressed("up"):
 			if GameManager.coins > 4:
