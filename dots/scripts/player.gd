@@ -269,6 +269,8 @@ func respawn_at_checkpoint() -> void:
 	if GameManager.health <= 0:
 		die()
 		return
+	await get_tree().create_timer(0.5).timeout
+	velocity = Vector2.ZERO
 	await transition_layer.fade_out() 
 	global_position = GameManager.last_respawn_position
 	velocity = Vector2.ZERO
