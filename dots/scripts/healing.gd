@@ -22,12 +22,9 @@ var follow_offsets: Array[Vector2] = [
 ]
 
 func _ready() -> void:
-	add_to_group("healer")
 	floor_snap_length = 4.0
 	player = get_tree().get_first_node_in_group("player") as CharacterBody2D
-	if animated_sprite.sprite_frames != null:
-		if animated_sprite.sprite_frames.has_animation("movement"):
-			animated_sprite.play("movement")
+	animated_sprite.play("movement")
 	if player != null:
 		snap_to_player(player)
 
@@ -55,9 +52,6 @@ func _physics_process(delta: float) -> void:
 		snap_to_player(player)
 	move_and_slide()
 
-func set_player(new_player: CharacterBody2D) -> void:
-	player = new_player
-
 func get_follow_offset() -> Vector2:
 	var offset := target_offset
 	if not is_instance_valid(player):
@@ -79,11 +73,10 @@ func snap_to_player(new_player: CharacterBody2D) -> void:
 	is_repositioning = false
 
 func update_facing() -> void:
-	if not is_instance_valid(player):
-		return
-	if player.has_method("get_facing"):
-		var should_flip: bool = player.get_facing() < 0
-		animated_sprite.flip_h = should_flip
+	if position.x < player.position.x:
+		animated_sprite.flip_h = false
+	else:
+		animated_sprite.flip_h = true
 
 func update_follow_offset(delta: float) -> void:
 	offset_timer += delta

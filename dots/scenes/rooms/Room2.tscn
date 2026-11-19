@@ -456,9 +456,9 @@ blend_mode = 1
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_vi6q7")
 
-[node name="Node2D" type="Node2D" parent="lighting" unique_id=463644927]
+[node name="darkness" type="Node2D" parent="lighting" unique_id=463644927]
 
-[node name="PointLight2D22" type="PointLight2D" parent="lighting/Node2D" unique_id=374013244]
+[node name="PointLight2D22" type="PointLight2D" parent="lighting/darkness" unique_id=374013244]
 z_index = 20
 position = Vector2(-2461.9998, -248)
 rotation = -0.014084591
@@ -470,7 +470,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D36" type="PointLight2D" parent="lighting/Node2D" unique_id=1745566335]
+[node name="PointLight2D36" type="PointLight2D" parent="lighting/darkness" unique_id=1745566335]
 z_index = 20
 position = Vector2(1.9999998, 38.99998)
 rotation = -1.5701069
@@ -482,7 +482,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D23" type="PointLight2D" parent="lighting/Node2D" unique_id=1088157660]
+[node name="PointLight2D23" type="PointLight2D" parent="lighting/darkness" unique_id=1088157660]
 z_index = 20
 position = Vector2(-2238.0002, 102)
 rotation = 0.002586944
@@ -494,7 +494,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D24" type="PointLight2D" parent="lighting/Node2D" unique_id=275705432]
+[node name="PointLight2D24" type="PointLight2D" parent="lighting/darkness" unique_id=275705432]
 z_index = 20
 position = Vector2(-1972.0002, 131)
 rotation = 0.00442056
@@ -506,7 +506,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D25" type="PointLight2D" parent="lighting/Node2D" unique_id=2005126929]
+[node name="PointLight2D25" type="PointLight2D" parent="lighting/darkness" unique_id=2005126929]
 z_index = 20
 position = Vector2(-1662, 145)
 rotation = 0.0059179813
@@ -518,7 +518,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D26" type="PointLight2D" parent="lighting/Node2D" unique_id=281875707]
+[node name="PointLight2D26" type="PointLight2D" parent="lighting/darkness" unique_id=281875707]
 z_index = 20
 position = Vector2(-1405, 114.999985)
 rotation = -0.0009781634
@@ -530,7 +530,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D30" type="PointLight2D" parent="lighting/Node2D" unique_id=796542966]
+[node name="PointLight2D30" type="PointLight2D" parent="lighting/darkness" unique_id=796542966]
 z_index = 20
 position = Vector2(729, 136.99998)
 rotation = -0.0009781634
@@ -542,7 +542,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D31" type="PointLight2D" parent="lighting/Node2D" unique_id=147915468]
+[node name="PointLight2D31" type="PointLight2D" parent="lighting/darkness" unique_id=147915468]
 z_index = 20
 position = Vector2(829.99994, 112)
 rotation = -0.0009781634
@@ -554,7 +554,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D32" type="PointLight2D" parent="lighting/Node2D" unique_id=295457139]
+[node name="PointLight2D32" type="PointLight2D" parent="lighting/darkness" unique_id=295457139]
 z_index = 20
 position = Vector2(1023, 94)
 rotation = -0.0009781634
@@ -566,7 +566,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D33" type="PointLight2D" parent="lighting/Node2D" unique_id=1680050552]
+[node name="PointLight2D33" type="PointLight2D" parent="lighting/darkness" unique_id=1680050552]
 z_index = 20
 position = Vector2(1200.0001, 74)
 rotation = -0.0009781634
@@ -578,7 +578,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D34" type="PointLight2D" parent="lighting/Node2D" unique_id=102474349]
+[node name="PointLight2D34" type="PointLight2D" parent="lighting/darkness" unique_id=102474349]
 z_index = 20
 position = Vector2(1339.0001, 43)
 rotation = -0.0009781634
@@ -590,7 +590,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D35" type="PointLight2D" parent="lighting/Node2D" unique_id=78871055]
+[node name="PointLight2D35" type="PointLight2D" parent="lighting/darkness" unique_id=78871055]
 z_index = 20
 position = Vector2(1628.0001, 13)
 rotation = -0.0009781634
@@ -602,7 +602,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D37" type="PointLight2D" parent="lighting/Node2D" unique_id=1304651378]
+[node name="PointLight2D37" type="PointLight2D" parent="lighting/darkness" unique_id=1304651378]
 z_index = 20
 position = Vector2(1966, -72.99999)
 rotation = -0.0009781634
@@ -614,11 +614,11 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D38" type="PointLight2D" parent="lighting/Node2D" unique_id=1366939102]
+[node name="PointLight2D38" type="PointLight2D" parent="lighting/darkness" unique_id=1366939102]
 z_index = 20
-position = Vector2(2000.0001, -160.00002)
+position = Vector2(2020.0001, -134.99998)
 rotation = -0.0009781634
-scale = Vector2(2.2773476, 2.886611)
+scale = Vector2(2.2824945, 2.8712215)
 energy = 5.0
 blend_mode = 1
 shadow_enabled = true
@@ -626,7 +626,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D39" type="PointLight2D" parent="lighting/Node2D" unique_id=1744496653]
+[node name="PointLight2D39" type="PointLight2D" parent="lighting/darkness" unique_id=1744496653]
 z_index = 20
 position = Vector2(2074, -410.99994)
 rotation = -0.0009781634
@@ -639,7 +639,7 @@ shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 script = ExtResource("13_vi6q7")
 
-[node name="PointLight2D41" type="PointLight2D" parent="lighting/Node2D" unique_id=1882702352]
+[node name="PointLight2D41" type="PointLight2D" parent="lighting/darkness" unique_id=1882702352]
 z_index = 20
 position = Vector2(2008, -638.99994)
 rotation = -0.0009781634
@@ -651,7 +651,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D27" type="PointLight2D" parent="lighting/Node2D" unique_id=1567270530]
+[node name="PointLight2D27" type="PointLight2D" parent="lighting/darkness" unique_id=1567270530]
 z_index = 20
 position = Vector2(-1054, 128.99998)
 rotation = 0.0022007972
@@ -663,7 +663,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D28" type="PointLight2D" parent="lighting/Node2D" unique_id=1039585543]
+[node name="PointLight2D28" type="PointLight2D" parent="lighting/darkness" unique_id=1039585543]
 z_index = 20
 position = Vector2(-711, 133.99998)
 rotation = 0.0022007972
@@ -675,7 +675,7 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_wk6m3")
 
-[node name="PointLight2D29" type="PointLight2D" parent="lighting/Node2D" unique_id=2022502900]
+[node name="PointLight2D29" type="PointLight2D" parent="lighting/darkness" unique_id=2022502900]
 z_index = 20
 position = Vector2(-38.000004, 151)
 rotation = 0.0022007972

@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*uid://qfln0y0r4aas"
-CompanionManager="*uid://krxcriqkpvnx"
 
 [display]
 

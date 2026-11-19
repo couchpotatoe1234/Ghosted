@@ -17,6 +17,9 @@ func _ready() -> void:
 	if player:
 		player.hide()
 		player.process_mode = PROCESS_MODE_DISABLED
+	if healer:
+		healer.hide()
+		healer.process_mode = PROCESS_MODE_DISABLED
 	if pause_menu:
 		pause_menu.return_to_menu_requested.connect(return_to_main_menu)
 	GameManager.boss_defeated = false
@@ -47,8 +50,9 @@ func _on_start_game() -> void:
 		player.set_physics_process(true)
 		player.change_state("idle")
 		game_started.emit()
+	if healer:
+		healer.set_physics_process(true)
 	change_level(GameManager.last_level, GameManager.last_save_point)
-	player.register_companion()
 
 func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _spawn_velocity: Vector2 = Vector2.ZERO) -> void:
 	GameManager.controls_allowed = false
@@ -92,6 +96,7 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		healer.show()
 		healer._ready()
 		healer.set_physics_process(true)
+		healer.process_mode = Node.PROCESS_MODE_INHERIT
 	if hud:
 		hud.set_deferred("visible", true)
 	if transition_layer:
@@ -99,7 +104,6 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		await get_tree().create_timer(0.5).timeout
 		GameManager.can_pause = true
 		GameManager.controls_allowed = true
-	player.register_companion()
 			
 func return_to_main_menu() -> void:
 	GameManager.controls_allowed = false
@@ -107,11 +111,17 @@ func return_to_main_menu() -> void:
 	if player:
 		player.velocity = Vector2.ZERO
 		player.set_physics_process(false)
+	if healer:
+		healer.velocity = Vector2.ZERO
+		healer.set_physics_process(false)
 	if transition_layer:
 		await transition_layer.fade_out()
 	if player:
 		player.hide()
-		player.process_mode = Node.PROCESS_MODE_DISABLED
+		player.process_mode = PROCESS_MODE_DISABLED
+	if healer:
+		healer.hide()
+		healer.process_mode = PROCESS_MODE_DISABLED
 	if current_level_node:
 		current_level_node.queue_free()
 		current_level_node = null

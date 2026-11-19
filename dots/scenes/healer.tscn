@@ -247,14 +247,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Healer" type="CharacterBody2D" unique_id=1802982851 groups=["pauseable"]]
-light_mask = 524288
-z_index = 10
+[sub_resource type="Gradient" id="Gradient_idgs8"]
+offsets = PackedFloat32Array(0, 0.8611825)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gkdic"]
+gradient = SubResource("Gradient_idgs8")
+width = 50
+height = 50
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Healer" type="CharacterBody2D" unique_id=1802982851 groups=["healer", "pauseable"]]
+z_index = 9
+collision_layer = 2
 script = ExtResource("1_idgs8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=751870463]
-z_index = 11
 sprite_frames = SubResource("SpriteFrames_ke6mt")
 animation = &"heal"
 frame = 21
 frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1342209979]
+energy = 0.25
+range_z_min = -9
+range_z_max = 19
+range_layer_max = 19
+texture = SubResource("GradientTexture2D_gkdic")

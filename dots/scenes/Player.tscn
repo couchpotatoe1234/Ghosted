@@ -1008,6 +1008,7 @@ collision_layer = 2
 script = ExtResource("1_p0vlq")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1639785637]
+z_index = 11
 position = Vector2(0, -16)
 texture = ExtResource("2_70d11")
 hframes = 20

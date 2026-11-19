@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 150.0
+const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -325.0
 const ATTACK_COOLDOWN : float = 0.28
 @export var attacking: bool = false
@@ -350,12 +350,6 @@ func disable_collision() -> void:
 func enable_collision() -> void:
 	$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
 
-func get_facing() -> int:
-	return facing
-
-func register_companion() -> void:
-	CompanionManager.register_player(self)
-
 func heal() -> void:
 	if GameManager.health <= 0:
 		return
@@ -365,10 +359,8 @@ func heal() -> void:
 		return
 	GameManager.heals -= 1
 	get_tree().call_group("hud", "change_heals")
-	
 	GameManager.health = mini(GameManager.health + 3, max_health)
 	health_changed.emit(GameManager.health, max_health)
-	
 	change_state("heal")
 	heal_particles.restart()
 	var healer_node = get_tree().get_first_node_in_group("healer")
