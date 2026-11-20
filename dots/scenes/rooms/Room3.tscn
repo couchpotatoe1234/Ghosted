@@ -976,8 +976,8 @@ range_z_max = 21
 texture = SubResource("GradientTexture2D_ivcvy")
 
 [node name="PointLight2D13" type="PointLight2D" parent="lighting/lights" unique_id=2100017062]
-position = Vector2(-1538.7734, -656.25)
-scale = Vector2(4.6522655, 3.0625002)
+position = Vector2(-1442, -741.62506)
+scale = Vector2(4.6522655, 3.8162503)
 energy = 0.75
 range_z_min = -9
 range_z_max = 21
@@ -1095,7 +1095,7 @@ texture = SubResource("GradientTexture2D_uu8h3")
 
 [node name="PointLight2D31" type="PointLight2D" parent="lighting/darkness" unique_id=599866584]
 z_index = 20
-position = Vector2(-1154, -380.00018)
+position = Vector2(-1204, -348.99997)
 rotation = 0.00442056
 scale = Vector2(4.92396, 2.133475)
 energy = 0.87
@@ -1117,6 +1117,42 @@ shadow_filter = 2
 shadow_filter_smooth = 64.0
 texture = SubResource("GradientTexture2D_uu8h3")
 
+[node name="PointLight2D37" type="PointLight2D" parent="lighting/darkness" unique_id=2041529793]
+z_index = 20
+position = Vector2(-2608, -197)
+rotation = 0.00442056
+scale = Vector2(1.7154101, 2.133475)
+energy = 8.05
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_uu8h3")
+
+[node name="PointLight2D38" type="PointLight2D" parent="lighting/darkness" unique_id=35373846]
+z_index = 20
+position = Vector2(-670, 554)
+rotation = 0.00442056
+scale = Vector2(2.6917646, 2.133475)
+energy = 8.05
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_uu8h3")
+
+[node name="PointLight2D39" type="PointLight2D" parent="lighting/darkness" unique_id=908353742]
+z_index = 20
+position = Vector2(-1424, -1016)
+rotation = 0.00442056
+scale = Vector2(2.6917646, 2.133475)
+energy = 8.05
+blend_mode = 1
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_uu8h3")
+
 [node name="PointLight2D36" type="PointLight2D" parent="lighting/darkness" unique_id=128030822]
 z_index = 20
 position = Vector2(-2562.0002, -520.00006)
@@ -1131,9 +1167,9 @@ texture = SubResource("GradientTexture2D_uu8h3")
 
 [node name="PointLight2D32" type="PointLight2D" parent="lighting/darkness" unique_id=1566674009]
 z_index = 20
-position = Vector2(-1122, -538)
+position = Vector2(-1153, -517.00006)
 rotation = 0.00442056
-scale = Vector2(4.92396, 2.133475)
+scale = Vector2(4.92396, 3.943557)
 energy = 0.87
 blend_mode = 1
 shadow_enabled = true

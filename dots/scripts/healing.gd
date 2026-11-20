@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	var next_y: float = move_toward(global_position.y, target.y, step_y)
 	velocity = Vector2((next_x - global_position.x) / maxf(delta, 0.001),(next_y - global_position.y) / maxf(delta, 0.001))
 	
-	if global_position.distance_to(player.global_position) > 400:
+	if global_position.distance_to(player.global_position) > 200:
 		snap_to_player(player)
 	move_and_slide()
 

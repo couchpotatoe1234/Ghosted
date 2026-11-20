@@ -250,8 +250,9 @@ func attack() -> void:
 func respawn_at_checkpoint() -> void:
 	if is_invulnerable:
 		return
-	transition_layer.fade_out()
-
+	GameManager.health -= 1
+	if not GameManager.health <= 0:
+		transition_layer.fade_out()
 	unturnable = false
 	if camera:
 		var tween = create_tween()
@@ -264,7 +265,6 @@ func respawn_at_checkpoint() -> void:
 	is_invulnerable = true
 	velocity.y = -250
 	velocity.x = 0
-	GameManager.health -= 1
 	health_changed.emit(GameManager.health, max_health)
 	if GameManager.health <= 0:
 		die()

@@ -9,7 +9,7 @@ func _ready() -> void:
 	var level_path = owner.scene_file_path
 	if GameManager.coin_cache_1 == true and level_path ==  "res://scenes/rooms/Room1.tscn":
 		anim.play("opened")
-	elif GameManager.coin_cache_2 == true and level_path == "res://scenes/rooms/caveRM1.tscn":
+	elif GameManager.coin_cache_2 == true and level_path == "res://scenes/rooms/cave1.tscn":
 		anim.play("opened")
 	else:
 		anim.play("unopened")
@@ -22,7 +22,7 @@ func _on_area_entered(area: Area2D) -> void:
 			anim.play("open")
 			GameManager.coin_cache_1 = true
 			call_deferred("spawn_coins", coin_reward)
-		elif GameManager.coin_cache_2 == false and level_path == "res://scenes/rooms/caveRM1.tscn":
+		elif GameManager.coin_cache_2 == false and level_path == "res://scenes/rooms/cave1.tscn":
 			anim.play("open")
 			GameManager.coin_cache_2 = true
 			call_deferred("spawn_coins", coin_reward)
