@@ -81,6 +81,14 @@ range_z_min = -9
 range_z_max = 21
 texture = SubResource("GradientTexture2D_t15c5")
 
+[node name="PointLight2D41" type="PointLight2D" parent="lighting" unique_id=1889836274]
+position = Vector2(-247, -55.000004)
+scale = Vector2(2.090492, 1.5885727)
+energy = 0.75
+range_z_min = -9
+range_z_max = 21
+texture = SubResource("GradientTexture2D_t15c5")
+
 [node name="PointLight2D38" type="PointLight2D" parent="lighting" unique_id=210714296]
 z_index = 20
 position = Vector2(66.011116, -34.044155)
