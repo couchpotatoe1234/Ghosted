@@ -1,17 +1,18 @@
 # Ghosted  
-PLAY LINKKK: https://couchpotatoe1234.itch.io/dots  
-This is a platformer/metroidvania style game built in Godot with the art made using Aseprite. It is a work in progress at the moment, but will continue improving over the course of the next couple of weeks.
+This is a platformer/metroidvania style game built in Godot with the art made using Aseprite. It is a work in progress at the moment, but will continue improving.
 
 ![App Screenshot](images/image_4.png)  
 
-Most recent updates to game: 0.9.0: Not too much added this week, due to time restrictions and a game jam. The things that were added include new lighting for the various levels and a bit of art for NPCs.
+Most recent updates to game: 0.10.0: Not too many noticeable changes added this week, though some things were rather important bug fixes. Fixed bug where the player would change position after the rooms were instantiated, so the player would sometimes accidentally hit an Area2D, triggering a room transition that was never intended. There was also drastic improvement to the lighting situation in Room 3 and the cave levels. Its now a lot darker, with simple PointLight2Ds serving as the only illumination in the darkness. Preparation for transitions into the first major boss fight is being prepped, in the cave levels.  
 
-![App Screenshot](images/image_25.png)  
+![App Screenshot](images/image_27.png)  
 
-![App Screenshot](images/image_26.png)  
+![App Screenshot](images/image_28.png)  
 
 to see images of previous development, check the images folder in the repo
 previous updates:  
+
+0.9.0: Not too much added this week, due to time restrictions and a game jam. The things that were added include new lighting for the various levels and a bit of art for NPCs.  
 
 0.8.0: This week, there was a new team member added. Aside from that, a new boss is now in the making, along with a room/arena for it. The mountain levels were improved and a new seller guy who is a work in progress is also being made. New cave levels are also being made as well as a shop region there. New art for various backgrounds and tilesets have been also added.  
 
