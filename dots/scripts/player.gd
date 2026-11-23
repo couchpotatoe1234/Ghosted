@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED: float = 150.0
+const SPEED: float = 500.0
 const JUMP_VELOCITY: float = -325.0
 const ATTACK_COOLDOWN : float = 0.28
 @export var attacking: bool = false
@@ -281,6 +281,7 @@ func respawn_at_checkpoint() -> void:
 	GameManager.controls_allowed = true
 
 func _on_game_started() -> void:
+	GameManager.health = max_health
 	health_changed.emit(GameManager.health, max_health)
 	sprite.flip_h = GameManager.save_facing
 	facing = -1 if GameManager.save_facing else 1

@@ -96,5 +96,7 @@ libraries/ = SubResource("AnimationLibrary_7fyak")
 [node name="PauseMenu" parent="." unique_id=539579433 instance=ExtResource("3_p73vr")]
 layer = 20
 
+[connection signal="changed_level" from="." to="Player" method="_on_changed_level"]
+[connection signal="game_started" from="." to="Player" method="_on_game_started"]
 [connection signal="respawned" from="." to="Player" method="_on_main_respawned"]
 [connection signal="respawn" from="Player" to="." method="_on_player_respawn"]

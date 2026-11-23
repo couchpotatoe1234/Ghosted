@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c2gruct5lbi4q"
+path="res://.godot/imported/doorways.aseprite-bd18ef929adc5f77455cee0b9c6d68f3.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/doorways.aseprite"
+dest_files=["res://.godot/imported/doorways.aseprite-bd18ef929adc5f77455cee0b9c6d68f3.res"]
+
+[params]
+
