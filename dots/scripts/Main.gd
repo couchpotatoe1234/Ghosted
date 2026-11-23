@@ -68,6 +68,9 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		hud.set_deferred("visible", false)
 	if transition_layer:
 		await transition_layer.fade_out()
+	if player:
+		player.global_position = spawn_position
+	await get_tree().process_frame
 	if current_level_node:
 		current_level_node.queue_free()
 		await current_level_node.tree_exited
@@ -86,7 +89,6 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 			cam.limit_bottom = int(rect.position.y + rect.size.y)
 	if player:
 		player.set_physics_process(true)
-		player.global_position = spawn_position
 		player.process_mode = Node.PROCESS_MODE_INHERIT
 		changed_level.emit()
 		player.show()
