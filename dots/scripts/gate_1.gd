@@ -28,4 +28,9 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		anim.play("open")
 	if anim_name == "closing":
 		anim.play("closed")
-		
+	if anim_name == "hit":
+		anim.play("closed")
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player_attack"):
+		change_anim("hit")
