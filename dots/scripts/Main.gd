@@ -81,12 +81,13 @@ func change_level(level_path: String, spawn_position: Vector2 = Vector2.ZERO, _s
 		current_level_node = level_resource.instantiate()
 		level_container.add_child(current_level_node)
 		if "camera_limits" in current_level_node and player.has_node("Camera2D"):
-			var cam: Camera2D = player.get_node("Camera2D")
-			var rect: Rect2 = current_level_node.camera_limits
-			cam.limit_left = int(rect.position.x)
-			cam.limit_top = int(rect.position.y)
-			cam.limit_right = int(rect.position.x + rect.size.x)
-			cam.limit_bottom = int(rect.position.y + rect.size.y)
+			change_camera(current_level_node.camera_limits, 2.5)
+			#var cam: Camera2D = player.get_node("Camera2D")
+			#var rect: Rect2 = current_level_node.camera_limits
+			#cam.limit_left = int(rect.position.x)
+			#cam.limit_top = int(rect.position.y)
+			#cam.limit_right = int(rect.position.x + rect.size.x)
+			#cam.limit_bottom = int(rect.position.y + rect.size.y)
 	if player:
 		player.set_physics_process(true)
 		player.process_mode = Node.PROCESS_MODE_INHERIT
@@ -138,5 +139,11 @@ func _on_player_respawn() -> void:
 	change_level(GameManager.last_level, GameManager.last_save_point)
 	respawned.emit()
 
-func change_camera(zoom: float, limits: Rect2) -> void:
-	pass
+func change_camera(limits: Rect2, zoom: float) -> void:
+	var cam: Camera2D = player.get_node("Camera2D")
+	cam.limit_left = int(limits.position.x)
+	cam.limit_top = int(limits.position.y)
+	cam.limit_right = int(limits.position.x + limits.size.x)
+	cam.limit_bottom = int(limits.position.y + limits.size.y)
+	cam.zoom.x = zoom
+	cam.zoom.y = zoom
