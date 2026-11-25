@@ -137,3 +137,6 @@ func return_to_main_menu() -> void:
 func _on_player_respawn() -> void:
 	change_level(GameManager.last_level, GameManager.last_save_point)
 	respawned.emit()
+
+func change_camera(zoom: float, limits: Rect2) -> void:
+	pass
