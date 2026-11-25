@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://q03otsd3g5by"]
+
+[ext_resource type="Script" uid="uid://cqbtm6s4ukvn5" path="res://scenes/DialogueBox.gd" id="1_3n4vj"]
+[ext_resource type="FontFile" uid="uid://dtob7sad1udk0" path="res://Assets/fonts/Minecraft.ttf" id="1_jwyou"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mc5i"]
+font = ExtResource("1_jwyou")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_brixi"]
+font = ExtResource("1_jwyou")
+font_size = 18
+
+[node name="Convo" type="CanvasLayer" unique_id=1785958631]
+layer = 10
+script = ExtResource("1_3n4vj")
+
+[node name="Panel" type="Panel" parent="." unique_id=2080446220]
+offset_top = 500.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Name" type="Label" parent="Panel" unique_id=1400763302]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 20.0
+offset_right = 95.0
+offset_bottom = 44.0
+text = "Name"
+label_settings = SubResource("LabelSettings_6mc5i")
+
+[node name="Dialogue" type="RichTextLabel" parent="Panel" unique_id=46125133]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 47.0
+offset_right = 1097.0
+offset_bottom = 116.0
+
+[node name="Continue" type="Label" parent="Panel" unique_id=1330630615]
+layout_mode = 0
+offset_left = 1121.0
+offset_top = 118.0
+offset_right = 1161.0
+offset_bottom = 141.0
+text = "▼"
+label_settings = SubResource("LabelSettings_brixi")

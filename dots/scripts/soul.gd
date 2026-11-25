@@ -2,7 +2,15 @@ extends Area2D
 
 @onready var prompt: Label = $Label
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var npc_name: String = "Villager"
+@export var dialogue: Array[String] = [
+	"Hello",
+	"Its fries"
+]
+
 var player_in_range: bool = false
+
 
 func _ready() -> void:
 	prompt.text = "Press " + OS.get_keycode_string(InputMap.action_get_events("up")[0].physical_keycode) + " to talk"
@@ -19,6 +27,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player_in_range:
 		if Input.is_action_just_pressed("up"):
+			Dialogue.start_dialogue("Soul", dialogue)
 			if GameManager.coins > 4:
 				activate()
 				await get_tree().create_timer(0.5).timeout
