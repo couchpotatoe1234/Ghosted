@@ -3,10 +3,10 @@ extends Area2D
 @onready var prompt: Label = $Label
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-@export var npc_name: String = "Villager"
+@export var npc_name: String = "legler"
 @export var dialogue: Array[String] = [
-	"Hello",
-	"Its fries"
+	"hiiii",
+	"yes or nooo"
 ]
 
 var player_in_range: bool = false
@@ -27,10 +27,14 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player_in_range:
 		if Input.is_action_just_pressed("up"):
-			Dialogue.start_dialogue("Soul", dialogue)
-			if GameManager.coins > 4:
-				activate()
-				await get_tree().create_timer(0.5).timeout
+			Dialogue.start_dialogue("Soul", dialogue, true)
+			
+			var answer: bool = await Dialogue.choice_selected
+			
+			if answer:
+				if GameManager.coins > 4:
+					activate()
+					await get_tree().create_timer(0.5).timeout
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):

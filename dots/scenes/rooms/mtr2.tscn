@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d1l5h6y70wdec" path="res://scenes/enemy_1.tscn" id="6_v4356"]
 [ext_resource type="Script" uid="uid://qspbvcvmwbw2" path="res://scripts/transition_scripts/mtr2-mtr3.gd" id="8_qg30h"]
 [ext_resource type="PackedScene" uid="uid://beo3miagmv876" path="res://scenes/respawn_point.tscn" id="9_iu41l"]
+[ext_resource type="PackedScene" uid="uid://pftbhejckfs5" path="res://scenes/soul.tscn" id="12_tptvy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nu2wh"]
 texture = ExtResource("3_nu2wh")
@@ -384,6 +385,9 @@ shape = SubResource("RectangleShape2D_2hjt5")
 position = Vector2(-656, -164)
 scale = Vector2(1, 1.15625)
 texture = ExtResource("6_8capw")
+
+[node name="Soul" parent="." unique_id=571238610 instance=ExtResource("12_tptvy")]
+position = Vector2(954, -108)
 
 [connection signal="body_entered" from="mtr2-mtr1" to="mtr2-mtr1" method="_on_body_entered"]
 [connection signal="body_entered" from="mtr2-mtr3" to="mtr2-mtr3" method="_on_body_entered"]
