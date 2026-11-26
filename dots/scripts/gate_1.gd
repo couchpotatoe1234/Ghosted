@@ -9,10 +9,6 @@ var current_anim: String = ""
 func _ready() -> void:
 	anim.play("open")
 
-func _process(_delta: float) -> void:
-	if open:
-		change_anim("opening")
-
 func change_anim(animation: String) -> void:
 	if animation == current_anim:
 		return
