@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://d1o61adeit2p5"]
 
-[ext_resource type="Script" uid="uid://u161dkkgndv5" path="res://scripts/room_scripts/mtr4.gd" id="1_0vu0x"]
+[ext_resource type="Script" uid="uid://u161dkkgndv5" path="res://scripts/room_scripts/mtr_4.gd" id="1_0vu0x"]
 [ext_resource type="Texture2D" uid="uid://d08nvv7jojlda" path="res://Assets/sprites/MountainBG.png" id="2_0bmlo"]
 [ext_resource type="Texture2D" uid="uid://cr3mu53n1m4ji" path="res://Assets/sprites/MTRTileSheet.png" id="3_0bmlo"]
 [ext_resource type="Texture2D" uid="uid://cr77ffttbmtn" path="res://Assets/sprites/TileSheet.png" id="3_g1w1u"]
 [ext_resource type="PackedScene" uid="uid://beo3miagmv876" path="res://scenes/respawn_point.tscn" id="5_g1w1u"]
+[ext_resource type="Texture2D" uid="uid://c4ahq4ccx0ucj" path="res://Assets/sprites/TransitionSprite.png" id="6_1gsx5"]
+[ext_resource type="Script" uid="uid://lx80i7vf2l3h" path="res://scripts/transition_scripts/mtr4-mtr5.gd" id="6_iccve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g1w1u"]
 texture = ExtResource("3_0bmlo")
@@ -183,6 +185,9 @@ terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/2 = SubResource("TileSetAtlasSource_1gsx5")
 sources/0 = SubResource("TileSetAtlasSource_g1w1u")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iccve"]
+size = Vector2(23, 114.5)
+
 [node name="Node2D" type="Node2D" unique_id=479226690]
 script = ExtResource("1_0vu0x")
 
@@ -257,3 +262,40 @@ position = Vector2(8, -21)
 
 [node name="RespawnPoint6" parent="Node2D" unique_id=704907344 instance=ExtResource("5_g1w1u")]
 position = Vector2(-5, -21)
+
+[node name="mtr4-mtr5" type="Area2D" parent="." unique_id=1173369095]
+position = Vector2(229, -35)
+collision_mask = 2
+script = ExtResource("6_iccve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mtr4-mtr5" unique_id=2083767460]
+position = Vector2(-35.5, -48.75)
+shape = SubResource("RectangleShape2D_iccve")
+
+[node name="TransitionSprite2" type="Sprite2D" parent="mtr4-mtr5" unique_id=909383142]
+position = Vector2(-34, -26.711765)
+rotation = 3.1415927
+scale = Vector2(1, 1.3034927)
+texture = ExtResource("6_1gsx5")
+flip_h = true
+
+[node name="TransitionSprite3" type="Sprite2D" parent="mtr4-mtr5" unique_id=1665663687]
+position = Vector2(-34, -110)
+rotation = 3.1415927
+scale = Vector2(1, 1.3034927)
+texture = ExtResource("6_1gsx5")
+flip_h = true
+
+[node name="lighting" type="Node2D" parent="." unique_id=714323371]
+
+[node name="Sun" type="DirectionalLight2D" parent="lighting" unique_id=1614014398]
+rotation = 0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+energy = 0.2
+range_z_min = -9
+range_z_max = 19
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+
+[connection signal="body_entered" from="mtr4-mtr5" to="mtr4-mtr5" method="_on_body_entered"]

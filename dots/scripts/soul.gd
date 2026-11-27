@@ -5,7 +5,7 @@ extends Area2D
 
 @export var npc_name: String = "legler"
 @export var dialogue: Array[String] = [
-	"hiiii",
+	"Lucas:	alr	u fix soul guy	and i fix a couple things with mtr4 that annoy me	lie the fact that you put a fjking platform in the parallax2d thingadi:	whoopsLucas:	and u know you dont need to spam 50 respawn points onto each platform right	and then forget abt all the other platforms",
 	"yes or nooo"
 ]
 

@@ -46,6 +46,7 @@ func start_dialogue(npc_name: String, lines: Array[String], with_choice: bool = 
 	
 	is_dialogue_active = true
 	remove_hud.emit()
+	GameManager.controls_allowed = false
 	show_line()
 	
 	
@@ -139,5 +140,6 @@ func end_dialogue() -> void:
 	
 	dialogue_finished.emit()
 	add_hud.emit()
+	GameManager.controls_allowed = true
 	
 	

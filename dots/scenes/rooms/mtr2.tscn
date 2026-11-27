@@ -389,5 +389,18 @@ texture = ExtResource("6_8capw")
 [node name="Soul" parent="." unique_id=571238610 instance=ExtResource("12_tptvy")]
 position = Vector2(954, -108)
 
+[node name="lighting" type="Node2D" parent="." unique_id=27603786]
+
+[node name="Sun" type="DirectionalLight2D" parent="lighting" unique_id=2072179333]
+rotation = 0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+energy = 0.1
+range_z_min = -9
+range_z_max = 19
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_filter_smooth = 3.0
+
 [connection signal="body_entered" from="mtr2-mtr1" to="mtr2-mtr1" method="_on_body_entered"]
 [connection signal="body_entered" from="mtr2-mtr3" to="mtr2-mtr3" method="_on_body_entered"]

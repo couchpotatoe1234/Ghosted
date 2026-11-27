@@ -1,15 +1,15 @@
 extends Node
 
 var controls_allowed = true
-var last_save_point = Vector2(0, 10)
-var last_level = "res://scenes/rooms/cave2.tscn"
+var last_save_point = Vector2(-2415, -65)
+var last_level = "res://scenes/rooms/Room2.tscn"
 var save_facing: bool = false
 var player_x: float = 0
 var last_respawn_position: Vector2 = Vector2.ZERO
 var hitstop_active: bool = false
 var current_hitstop_duration: float = 0.0
 var can_pause = false
-var heals = 2
+var heals = 20
 var coins: int = 0
 var health: int = 5
 var hitstop_id: int = 0
@@ -45,6 +45,7 @@ func add_money(amount: int) -> void:
 #mtr1 = 81, -61
 #mtr2 = 75, -91
 #mtr3 = 0, 0
+#mtr4 = -50, -300
 #bar_trans = 
 #Shop-Trans = -623, 159
 

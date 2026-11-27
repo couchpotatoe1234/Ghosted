@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://beo3miagmv876" path="res://scenes/respawn_point.tscn" id="14_8i2qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trsm7"]
-size = Vector2(115, 51)
+size = Vector2(70, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mc5i"]
 size = Vector2(448, 13.25)
@@ -316,10 +316,11 @@ position = Vector2(-2357, -525)
 position = Vector2(-109, -1286)
 
 [node name="mtr3-mtr2" type="Area2D" parent="." unique_id=1625551091]
+collision_mask = 2
 script = ExtResource("8_70bhf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mtr3-mtr2" unique_id=2015551332]
-position = Vector2(-36.5, -17)
+position = Vector2(-59, -17)
 shape = SubResource("RectangleShape2D_trsm7")
 
 [node name="TransitionSprite2" type="Sprite2D" parent="mtr3-mtr2" unique_id=1607808681]
@@ -332,6 +333,7 @@ flip_h = true
 position = Vector2(98, -257)
 
 [node name="mtr3-mtr4" type="Area2D" parent="." unique_id=1016944246]
+collision_mask = 2
 script = ExtResource("11_trsm7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mtr3-mtr4" unique_id=514773908]
@@ -397,77 +399,8 @@ position = Vector2(778, -41)
 [node name="RespawnPoint7" parent="respawn" unique_id=1830653143 instance=ExtResource("14_8i2qo")]
 position = Vector2(791, -226)
 
-[node name="RespawnPoint14" parent="respawn" unique_id=1665258589 instance=ExtResource("14_8i2qo")]
-position = Vector2(848, -355)
-
-[node name="RespawnPoint21" parent="respawn" unique_id=419463990 instance=ExtResource("14_8i2qo")]
-position = Vector2(832, -453)
-
-[node name="RespawnPoint22" parent="respawn" unique_id=1727517854 instance=ExtResource("14_8i2qo")]
-position = Vector2(910, -452)
-
-[node name="RespawnPoint23" parent="respawn" unique_id=2067769106 instance=ExtResource("14_8i2qo")]
-position = Vector2(948, -509)
-
-[node name="RespawnPoint25" parent="respawn" unique_id=1655709657 instance=ExtResource("14_8i2qo")]
-position = Vector2(1007, -528)
-
 [node name="RespawnPoint26" parent="respawn" unique_id=1354550487 instance=ExtResource("14_8i2qo")]
 position = Vector2(1036, -528)
-
-[node name="RespawnPoint27" parent="respawn" unique_id=1261327350 instance=ExtResource("14_8i2qo")]
-position = Vector2(869, -551)
-
-[node name="RespawnPoint28" parent="respawn" unique_id=100871923 instance=ExtResource("14_8i2qo")]
-position = Vector2(775, -577)
-
-[node name="RespawnPoint29" parent="respawn" unique_id=2068834978 instance=ExtResource("14_8i2qo")]
-position = Vector2(851, -634)
-
-[node name="RespawnPoint30" parent="respawn" unique_id=252848947 instance=ExtResource("14_8i2qo")]
-position = Vector2(795, -696)
-
-[node name="RespawnPoint31" parent="respawn" unique_id=1725406643 instance=ExtResource("14_8i2qo")]
-position = Vector2(841, -764)
-
-[node name="RespawnPoint32" parent="respawn" unique_id=390419601 instance=ExtResource("14_8i2qo")]
-position = Vector2(908, -802)
-
-[node name="RespawnPoint33" parent="respawn" unique_id=288435903 instance=ExtResource("14_8i2qo")]
-position = Vector2(839, -848)
-
-[node name="RespawnPoint34" parent="respawn" unique_id=1303289309 instance=ExtResource("14_8i2qo")]
-position = Vector2(919, -882)
-
-[node name="RespawnPoint35" parent="respawn" unique_id=559069165 instance=ExtResource("14_8i2qo")]
-position = Vector2(993, -920)
-
-[node name="RespawnPoint36" parent="respawn" unique_id=2096562303 instance=ExtResource("14_8i2qo")]
-position = Vector2(1070, -975)
-
-[node name="RespawnPoint37" parent="respawn" unique_id=911048691 instance=ExtResource("14_8i2qo")]
-position = Vector2(1125, -975)
-
-[node name="RespawnPoint38" parent="respawn" unique_id=1380777855 instance=ExtResource("14_8i2qo")]
-position = Vector2(1186, -1027)
-
-[node name="RespawnPoint39" parent="respawn" unique_id=607060791 instance=ExtResource("14_8i2qo")]
-position = Vector2(1207, -1084)
-
-[node name="RespawnPoint40" parent="respawn" unique_id=369323003 instance=ExtResource("14_8i2qo")]
-position = Vector2(1280, -1138)
-
-[node name="RespawnPoint41" parent="respawn" unique_id=422446686 instance=ExtResource("14_8i2qo")]
-position = Vector2(1317, -1189)
-
-[node name="RespawnPoint24" parent="respawn" unique_id=690886359 instance=ExtResource("14_8i2qo")]
-position = Vector2(868, -452)
-
-[node name="RespawnPoint20" parent="respawn" unique_id=887894317 instance=ExtResource("14_8i2qo")]
-position = Vector2(784, -394)
-
-[node name="RespawnPoint13" parent="respawn" unique_id=455324747 instance=ExtResource("14_8i2qo")]
-position = Vector2(878, -284)
 
 [node name="RespawnPoint8" parent="respawn" unique_id=138393694 instance=ExtResource("14_8i2qo")]
 position = Vector2(720, 12)
@@ -518,11 +451,15 @@ position = Vector2(1280, -1127)
 [node name="lighting" type="Node2D" parent="." unique_id=116329292]
 
 [node name="Sun" type="DirectionalLight2D" parent="lighting" unique_id=51975887]
-rotation = 0.2617994
+rotation = -0.17453292
 scale = Vector2(0.99999994, 0.99999994)
-energy = 1.74
+energy = 0.2
 range_z_min = -9
 range_z_max = 19
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
+shadow_filter_smooth = 2.0
+
+[connection signal="body_entered" from="mtr3-mtr2" to="mtr3-mtr2" method="_on_body_entered"]
+[connection signal="body_entered" from="mtr3-mtr4" to="mtr3-mtr4" method="_on_body_entered"]

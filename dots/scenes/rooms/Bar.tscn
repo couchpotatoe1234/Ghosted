@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://diu5f4qsrgqhi" path="res://scripts/room_scripts/bar_boss_room.gd" id="7_wfi2j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3phul"]
-size = Vector2(64, 17)
+size = Vector2(63, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr8nt"]
 atlas = ExtResource("7_vr8nt")
@@ -140,7 +140,7 @@ scale = Vector2(1, 1.091)
 texture = ExtResource("3_5h4nu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bar_bartrans" unique_id=1056488299]
-position = Vector2(0, 8.5)
+position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_3phul")
 
 [node name="bar_boss_room" type="Area2D" parent="." unique_id=1181871050]
@@ -155,7 +155,7 @@ scale = Vector2(1, 1.091)
 texture = ExtResource("3_5h4nu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bar_boss_room" unique_id=1787353985]
-position = Vector2(50.5, 17.5)
+position = Vector2(44.5, 18.5)
 shape = SubResource("RectangleShape2D_3phul")
 
 [node name="breakeable_block2" parent="." unique_id=43368363 instance=ExtResource("6_6ex2v")]
