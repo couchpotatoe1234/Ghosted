@@ -142,16 +142,15 @@ func change_camera(limits: Rect2, zoom: float) -> void:
 	cam.zoom.x = zoom
 	cam.zoom.y = zoom
 	
-func player_move_start(pos: Vector2) -> void:
+func player_move_start(pos: Vector2, cont: bool) -> void:
 	GameManager.controls_allowed = false
 	GameManager.can_pause = false
 	player.velocity = Vector2.ZERO
 	await transition_layer.fade_out()
 	player.global_position = pos
-	#transition_layer.fade_in()
-	#await get_tree().create_timer(0.5).timeout
-	#GameManager.controls_allowed = true
-	#GameManager.can_pause = true
+	if cont:
+		player_move_end()
+
 	
 func player_move_end() -> void:
 	transition_layer.fade_in()

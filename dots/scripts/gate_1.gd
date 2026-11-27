@@ -4,7 +4,8 @@ var open: bool = true
 var current_anim: String = ""
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var particles: GPUParticles2D = $GPUParticles2D
-@onready var hitsound: AudioStreamPlayer = $Hitsound
+@onready var hitsound: AudioStreamPlayer2D = $Hitsound
+@onready var closesound: AudioStreamPlayer = $Closesound
 
 func _ready() -> void:
 	anim.play("open")
@@ -41,6 +42,8 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 func _on_fight_start() -> void:
 	open = false
 	change_anim("closing")
+	closesound.play()
+	particles.restart()
 
 func _on_fight_end() -> void:
 	open = true

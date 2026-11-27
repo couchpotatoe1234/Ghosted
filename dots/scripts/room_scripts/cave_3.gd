@@ -8,7 +8,7 @@ var fighting: bool = false
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player" and not fighting:
 		var main_node = get_tree().root.get_node("Main")
-		await main_node.player_move_start(Vector2(-912, 191))
+		await main_node.player_move_start(Vector2(-912, 191), false)
 		main_node.change_camera(Rect2(-1312, -128, 800, 480), 1.44)
 		await main_node.player_move_end()
 		fight_start.emit()

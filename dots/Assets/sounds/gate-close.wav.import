@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://bh554ydqyo2ck"
-path="res://.godot/imported/short-hit.wav-2ab98630a8584d12b8217a49a3bfa44f.sample"
+uid="uid://7x25frwuhr70"
+path="res://.godot/imported/gate-close.wav-8907ef19cfd1b97606ee5cd4d57632d5.sample"
 
 [deps]
 
-source_file="res://Assets/sounds/short-hit.wav"
-dest_files=["res://.godot/imported/short-hit.wav-2ab98630a8584d12b8217a49a3bfa44f.sample"]
+source_file="res://Assets/sounds/gate-close.wav"
+dest_files=["res://.godot/imported/gate-close.wav-8907ef19cfd1b97606ee5cd4d57632d5.sample"]
 
 [params]
 
