@@ -275,9 +275,6 @@ position = Vector2(2514, -85)
 [node name="Platform1" parent="Platforms" unique_id=1134652743 instance=ExtResource("3_poevf")]
 position = Vector2(-1381, -21)
 
-[node name="Node" type="Node2D" parent="." unique_id=1948612952]
-position = Vector2(75, -91)
-
 [node name="Respawn Points" type="Node2D" parent="." unique_id=1028987716]
 position = Vector2(2514, -85)
 
@@ -401,6 +398,9 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
 shadow_filter_smooth = 3.0
+
+[node name="Node" type="Node2D" parent="." unique_id=1948612952]
+position = Vector2(1855, -213)
 
 [connection signal="body_entered" from="mtr2-mtr1" to="mtr2-mtr1" method="_on_body_entered"]
 [connection signal="body_entered" from="mtr2-mtr3" to="mtr2-mtr3" method="_on_body_entered"]

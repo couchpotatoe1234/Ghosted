@@ -135,6 +135,8 @@ func _on_player_respawn() -> void:
 
 func change_camera(limits: Rect2, zoom: float) -> void:
 	var cam: Camera2D = player.get_node("Camera2D")
+	print(limits)
+	print(zoom)
 	cam.limit_left = int(limits.position.x)
 	cam.limit_top = int(limits.position.y)
 	cam.limit_right = int(limits.position.x + limits.size.x)
