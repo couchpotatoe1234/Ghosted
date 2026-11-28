@@ -169,7 +169,7 @@ position = Vector2(-1878, 106)
 libraries/ = SubResource("AnimationLibrary_bggbs")
 
 [node name="boss" parent="." unique_id=163989809 instance=ExtResource("4_1cvy8")]
-position = Vector2(1774, 49)
+position = Vector2(1250, 46)
 
 [node name="backgroud_deco" type="Node2D" parent="." unique_id=767129178]
 
