@@ -3,6 +3,8 @@ extends Node2D
 @export var hits_to_break: int = 3
 @export var shake_stregnth: float = 4.0
 @export var shake_duration: float = 0.18
+@onready var shadow_1: PointLight2D = $lighting/PointLight2D
+@onready var shadow_2: PointLight2D = $lighting/PointLight2D2
 var no_hit: float = 0.0
 var hits_left: int
 var is_broken := false
@@ -10,7 +12,7 @@ var is_broken := false
 func _ready() -> void:
 	$"Side Tiles".visible = true
 	if GameManager.block2_broken == true:
-		delete_self()
+		queue_free()
 	hits_left = hits_to_break
 
 func _physics_process(delta: float) -> void:
@@ -32,6 +34,10 @@ func break_block() -> void:
 	if is_broken: return
 	is_broken = true
 	$"Side Tiles".visible = false
+	var tween1 := create_tween()
+	tween1.tween_property(shadow_1, "energy", 0.0, 0.5)
+	var tween2 := create_tween()
+	tween2.tween_property(shadow_2, "energy", 0.0, 0.5)
 	for tile in get_children():
 		if tile.is_in_group("tile"):
 			tile.play_break_effect()

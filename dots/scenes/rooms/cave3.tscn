@@ -385,6 +385,7 @@ max_distance = 320.0
 stream = SubResource("AudioStreamRandomizer_ib0j1")
 
 [node name="Gate2" type="StaticBody2D" parent="." unique_id=1095810574]
+script = ExtResource("8_oa4wl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Gate2" unique_id=1987352737]
 position = Vector2(-1295, 144)
@@ -437,7 +438,11 @@ shape = SubResource("RectangleShape2D_gkdic")
 position = Vector2(-912, 191)
 
 [connection signal="fight_end" from="." to="Gate1" method="_on_fight_end"]
+[connection signal="fight_end" from="." to="Gate2" method="_on_fight_end"]
 [connection signal="fight_start" from="." to="Gate1" method="_on_fight_start"]
+[connection signal="fight_start" from="." to="Gate2" method="_on_fight_start"]
 [connection signal="animation_finished" from="Gate1/AnimationPlayer" to="Gate1" method="_on_animation_finished"]
 [connection signal="area_entered" from="Gate1/hitbox" to="Gate1" method="_on_hitbox_area_entered"]
+[connection signal="animation_finished" from="Gate2/AnimationPlayer" to="Gate2" method="_on_animation_finished"]
+[connection signal="area_entered" from="Gate2/hitbox" to="Gate2" method="_on_hitbox_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

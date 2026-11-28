@@ -26,6 +26,16 @@ angular_velocity_max = 719.99994
 gravity = Vector3(0, 600, 0)
 anim_offset_max = 1.0
 
+[sub_resource type="Gradient" id="Gradient_vfxkc"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lgk43"]
+gradient = SubResource("Gradient_vfxkc")
+width = 100
+height = 100
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
 [node name="breakeable_block2" type="Node2D" unique_id=43368363]
 script = ExtResource("1_lgk43")
 
@@ -51,7 +61,7 @@ material = SubResource("CanvasItemMaterial_561sl")
 emitting = false
 amount = 150
 texture = ExtResource("4_lgk43")
-lifetime = 2.5
+lifetime = 5.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5exba")
@@ -78,7 +88,7 @@ material = SubResource("CanvasItemMaterial_561sl")
 emitting = false
 amount = 150
 texture = ExtResource("4_lgk43")
-lifetime = 2.5
+lifetime = 5.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_5exba")
@@ -259,3 +269,27 @@ texture = ExtResource("3_wgh0p")
 hframes = 4
 vframes = 6
 frame = 6
+
+[node name="lighting" type="Node2D" parent="." unique_id=219801525]
+
+[node name="PointLight2D" type="PointLight2D" parent="lighting" unique_id=597045270]
+z_index = 20
+position = Vector2(177, -100)
+rotation = 0.0025869443
+scale = Vector2(3.395484, 4.7479515)
+energy = 5.0
+blend_mode = 1
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_lgk43")
+
+[node name="PointLight2D2" type="PointLight2D" parent="lighting" unique_id=1864038929]
+z_index = 20
+position = Vector2(-117.999985, -298)
+rotation = 0.0025869443
+scale = Vector2(3.6790662, 4.7479515)
+energy = 5.0
+blend_mode = 1
+shadow_filter = 2
+shadow_filter_smooth = 64.0
+texture = SubResource("GradientTexture2D_lgk43")
