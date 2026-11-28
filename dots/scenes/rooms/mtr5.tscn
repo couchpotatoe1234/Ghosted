@@ -188,6 +188,21 @@ terrain_set_0/terrain_0/color = Color(0, 0, 0, 1)
 sources/2 = SubResource("TileSetAtlasSource_jypoh")
 sources/0 = SubResource("TileSetAtlasSource_yua88")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6mc5i"]
+size = Vector2(64, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brixi"]
+size = Vector2(32, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldgyx"]
+size = Vector2(64, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kclc"]
+size = Vector2(32, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifv7x"]
+size = Vector2(96, 12)
+
 [node name="mtr5" type="Node2D" unique_id=283935035]
 script = ExtResource("1_wyprx")
 
@@ -354,7 +369,7 @@ position = Vector2(771, -405)
 position = Vector2(746, -462)
 
 [node name="Platform26" parent="Platforms" unique_id=858028962 instance=ExtResource("3_wyprx")]
-position = Vector2(394, -461)
+position = Vector2(394, -462)
 
 [node name="Platform27" parent="Platforms" unique_id=1913977845 instance=ExtResource("4_1cmdh")]
 position = Vector2(508, -769)
@@ -403,3 +418,71 @@ shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
 shadow_filter_smooth = 2.0
+
+[node name="Hazard" type="Area2D" parent="." unique_id=772244310 groups=["normal_hazard"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazard" unique_id=1154075468]
+position = Vector2(338, 38)
+shape = SubResource("RectangleShape2D_6mc5i")
+debug_color = Color(0.9989101, 0, 0.14168182, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hazard" unique_id=1490166283]
+position = Vector2(546, 38)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hazard" unique_id=1136131678]
+position = Vector2(642, 38)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hazard" unique_id=2000591912]
+position = Vector2(802, 38)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Hazard" unique_id=2050857355]
+position = Vector2(834, 38)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Hazard" unique_id=1635014260]
+position = Vector2(866, 38)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Hazard" unique_id=1815760983]
+position = Vector2(386, -474)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Hazard" unique_id=1568806144]
+position = Vector2(738, -474)
+shape = SubResource("RectangleShape2D_brixi")
+debug_color = Color(0.96957296, 0.15426904, 0.22108626, 0.41960785)
+
+[node name="Pogo" type="Area2D" parent="." unique_id=2146858381 groups=["pogoable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pogo" unique_id=7876922]
+position = Vector2(338, 37)
+shape = SubResource("RectangleShape2D_ldgyx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pogo" unique_id=2144580578]
+position = Vector2(546, 37)
+shape = SubResource("RectangleShape2D_3kclc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pogo" unique_id=1622433838]
+position = Vector2(642, 37)
+shape = SubResource("RectangleShape2D_3kclc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pogo" unique_id=828352152]
+position = Vector2(386, -475)
+shape = SubResource("RectangleShape2D_3kclc")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Pogo" unique_id=88602382]
+position = Vector2(738, -475)
+shape = SubResource("RectangleShape2D_3kclc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pogo" unique_id=588786692]
+position = Vector2(834, 37)
+shape = SubResource("RectangleShape2D_ifv7x")
