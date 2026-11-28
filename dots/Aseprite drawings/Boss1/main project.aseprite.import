@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://3kf6rs3oo771"
+path="res://.godot/imported/main project.aseprite-c8084b1b68edb6947f45429ae11aca47.res"
+
+[deps]
+
+source_file="res://Aseprite drawings/Boss1/main project.aseprite"
+dest_files=["res://.godot/imported/main project.aseprite-c8084b1b68edb6947f45429ae11aca47.res"]
+
+[params]
+
